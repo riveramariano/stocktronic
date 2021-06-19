@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/simple-sidebar.css" rel="stylesheet" />
+    <link href="css/navbar.css" rel="stylesheet" />
+</head>
+
+<body style="background-color: #f9f9fa">
+    <nav class="
+        navbar navbar-height navbar-expand-lg navbar-dark
+        background-dark
+        border-bottom
+      ">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav list-inline mx-auto justify-content-center">
+                <li class="nav-item list-inline-item mr-5">
+                    <a class="nav-link" href="#">LOGO</a>
+                </li>
+                <li class="nav-item list-inline-item mr-5">
+                    <a class="nav-link" href="#">3D Printers</a>
+                </li>
+                <li class="nav-item list-inline-item mr-5">
+                    <a class="nav-link" href="#">LEDs</a>
+                </li>
+                <li class="nav-item list-inline-item mr-5">
+                    <a class="nav-link" href="#">Motors</a>
+                </li>
+                <li class="nav-item list-inline-item mr-5">
+                    <a class="nav-link" href="#">Sensors</a>
+                </li>
+                <li class="nav-item list-inline-item mr-5">
+                    <a class="nav-link" href="#">Wireless</a>
+                </li>
+                <li class="nav-item list-inline-item mr-5">
+                    <a class="nav-link" href="#">CART</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-6 card text-white bg-dark mr-3" style="max-width: 18rem;">
+                <div class="card-header">Item 1</div>
+                <div class="card-body">
+                    <h5 class="card-title">Dark card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="col-6 card text-white bg-info" style="max-width: 18rem;">
+                <div class="card-header">Item 2</div>
+                <div class="card-body">
+                    <h5 class="card-title">Dark card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+
+</html>
