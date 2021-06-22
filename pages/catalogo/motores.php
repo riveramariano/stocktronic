@@ -8,21 +8,21 @@
     <meta name="author" content="" />
 
     <title>Motores</title>
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/simple-sidebar.css" rel="stylesheet" />
-    <link href="../css/navbar.css" rel="stylesheet" />
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/simple-sidebar.css" rel="stylesheet" />
+    <link href="../../css/navbar.css" rel="stylesheet" />
 </head>
 
 <body>
     <nav class="
         navbar navbar-height navbar-expand-lg navbar-dark
-        background-dark
+        bg-dark
         border-bottom
       ">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav list-inline mx-auto justify-content-center">
                 <li class="nav-item list-inline-item mr-5">
-                    <a class="nav-link" href="../index.html">LOGO</a>
+                    <a class="nav-link" href="../../index.html">LOGO</a>
                 </li>
                 <li class="nav-item list-inline-item mr-5">
                     <a class="nav-link" href="#">3D Printers</a>
@@ -98,8 +98,8 @@
         </div>
     </div>
 
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script>
     $("#menu-toggle").click(function(e) {
