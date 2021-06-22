@@ -10,10 +10,11 @@
     <meta name="author" content="" />
 
     <title>Simple Sidebar - Start Bootstrap Template</title>
+    <link href="images/isotipo.svg" type="image" rel="shortcut icon" />
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/simple-sidebar.css" rel="stylesheet" />
-    <link href="css/navbar.css" rel="stylesheet" />
-    <link href="css/index.css" rel="stylesheet" />
+    <link href="styles/simple-sidebar.css" rel="stylesheet" />
+    <link href="styles/navbar.css" rel="stylesheet" />
+    <link href="styles/index.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link
@@ -36,41 +37,47 @@
       rel="stylesheet"
     />
   </head>
-
-  <body style="background-color: #f9f9fa">
-    <nav
-      class="
-        navbar navbar-height navbar-expand-lg navbar-dark
-        background-dark
-        border-bottom
-      "
-    >
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark border-bottom">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav list-inline mx-auto justify-content-center">
           <li class="nav-item list-inline-item mr-5">
-            <a class="nav-link" href="#">LOGO</a>
+            <a class="nav-link" href="#"
+              ><img src="images/isotipo.svg" width="20" height="20" />
+            </a>
           </li>
           <li class="nav-item list-inline-item mr-5">
-            <a class="nav-link" href="#">3D Printers</a>
+            <a class="nav-link" href="#">Impresoras 3D</a>
+          </li>
+          <li class="nav-item list-inline-item mr-5">
+            <a class="nav-link" href="#">Baterías</a>
+          </li>
+          <li class="nav-item list-inline-item mr-5">
+            <a class="nav-link" href="#">Pantallas</a>
           </li>
           <li class="nav-item list-inline-item mr-5">
             <a class="nav-link" href="#">LEDs</a>
           </li>
           <li class="nav-item list-inline-item mr-5">
-            <a class="nav-link" href="./catalogo/motores.php">Motors</a>
+            <a class="nav-link" href="#">Motores</a>
           </li>
           <li class="nav-item list-inline-item mr-5">
-            <a class="nav-link" href="#">Sensors</a>
+            <a class="nav-link" href="#">Raspberry PI</a>
           </li>
           <li class="nav-item list-inline-item mr-5">
-            <a class="nav-link" href="#">Wireless</a>
+            <a class="nav-link" href="#">Sensores</a>
           </li>
           <li class="nav-item list-inline-item mr-5">
+            <a class="nav-link" href="#">Herramientas</a>
+          </li>
+          <li class="nav-item list-inline-item">
             <a class="nav-link" href="#">CART</a>
           </li>
         </ul>
       </div>
     </nav>
+    <!-- Fin Navbar -->
 
     <div class="container-fluid">
       <h1 class="text-center" style="margin-top: 8rem">
@@ -80,7 +87,10 @@
       <h4 class="text-center mt-4" style="color: gray">
         No dudes en consultarnos cualquier cosa
       </h4>
-      <!-- Anuncios -->
+    </div>
+
+    <!-- Anuncios -->
+    <div class="container-fluid">
       <div class="row justify-content-center" style="margin-top: 4rem">
         <div
           class="col-6 card text-white bg-dark mr-3"
@@ -100,8 +110,10 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Mostrar Producto -->
+    <!-- Mostrar Producto -->
+    <div class="container-fluid">
       <div class="row mt-3 justify-content-center">
         <div
           class="col-12 card text-white bg-dark mr-3"
@@ -114,98 +126,121 @@
           </div>
         </div>
       </div>
-
-      <h1 class="text-center mt-5">Explore nuestros Productos</h1>
-      <!-- Explore Products 1 -->
-      <div class="row mt-5 justify-content-center">
-        <div class="col-3 card bg-light mr-3" style="max-width: 15rem">
-          <div class="card-header text-center">Impresoras 3D</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-        <div class="col-3 card bg-light mr-3" style="max-width: 15rem">
-          <div class="card-header text-center">Baterías</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-        <div class="col-3 card bg-light mr-3" style="max-width: 15rem">
-          <div class="card-header text-center">Pantallas</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-        <div class="col-3 card bg-light" style="max-width: 15rem">
-          <div class="card-header text-center">LEDs</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Explore Products 2 -->
-      <div class="row mt-3 mb-5 justify-content-center">
-        <div class="col-3 card bg-light mr-3" style="max-width: 15rem">
-          <div class="card-header text-center">Motores</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-        <div class="col-3 card bg-light mr-3" style="max-width: 15rem">
-          <div class="card-header text-center">Raspberry PI</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-        <div class="col-3 card bg-light mr-3" style="max-width: 15rem">
-          <div class="card-header text-center">Sensores</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-        <div class="col-3 card bg-light" style="max-width: 15rem">
-          <div class="card-header text-center">Herramientas</div>
-          <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <div class="row justify-content-center" style="margin-top: 4rem">
+    <!-- La seccion 04 es la de mostrar productos en tendencia -->
+    <h1 class="text-center mt-5">Explore nuestros Productos</h1>
+    <!-- Cards 01 -->
+    <div class="container pt-5" style="max-width: 65rem">
+      <div class="row">
+        <!-- Primera Card -->
+        <div class="col-lg-4 pb-5">
+          <div class="card ho">
+            <div class="card-body">
+              <h5 class="card-title text-center">Impresora 3D</h5>
+            </div>
+            <div class="view overlay">
+              <img class="card-img-top" src="images/3dprinter.png" />
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Primera Card -->
+
+        <!-- Segunda Card -->
+        <div class="col-lg-4 pb-5">
+          <div class="card ho">
+            <div class="card-body">
+              <h5 class="card-title text-center">Impresora 3D</h5>
+            </div>
+            <div class="view overlay">
+              <img class="card-img-top" src="images/3dprinter.png" />
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Segunda Card -->
+
+        <!-- Tercera Card -->
+        <div class="col-lg-4 pb-5">
+          <div class="card ho">
+            <div class="card-body">
+              <h5 class="card-title text-center">Impresora 3D</h5>
+            </div>
+            <div class="view overlay">
+              <img class="card-img-top" src="images/3dprinter.png" />
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Tercera Card -->
+      </div>
+    </div>
+    <!-- Fin Cards 01 -->
+
+    <!-- Cards 02 -->
+    <div class="container" style="max-width: 65rem">
+      <div class="row">
+        <!-- Primera Card -->
+        <div class="col-lg-4 pb-5">
+          <div class="card ho">
+            <div class="card-body">
+              <h5 class="card-title text-center">Impresora 3D</h5>
+            </div>
+            <div class="view overlay">
+              <img class="card-img-top" src="images/3dprinter.png" />
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Primera Card -->
+
+        <!-- Segunda Card -->
+        <div class="col-lg-4 pb-5">
+          <div class="card ho">
+            <div class="card-body">
+              <h5 class="card-title text-center">Impresora 3D</h5>
+            </div>
+            <div class="view overlay">
+              <img class="card-img-top" src="images/3dprinter.png" />
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Segunda Card -->
+
+        <!-- Tercera Card -->
+        <div class="col-lg-4 pb-5">
+          <div class="card ho">
+            <div class="card-body">
+              <h5 class="card-title text-center">Impresora 3D</h5>
+            </div>
+            <div class="view overlay">
+              <img class="card-img-top" src="images/3dprinter.png" />
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Tercera Card -->
+      </div>
+    </div>
+    <!-- Fin Cards 02 -->
+    <!-- Fin de la seccion 04 -->
+
+    <!-- Footer -->
+    <div class="row justify-content-center">
       <footer class="footer col-md-6">
         <div class="bg-success">
           <div class="container container-fluid">
@@ -307,7 +342,7 @@
         <div class="footer-copyright py-3">
           <p class="ml-5 text-muted" style="font-size: 14px">
             Copyright &copy; 2021 Stocktronic Inc.
-            <a class="mr-1" style="margin-left: 4rem" href="#"
+            <a class="mr-1" style="margin-left: 3rem" href="#"
               >Política de Privacidad</a
             >
             | <a class="ml-1 mr-1" href="#">Términos de Uso</a> |
@@ -318,30 +353,10 @@
         </div>
       </footer>
     </div>
+    <!-- Fin Footer -->
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JQuery -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    ></script>
-    <!-- Bootstrap tooltips -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
-    ></script>
-    <!-- Bootstrap core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
-    ></script>
-    <!-- MDB core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
-    ></script>
 
     <script>
       $("#menu-toggle").click(function (e) {
