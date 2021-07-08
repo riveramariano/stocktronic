@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
+
 /* Colores De Uso */
+
 :root {
     --black-s: #333333;
     --black-a: #444444;
@@ -14,19 +16,24 @@
     --blue: #007BFF;
 }
 
+
 /* Salazar Revise que los fonts esten bien tengo un colocho */
+
 @font-face {
     src: url(../fonts/SF-Pro-Display-Bold.otf);
     font-family: sf-bold;
 }
+
 @font-face {
     src: url(../fonts/SF-Pro.ttf);
     font-family: sf-regular;
 }
+
 @font-face {
     src: url(../fonts/SF-Pro-Display-Regular.otf);
     font-family: sf-regular-display;
 }
+
 @font-face {
     src: url(../fonts/SF-Compact-Rounded-Regular.otf);
     font-family: sf-rounded;
@@ -35,20 +42,27 @@
 body {
     background-color: var(--white-s);
 }
+
 nav {
     background-color: var(--black-s);
-
-    
 }
+
 h1 {
     font-family: sf-bold;
 }
+
 a {
     font-family: sf-regular;
     font-size: 13px;
 }
 
+
 /* Cards Productos */
+
+.black-text {
+    color: var(--black-s);
+}
+
 .round {
     border-radius: 53rem;
 }
@@ -64,5 +78,5 @@ a {
 }
 
 .card:hover {
-    color: var(--blue);
+    color: var(--black-s);
 }
