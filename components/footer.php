@@ -1,32 +1,5 @@
 <?php
-echo '<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-
-    <title>Stocktronic</title>
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel=" stylesheet" />
-    <link href="../styles/simple-sidebar.css" rel="stylesheet" />
-    <link href="../styles/navbar.css" rel="stylesheet" />
-    <link href="../styles/index.css" rel="stylesheet" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet" />
-</head>
-
-<body>
-<div class="row justify-content-center mt-5">
+echo '<div class="row justify-content-center mt-5">
         <footer class="footer col-md-6">
             <div class="bg-dark">
                 <div class="container container-fluid">
@@ -123,6 +96,5 @@ echo '<!DOCTYPE html>
                 </p>
             </div>
         </footer>
-    </div>
-    </body>';
+    </div>';
 ?>

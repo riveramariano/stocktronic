@@ -1,3 +1,7 @@
+<head>
+    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+</head>
+
 <body>
 
     <?php
@@ -14,58 +18,54 @@
 
     <!-- Primer Contenedor -->
     <div class="container-fluid">
-        <h1 class="text-center" style="margin-top: 8rem;">Ultima Tecnologia</h1>
-        <h1 class="text-center">Desde ₡1500</h1>
+        <h3 class="text-center mt-5" style="color:orange">Nuevos</h3>
+        <h1 class="text-center mt-2">Componentes</h1>
+        <h6 class="text-center mt-3">Desde ₡1500</h6>
         <div class="text-center">
-            <button class="mt-3 btn btn-dark">Agregar al Carrito</button>
+            <button class="mt-3 btn btn-primary rounded-lg">Agregar al Carrito</button>
         </div>
 
         <!-- Imagen Producto -->
-        <div class="row justify-content-center" style="margin-top: 4rem;">
-            <div class="col-12 card text-white bg-dark mr-3" style="max-width: 31rem;">
-                <div class="card-header">Agregar Motor</div>
-                <div class="card-body">
-                    <h5 class="card-title">Imagen</h5>
-                    <p class="card-text">Nos puedes contactar en cuarquier momento</p>
-                </div>
+        <div class="row justify-content-center minus-mt">
+            <div class="text-center">
+                <img class="img-fluid" src="../images/componentes.png" />
             </div>
         </div>
     </div>
 
-    <!-- Segundo Contenedor -->
-    <div class="container-fluid" style="background-color: #f9f9fa; padding-top: 1rem; margin-top: 5rem;">
-        <h1 class="text-center" style="margin-top: 5rem;">Nuestros Componentes:</h1>
-        <!-- Catalogo Componentes -->
-        <div class="container pt-5" style="max-width: 65rem">
-            <!-- Primera Card -->
+    <div class="container-fluid mt-5" style="background-color: #f9f9fa; padding-top: 1rem">
+        <h1 class="text-center mt-4">Nuestros Componentes:</h1>
+        <div class="container pt-5">
+            <!-- Card -->
             <div class="row">
                 <?php
                 while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                     $id = $row['ID_PRODUCTO'];
                     $nombre = $row['NOMBRE'];
+                    $descripcion = $row['DESCRIPCION'];
                     $url = $row['URL_IMAGEN'];
                     $precio = $row['PRECIO'];
-                    echo "
-                    <div class='col-lg-4 pb-5'>
-                        <div class='card ho'>
-                            <div class='card-body'>
-                                <h5 class='card-title text-center black-text'>$nombre</h5>
-                                <h6 class='card-title text-center black-text'>₡$precio</h6>
+                    echo "<div class='product-card mb-5'>
+                            <div class='badge'>Nuevo</div>
+                            <div class='product-tumb'>
+                                <img src='$url' alt=''>
                             </div>
-                        <div class='view overlay'>
-                            <img class='card-img-top' src='$url' height='300' />
-                            <a class='d-flex justify-content-center' href='#'>
-                                <button type='submit' class='mt-3 btn btn-dark'>Comprar</button
-                            </a>
-                            
-                        </div>
-                        <br>
-                        </div>
-                    </div>";
+                            <div class='product-details'>
+                                <h4><a href=''>$nombre</a></h4>
+                                <p>$descripcion</p>
+                                <div class='product-bottom-details'>
+                                <div class='product-price'>₡$precio</div>
+                                <div class='product-links'>
+                                    <a href=''><i class='fa fa-heart'></i></a>
+                                    <a href=''><i class='fa fa-shopping-cart'></i></a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>";
                 }
                 ?>
-                <!-- Fin Primera Card -->
             </div>
+            <!-- Fin Card -->
         </div>
     </div>
 

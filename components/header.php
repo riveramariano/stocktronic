@@ -9,11 +9,11 @@ echo '<!DOCTYPE html>
     <meta name="author" content="" />
 
     <title>Stocktronic</title>
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel=" stylesheet" />
     <link href="../styles/simple-sidebar.css" rel="stylesheet" />
     <link href="../styles/navbar.css" rel="stylesheet" />
     <link href="../styles/index.css" rel="stylesheet" />
+    <link href="../styles/catalogo.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
