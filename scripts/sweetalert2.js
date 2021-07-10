@@ -1,7 +1,6 @@
+// This function will create the sweet alert, i passed all this params to make tests
 function addCart(nombre, cantidad, idUsuario, idProducto) {
-
     var nuevoId = parseInt(idProducto);
-
     Swal.fire({
         position: "top-end",
         icon: "success",
@@ -12,11 +11,10 @@ function addCart(nombre, cantidad, idUsuario, idProducto) {
     });
 }
 
+/* The following functions prevent the page from reload when the add to cart button is press the or the product name
+   If you find an easier way just change it :) */
 
-// Los siguientes metodos solo sirven para que al presionar los nombres de los productos
-// y los botones de agregar al carrito la pagina no se recargue
-
-// No recargar página al dar clic al nombre del producto
+// The next six are for the product names
 $("#productName1").on("click", function(e) {
     e.preventDefault();
     var url = $(this).attr("href");
@@ -65,8 +63,7 @@ $("#productName6").on("click", function(e) {
     });
 });
 
-
-// No recargar página al agregar producto al carrito
+// And these six are for the add to cart button
 $("#cart1").on("click", function(e) {
     e.preventDefault();
     var url = $(this).attr("href");

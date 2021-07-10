@@ -11,7 +11,6 @@ echo '<!DOCTYPE html>
     <title>Stocktronic</title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel=" stylesheet" />
     <link href="../styles/simple-sidebar.css" rel="stylesheet" />
-    <link href="../styles/navbar.css" rel="stylesheet" />
     <link href="../styles/index.css" rel="stylesheet" />
     <link href="../styles/catalogo.css" rel="stylesheet" />
 
