@@ -3,6 +3,7 @@
 include "../components/header.php";
 include '../conexion.php';
 
+
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
 
@@ -23,17 +24,19 @@ if (isset($_POST['submitBtn'])) {
     $direccion1 = $_POST['dir1'];
     $direccion2 = $_POST['dir2'];
     $telefono = $_POST['telefono'];
+    $total = $_SESSION['total'];
     $idUsuario = 1;
     $metodoPago = $_POST['metodo'];
 
     // Call the stored procedure to insert
-    $insertInfoPago = oci_parse($conn, "begin INSERT_INFOPAGO(:I_NUM_TARJETA, :I_DIR_FACTURACION, :I_DIR_FACTURACION2, :I_TELEFONO, :I_ID_USUARIO, :I_ID_METODOPAGO); end;");
+    $insertInfoPago = oci_parse($conn, "begin INSERT_INFOPAGO(:I_NUM_TARJETA, :I_DIR_FACTURACION, :I_DIR_FACTURACION2, :I_TELEFONO, 5000, :I_ID_USUARIO, :I_ID_METODOPAGO); end;");
 
     // Pass the parameters into the stored procedure, Note: You can only assign a variable as a parameter value in the stored procedure, that's the goal of $idUsuario
     oci_bind_by_name($insertInfoPago, ":I_NUM_TARJETA", $numeroTarjeta, 32);
     oci_bind_by_name($insertInfoPago, ":I_DIR_FACTURACION", $direccion1, 32);
     oci_bind_by_name($insertInfoPago, ":I_DIR_FACTURACION2", $direccion2, 32);
     oci_bind_by_name($insertInfoPago, ":I_TELEFONO", $telefono, 32);
+    // oci_bind_by_name($insertInfoPago, ":I_TOTAL", $total, 32);
     oci_bind_by_name($insertInfoPago, ":I_ID_USUARIO", $idUsuario, 32);
     oci_bind_by_name($insertInfoPago, ":I_ID_METODOPAGO", $metodoPago, 32);
 

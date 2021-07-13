@@ -3,11 +3,14 @@
 include '../components/header.php';
 include '../conexion.php';
 
+$total = 0;
+$montoTotal = 0;
+
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
 
 // Call the stored procedure to bring all the products added to the cart by the user
-$sp = oci_parse($conn, "begin GET_CARRITO(:CM, 1); end;");
+$sp = oci_parse($conn, "begin GET_CARRITOS(:CM, 1); end;");
 
 // Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
 oci_bind_by_name($sp, ":CM", $curs, -1, OCI_B_CURSOR);
@@ -20,12 +23,14 @@ oci_execute($curs);
 ?>
 
 <!-- I needed to call the isotipo.svg again 'cause it wasn't being found -->
+
 <head>
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <link href="../styles/carrito.css" rel="stylesheet" />
 </head>
 
 <!-- In the cart we'll need to add some fonts -->
+
 <body class="bg-light">
     <!-- Cart items -->
     <div class="container-fluid mb-5">
@@ -105,7 +110,7 @@ oci_execute($curs);
                             <?php
                             // Create the cursor and the stored procedure call
                             $curs = oci_new_cursor($conn);
-                            $sp = oci_parse($conn, "begin GET_CARRITO(:CM, 1); end;");
+                            $sp = oci_parse($conn, "begin GET_CARRITOS(:CM, 1); end;");
 
                             // Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
                             oci_bind_by_name($sp, ":CM", $curs, -1, OCI_B_CURSOR);
@@ -122,6 +127,8 @@ oci_execute($curs);
                                 $idUsuario = $row['ID_USUARIO'];
                                 $idProducto = $row['ID_PRODUCTO'];
                                 // Attributes of the producto table
+                                $total = $cantidadCarrito * $precioProducto;
+                                $montoTotal = $montoTotal + $total;
                                 $nombreProducto = $row['NOMBRE'];
                                 $descripcionProducto = $row['DESCRIPCION'];
                                 $urlImagen = $row['URL_IMAGEN'];
@@ -145,7 +152,10 @@ oci_execute($curs);
                             <!-- In the near future there wi'll be a function in the db to get the total amount plus the taxes -->
                             <div class="total-amt d-flex justify-content-between font-weight-bold">
                                 <p>Monto Total (Incluye Impuestos)</p>
-                                <p>₡<span id="total_cart_amt">50.00</span></p>
+                                <?php
+                                $_SESSION['total']=$montoTotal;
+                                echo '<p>₡<span id="total_cart_amt">' . $montoTotal . '</span></p>';
+                                ?>
                             </div>
                             <!-- This button will only redirect to checkout.php -->
                             <a href="checkout.php">

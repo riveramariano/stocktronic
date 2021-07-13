@@ -28,7 +28,7 @@
 
 <body>
 
-    <nav class=" navbar navbar-expand-md navbar-dark border-bottom">
+    <nav class=" navbar navbar-expand-md navbar-dark fixed-top applebg">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,9 +64,8 @@
 
     <div class=" container-fluid">
         <h1 class="text-center" style="margin-top: 8rem">
-            Todo lo que ama de nuestra tienda
+            Todo lo que ama de nuestra tienda <br /> a un clic de su alcance.
         </h1>
-        <h1 class="text-center">a un clic de su alcance.</h1>
         <h4 class="text-center mt-4" style="color: gray">
             No dudes en consultarnos cualquier cosa
         </h4>
