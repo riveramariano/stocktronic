@@ -1,5 +1,6 @@
 <head>
     <link href="../styles/confirmacion.css" rel="stylesheet" />
+    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -136,11 +137,11 @@ session_start();
                                                 <div class="text-left"> <span class="font-weight-bold">Subtotal</span> </div>
                                             </td>
                                             <td>
-                                                <?php 
+                                                <?php
                                                 $montoTotal = 0;
-                                                echo "<div class='text-right'> <span class='font-weight-bold'>₡$totalOrden</span> </div>"; 
+                                                echo "<div class='text-right'> <span class='font-weight-bold'>₡$totalOrden</span> </div>";
                                                 ?>
-                                                
+
                                             </td>
                                         </tr>
                                     </tbody>

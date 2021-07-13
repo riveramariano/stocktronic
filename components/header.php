@@ -58,6 +58,9 @@ echo '<!DOCTYPE html>
                 <li class="nav-item mt-1">
                     <a class="nav-link" href="/stocktronic/pages/carrito.php">CART</a>
                 </li>
+                <li class="nav-item mt-1">
+                    <a class="nav-link" href="/stocktronic/pages/historial.php">Historial</a>
+                </li>
             </ul>
         </div>
     </nav>

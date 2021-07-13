@@ -1,5 +1,6 @@
 <head>
     <link href="../styles/checkout.css" rel="stylesheet" />
+    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
 
 <?php

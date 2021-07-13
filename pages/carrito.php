@@ -1,3 +1,8 @@
+<head>
+    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+    <link href="../styles/carrito.css" rel="stylesheet" />
+</head>
+
 <?php
 // Import header.php and conexion.php
 include '../components/header.php';
@@ -24,13 +29,6 @@ oci_execute($curs);
 session_start();
 
 ?>
-
-<!-- I needed to call the isotipo.svg again 'cause it wasn't being found -->
-
-<head>
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
-    <link href="../styles/carrito.css" rel="stylesheet" />
-</head>
 
 <!-- In the cart we'll need to add some fonts -->
 

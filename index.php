@@ -55,8 +55,11 @@
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="#">Wireless</a>
                 </li>
-                <li class="nav-item mt-1">
+                <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="pages/carrito.php">CART</a>
+                </li>
+                <li class="nav-item mt-1">
+                    <a class="nav-link" href="/stocktronic/pages/historial.php">Historial</a>
                 </li>
             </ul>
         </div>

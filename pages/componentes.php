@@ -1,5 +1,6 @@
 <head>
     <link href="../styles/catalogo.css" rel="stylesheet" />
+    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
 
 <?php
@@ -23,10 +24,6 @@ oci_bind_by_name($getProductos, ":CM", $curs, -1, OCI_B_CURSOR);
 oci_execute($getProductos);
 oci_execute($curs);
 ?>
-
-<head>
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
-</head>
 
 <body>
     <!-- First container -->
