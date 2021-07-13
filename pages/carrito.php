@@ -20,6 +20,9 @@ oci_bind_by_name($sp, ":CM", $curs, -1, OCI_B_CURSOR);
 // Execute the stored procedured and the memory cursor
 oci_execute($sp);
 oci_execute($curs);
+
+session_start();
+
 ?>
 
 <!-- I needed to call the isotipo.svg again 'cause it wasn't being found -->
@@ -144,16 +147,12 @@ oci_execute($curs);
                             // Close the connection
                             oci_close($conn);
                             ?>
-                            <div class="price-indiv d-flex justify-content-between">
-                                <p>IVA</p>
-                                <p>+ ₡4000</p>
-                            </div>
                             <hr />
                             <!-- In the near future there wi'll be a function in the db to get the total amount plus the taxes -->
                             <div class="total-amt d-flex justify-content-between font-weight-bold">
-                                <p>Monto Total (Incluye Impuestos)</p>
+                                <p>Monto Total</p>
                                 <?php
-                                $_SESSION['total']=$montoTotal;
+                                $_SESSION['total'] = $montoTotal;
                                 echo '<p>₡<span id="total_cart_amt">' . $montoTotal . '</span></p>';
                                 ?>
                             </div>

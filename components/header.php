@@ -12,7 +12,6 @@ echo '<!DOCTYPE html>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel=" stylesheet" />
     <link href="../styles/simple-sidebar.css" rel="stylesheet" />
     <link href="../styles/index.css" rel="stylesheet" />
-    <link href="../styles/catalogo.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 

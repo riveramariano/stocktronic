@@ -1,4 +1,6 @@
-<!-- @Céspedes, @Salazar if you're reading this remember to create a js/css for each page you create -->
+<head>
+    <link href="../styles/catalogo.css" rel="stylesheet" />
+</head>
 
 <?php
 // Import header.php and conexion.php
