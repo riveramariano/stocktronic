@@ -1,6 +1,12 @@
 <head>
     <link href="../styles/historial.css" rel="stylesheet" />
+    <link href="../styles/modal.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <?php
@@ -26,7 +32,6 @@ oci_execute($curs);
 
 // Start the session to get the total amount value from carrito.php
 session_start();
-
 ?>
 
 <body>
@@ -72,7 +77,7 @@ session_start();
                                 <td class='text-light'>$fecOrden</td>
                                 <td class='text-light'>₡$montoTotal</td>
                                 <td class='d-flex text-light'>
-                                    <button data-id='$idOrden' type='button' class='btn btn-light btn-sm btnDetalles' data-toggle='modal' data-target='#modalCart'>
+                                    <button data-id='$idOrden' type='button' class='btn btn-light btn-sm btnDetalles' data-toggle='modal' data-target='#modalDetalles'>
                                         Detalles
                                     </button>
                                 </td>
@@ -84,37 +89,41 @@ session_start();
         </div>
     </div>
 
-    <!-- Modal: modalCart -->
-    <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Detalles de la Orden</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nombre</th>
-                                <th>Cantidad</th>
-                                <th>Precio</th>
-                                <th>Imagen</th>
-                            </tr>
-                        </thead>
-                        <tbody id="display_rows">
-                        </tbody>
-                    </table>
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content rounded-0">
+                <div class="modal-body p-4 px-5">
+                    <div class="main-content text-center">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Detalles de la Orden</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <!--Body-->
+                        <div class="modal-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th>Imagen</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="display_rows">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal: modalCart -->
+
     <?php
     include '../components/footer.php';
     ?>
