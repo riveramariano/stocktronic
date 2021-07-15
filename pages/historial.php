@@ -53,7 +53,7 @@ session_start();
                         <th scope="col">Nº Tarjeta</th>
                         <th scope="col">Fecha Orden</th>
                         <th scope="col">Total</th>
-                        <th scope="col" class="text-right">Detalles</th>
+                        <th scope="col">Detalles</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,8 +71,10 @@ session_start();
                                 <td class='text-muted'>$numTarjeta</td>
                                 <td class='text-light'>$fecOrden</td>
                                 <td class='text-light'>₡$montoTotal</td>
-                                <td class='d-flex justify-content-end align-items-center text-light'>
-                                    <button name='btnDet' type='submit' class='btn btn-light btn-sm' data-toggle='modal' data-target='#modalCart'>D</button>
+                                <td class='d-flex text-light'>
+                                    <button data-id='$idOrden' type='button' class='btn btn-light btn-sm btnDetalles' data-toggle='modal' data-target='#modalCart'>
+                                        Detalles
+                                    </button>
                                 </td>
                             </tr>";
                     }
@@ -105,34 +107,7 @@ session_start();
                                 <th>Imagen</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php
-                            
-
-                            $curs2 = oci_new_cursor($conn);
-                            $getDetalleOrden = oci_parse($conn, "begin GET_DETALLE_ORDENES(:CM, 1); end;");
-                            oci_bind_by_name($getDetalleOrden, ":CM", $curs2, -1, OCI_B_CURSOR);
-
-                            // Execute de stored procedure
-                            oci_execute($getDetalleOrden);
-                            oci_execute($curs2);
-
-                            while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                // This is how you bind the values of the array to a variable
-                                $idDetalle = $row2['ID_DETALLEORDEN'];
-                                $urlImagen = $row2['URL_IMAGEN'];
-                                $precio = $row2['PRECIO'];
-                                $cantidad = $row2['CANTIDAD'];
-                                $nombre = $row2['NOMBRE'];
-                                echo "<tr'>
-                                        <th scope='row'>$idDetalle</th>
-                                        <td>$nombre</td>
-                                        <td>$cantidad</td>
-                                        <td>₡$precio</td>
-                                        <td><img src='$urlImagen' width='50' height='50' /></td>
-                                    </tr>";
-                            }
-                            ?>
+                        <tbody id="display_rows">
                         </tbody>
                     </table>
                 </div>
@@ -140,9 +115,9 @@ session_start();
         </div>
     </div>
     <!-- Modal: modalCart -->
-
     <?php
     include '../components/footer.php';
     ?>
-
 </body>
+
+<script src="../scripts/historial.js"></script>
