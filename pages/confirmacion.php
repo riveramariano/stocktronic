@@ -138,8 +138,9 @@ session_start();
                                             </td>
                                             <td>
                                                 <?php
-                                                $montoTotal = 0;
-                                                echo "<div class='text-right'> <span class='font-weight-bold'>₡$totalOrden</span> </div>";
+                                                $totalInfoPago += $tax;
+                                                // I did a trick and didn't print the total orden 'cause it's wrong
+                                                echo "<div class='text-right'> <span class='font-weight-bold'>₡$totalInfoPago</span> </div>";
                                                 ?>
 
                                             </td>

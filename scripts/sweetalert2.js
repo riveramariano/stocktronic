@@ -1,7 +1,7 @@
-// This function will create the sweet alert, i passed all this params to make tests
-function addCart(nombre, cantidad, idUsuario, idProducto) {
-    var nuevoId = parseInt(idProducto);
+// This function trigger when you add a product to the cart
+function addCart(nombre) {
     Swal.fire({
+        // bottom-start, bottom-end, top-start
         position: "top-end",
         icon: "success",
         title: `${nombre} agregado al carrito`,
@@ -11,7 +11,46 @@ function addCart(nombre, cantidad, idUsuario, idProducto) {
     });
 }
 
-/* The following functions prevent the page from reload when the add to cart button is press the or the product name
+// This function will trigger when you subtract a product quantity
+function minusCart(nombre) {
+    Swal.fire({
+        // bottom-start, bottom-end, top-start
+        position: "top-end",
+        icon: "error",
+        title: `Se eliminó un ${nombre} del carrito`,
+        showConfirmButton: false,
+        timer: 2000,
+        toast: true,
+    });
+}
+
+// This function will trigger when you add a product quantity
+function plusCart(nombre) {
+    Swal.fire({
+        // bottom-start, bottom-end, top-start
+        position: "top-end",
+        icon: "success",
+        title: `Se agregó un ${nombre} al carrito`,
+        showConfirmButton: false,
+        timer: 2000,
+        toast: true,
+    });
+}
+
+// This function will trigger when you delete a product from the cart
+function deleteCart(nombre) {
+    Swal.fire({
+        // bottom-start, bottom-end, top-start
+        position: "top-end",
+        icon: "error",
+        title: `${nombre} se eliminó`,
+        showConfirmButton: false,
+        timer: 2000,
+        toast: true,
+    });
+}
+
+/* The following functions prevent the page from reload when the product name is clicked
    If you find an easier way just change it :) */
 
 // The next six are for the product names
@@ -56,55 +95,6 @@ $("#productName5").on("click", function(e) {
 });
 
 $("#productName6").on("click", function(e) {
-    e.preventDefault();
-    var url = $(this).attr("href");
-    $.get(url, function() {
-        // Success
-    });
-});
-
-// And these six are for the add to cart button
-$("#cart1").on("click", function(e) {
-    e.preventDefault();
-    var url = $(this).attr("href");
-    $.get(url, function() {
-        // Success
-    });
-});
-
-$("#cart2").on("click", function(e) {
-    e.preventDefault();
-    var url = $(this).attr("href");
-    $.get(url, function() {
-        // Success
-    });
-});
-
-$("#cart3").on("click", function(e) {
-    e.preventDefault();
-    var url = $(this).attr("href");
-    $.get(url, function() {
-        // Success
-    });
-});
-
-$("#cart4").on("click", function(e) {
-    e.preventDefault();
-    var url = $(this).attr("href");
-    $.get(url, function() {
-        // Success
-    });
-});
-
-$("#cart5").on("click", function(e) {
-    e.preventDefault();
-    var url = $(this).attr("href");
-    $.get(url, function() {
-        // Success
-    });
-});
-
-$("#cart6").on("click", function(e) {
     e.preventDefault();
     var url = $(this).attr("href");
     $.get(url, function() {

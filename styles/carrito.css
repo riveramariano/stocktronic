@@ -35,9 +35,10 @@ h2 {
     border: none;
 }
 
+/* This is a important one */
 .product-img img {
-    min-width: 200px;
-    max-height: 200px;
+    min-width: auto;
+    max-height: 150;
 }
 
 .product-name {
@@ -88,8 +89,8 @@ h2 {
 }
 
 .page-item input {
-    line-height: 16px;
-    margin-bottom: 1px;
+    line-height: 22px;
+    padding: 3px;
     font-size: 15px;
     display: flex;
     justify-content: center;
@@ -109,4 +110,24 @@ h2 {
 
 .price-indiv p {
     font-size: 1.1rem;
+}
+
+.product-links button {
+    display: inline-block;
+    margin-left: 8px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.product-links button:hover {
+    color: red;
+}
+
+.product-links button:focus {
+    outline: none;
+    box-shadow: none;
 }

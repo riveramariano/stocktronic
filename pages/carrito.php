@@ -55,49 +55,58 @@ session_start();
                             $urlImagen = $row['URL_IMAGEN'];
                             $precioProducto = $row['PRECIO'];
                             // Create a card for each product
-                            echo "<div class='cart p-4'>
-                                    <div class='row'>
+                            echo '<div class="cart p-4">
+                                    <div class="row">
                                     <!-- Cart images -->
-                                        <div class='col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center product-img'>
-                                            <img src='$urlImagen' class='img-fluid' alt='cart img' />
+                                        <div class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center product-img">
+                                            <img src="'. $urlImagen . '" class="img-fluid" alt="cart img" />
                                         </div>
                                     <!-- Cart product details -->
-                                    <div class='col-md-7 col-11 mx-auto px-4 mt-2'>
-                                        <div class='row'>
+                                    <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+                                        <div class="row">
                                         <!-- Product name -->
-                                            <div class='col-6 card-title'>
-                                                <h1 class='mb-4 product-name'>$nombreProducto</h1>
-                                                <p class='mb-5'>$descripcionProducto</p>
+                                            <div class="col-6 card-title">
+                                                <h1 class="mb-4 product-name">'.$nombreProducto.'</h1>
+                                                <p class="mb-5">'.$descripcionProducto. '</p>
                                                 <br><br>
                                             </div>
                                             <!-- Quantity inc dec -->
-                                            <div class='col-6'>
-                                                <ul class='pagination justify-content-end set-quantity'>
-                                                    <li class='page-item border'>
-                                                        <button class='page-link' href='#'><i class='fa fa-minus'></i></button>
+                                            <div class="col-6">
+                                                <ul class="pagination justify-content-end set-quantity">
+                                                    <li class="page-item border">
+                                                        <button type="button" onclick="minusCart(\'' . $nombreProducto . '\')" data-id="'.$idCarrito.'" class="page-link btnMinus">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
                                                     </li>
-                                                    <li class='page-item border'>
-                                                        <input class='page-link' type='text' name='' value='$cantidadCarrito' id='textbox' />
+                                                    <li class="page-item border">
+                                                        <input class="page-link itemval" type="text" value="'.$cantidadCarrito.'" disabled />
                                                     </li>
-                                                    <li class='page-item border'>
-                                                        <button class='page-link' href='#'><i class='fa fa-plus'></i></button>
+                                                    <li class="page-item border">
+                                                        <button type="button" onclick="plusCart(\'' . $nombreProducto . '\')" data-id="'.$idCarrito. '" class="page-link btnPlus">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     <!-- Remove item and price -->
-                                    <div class='row'>
-                                        <div class='col-8 d-flex justify-content-between remove'>
-                                            <p><i class='fa fa-trash-alt'></i>    REMOVE ITEM</p>
+                                    <div class="row">
+                                        <div class="col-8 d-flex justify-content-between remove">
+                                            <div class="product-links">
+                                                <button data-id="' . $idCarrito . '" type="button" class="btnDelete" 
+                                                onclick="deleteCart(\'' . $nombreProducto . '\')">
+                                                    <i class="fa fa-trash"></i> Eliminar Producto
+                                                </button> 
+                                            </div>
                                         </div>
-                                        <div class='col-4 d-flex justify-content-end price-money'>
-                                            <h3>₡<span id='itemval'>$precioProducto</span></h3>
+                                        <div class="col-4 d-flex justify-content-end price-money">
+                                            <h3>₡<span id="itemval">'.$precioProducto.'</span></h3>
                                         </div>
                                     </div>
                                     </div>
                                     </div>
                                 </div>
-                                <hr />";
+                                <hr />';
                         }
                         // Free the cursor and the stored procedure to call it one more time
                         oci_free_statement($sp);
@@ -164,6 +173,14 @@ session_start();
             </div>
         </div>
     </div>
+
+    <!-- Add sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../scripts/sweetalert2.js"></script>
+
+    <!-- This one call the ajax to add carrito -->
+    <script src="../scripts/proceduresCarrito.js"></script>
+
 </body>
 
 <!-- We'll need to free the statments and close the conn here -->

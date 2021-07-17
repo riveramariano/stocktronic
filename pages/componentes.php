@@ -70,15 +70,13 @@ oci_execute($curs);
                                 <div class='product-bottom-details'>
                                 <div class='product-price'>₡$precio</div>";
                     // I created a dinamic button name and id to create a func. for each one, the func's are on scripts/sweetalert2.js. Could you change that file name? Thx
-                    echo '<form method="post">
-                                        <div class="product-links">
-                                            <button type="submit" name="btn-add' . $i . '" id="cart' . $i . '" 
-                                            onclick="addCart(\'' . $nombre . '\', 1, 1, \'' . $id . '\')">
+                                echo '<div class="product-links">
+                                            <button data-id="' . $id . '" type="button" class="btnAdd" 
+                                            onclick="addCart(\'' . $nombre . '\')">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </button>
                                         </div>
-                                    </form>
-                                </div>
+                            </div>
                             </div>
                         </div>';
                 }
@@ -92,6 +90,13 @@ oci_execute($curs);
     include '../components/footer.php';
     ?>
 
+    <!-- Add sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../scripts/sweetalert2.js"></script>
+
+    <!-- This one call the ajax to add carrito -->
+    <script src="../scripts/addCarrito.js"></script>
+
     <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -100,17 +105,6 @@ oci_execute($curs);
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Add sweetalert2 -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/sweetalert2.js"></script>
-
-    <!-- Idk what this does, I think is for the navbar -->
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
 </body>
 
 <!-- We'll need to free the statments and close the conn here -->
