@@ -11,4 +11,4 @@ $(".btnAdd").click(function () {
             $("#display_rows").html(data);
         },
     });
-});
+}); 

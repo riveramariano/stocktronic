@@ -121,10 +121,11 @@ h2 {
     padding: 0;
     border: none;
     background: none;
+    color: #b20000;
 }
 
 .product-links button:hover {
-    color: red;
+    color: #b20000;
 }
 
 .product-links button:focus {

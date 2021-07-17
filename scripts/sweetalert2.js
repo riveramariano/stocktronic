@@ -17,7 +17,7 @@ function minusCart(nombre) {
         // bottom-start, bottom-end, top-start
         position: "top-end",
         icon: "error",
-        title: `Se eliminó un ${nombre} del carrito`,
+        title: `Se eliminó un/a ${nombre} del carrito`,
         showConfirmButton: false,
         timer: 2000,
         toast: true,

@@ -74,7 +74,8 @@ session_start();
                                             <div class="col-6">
                                                 <ul class="pagination justify-content-end set-quantity">
                                                     <li class="page-item border">
-                                                        <button type="button" onclick="minusCart(\'' . $nombreProducto . '\')" data-id="'.$idCarrito.'" class="page-link btnMinus">
+                                                        <button type="button" onclick="minusCart(\'' . $nombreProducto . '\')" 
+                                                        data-id="'.$idCarrito. '" data-filter="' . $cantidadCarrito . '" class="page-link btnMinus">
                                                             <i class="fa fa-minus"></i>
                                                         </button>
                                                     </li>
@@ -82,7 +83,8 @@ session_start();
                                                         <input class="page-link itemval" type="text" value="'.$cantidadCarrito.'" disabled />
                                                     </li>
                                                     <li class="page-item border">
-                                                        <button type="button" onclick="plusCart(\'' . $nombreProducto . '\')" data-id="'.$idCarrito. '" class="page-link btnPlus">
+                                                        <button type="button" onclick="plusCart(\'' . $nombreProducto . '\')" 
+                                                        data-id="'.$idCarrito. '" data-filter="' . $cantidadCarrito . '" class="page-link btnPlus">
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </li>
