@@ -34,17 +34,17 @@ echo '<!DOCTYPE html>
         </button>
         <div class="collapse navbar-collapse" id="collapse_target">
             <ul class="navbar-nav list-inline mx-auto justify-content-center">
-                <a class="navbar-brand mb-2 mr-5" href="/stocktronic">
+                <a class="navbar-brand mb-2 mr-5" href="/stocktronic/pages/inicio.php">
                     <img src="../images/isotipo.svg" width="20" height="20" />
                 </a>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/componentes.php">Componente</a>
+                    <a class="nav-link" href="/stocktronic/pages/componentes.php">Componentes</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/herramientas.php">Herramienta</a>
+                    <a class="nav-link" href="/stocktronic/pages/herramientas.php">Herramientas</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/impresoras.php">Impresora 3D</a>
+                    <a class="nav-link" href="/stocktronic/pages/impresoras.php">Impresoras 3D</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/cortadores.php">Cortadores Láser</a>
@@ -55,8 +55,8 @@ echo '<!DOCTYPE html>
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/wireless.php">Wireless</a>
                 </li>
-                <li class="nav-item mt-1">
-                    <a class="nav-link" href="/stocktronic/pages/carrito.php">CART</a>
+                <li class="nav-item mt-1 mr-5">
+                    <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i></a>
                 </li>
                 <li class="nav-item mt-1">
                     <a class="nav-link" href="/stocktronic/pages/historial.php">Historial</a>
@@ -76,4 +76,3 @@ echo '<!DOCTYPE html>
     </script>
     
 <body>';
-?>

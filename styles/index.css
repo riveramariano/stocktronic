@@ -44,13 +44,6 @@
     font-family: sf-rounded;
 }
 
-body {
-    background-color: var(--white-s);
-}
-
-nav {
-    background-color: var(--black-s);
-}
 
 h1,
 h3 {
@@ -66,6 +59,13 @@ a {
     font-size: 13px;
 }
 
+body {
+    background-color: var(--white-s);
+}
+
+nav {
+    background-color: var(--black-s);
+}
 
 /* Cards Productos */
 

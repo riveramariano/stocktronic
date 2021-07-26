@@ -8,26 +8,27 @@
 include "../components/header.php";
 include '../conexion.php';
 
+session_start();
+$idUsuario = $_SESSION['idUsuario'];
+
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
 $curs2 = oci_new_cursor($conn);
 
 // Call the stored procedure to bring all metodos de pago
 $getAllMetodoPago = oci_parse($conn, "begin GET_ALL_METODOPAGO(:CM); end;");
-$getCarritos = oci_parse($conn, "begin GET_CARRITOS(:CM, 1); end;");
+$getCarritos = oci_parse($conn, "begin GET_CARRITOS(:CM, :ID_USUARIO); end;");
 
 // Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
 oci_bind_by_name($getAllMetodoPago, ":CM", $curs, -1, OCI_B_CURSOR);
 oci_bind_by_name($getCarritos, ":CM", $curs2, -1, OCI_B_CURSOR);
+oci_bind_by_name($getCarritos, ":ID_USUARIO", $idUsuario, -1);
 
 // Execute the stored procedured and the memory cursor
 oci_execute($getAllMetodoPago);
 oci_execute($getCarritos);
 oci_execute($curs);
 oci_execute($curs2);
-
-// Start the session to get the total amount value from carrito.php
-session_start();
 
 // After pressing the button the "isset" func. is going to search for the inputs with the following names:
 if (isset($_POST['submitBtn'])) {
@@ -37,7 +38,7 @@ if (isset($_POST['submitBtn'])) {
     $direccion2 = $_POST['dir2'];
     $telefono = $_POST['telefono'];
     $total = $_SESSION['total'];
-    $idUsuario = 1;
+    $idUsuario = $_SESSION['idUsuario'];
     $metodoPago = $_POST['metodo'];
 
     // Call the stored procedure to insert
@@ -56,7 +57,7 @@ if (isset($_POST['submitBtn'])) {
     oci_execute($insertInfoPago);
 
     // Redirect to "confirmacion.php" after the insert is accomplished
-    header('Location:confirmacion.php');
+    header('Location: confirmacion.php');
 }
 ?>
 

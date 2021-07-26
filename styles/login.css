@@ -1,0 +1,154 @@
+.cupertinoup {
+	background-color: #ffffff;
+	border-radius: 7px 7px 0px 0px !important;
+	padding: 12px 15px 12px 15px !important;
+	width: 100%;
+	box-sizing: border-box;
+	border: none !important;
+	border: 1px solid #d6d6d6 !important;
+	font-size: 16px !important;
+	color: #000 !important;
+	font-weight: 400;
+}
+.cupertinodown {
+	background-color: #ffffff;
+	border-radius: 0px 0px 7px 7px !important;
+	padding: 12px 15px 12px 15px !important;
+	margin-top: -1px;
+	width: 100%;
+	box-sizing: border-box;
+	border: none !important;
+	border: 1px solid #d6d6d6 !important;
+	font-size: 16px !important;
+	color: #000 !important;
+	font-weight: 400;
+}
+
+input:focus,
+textarea:focus {
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border: 1px solid #007bff !important;
+	outline-width: 0;
+	font-weight: 400;
+}
+
+#logo {
+	/* width: 70px; */
+	height: 100px;
+}
+
+.heading {
+	margin-bottom: 60px !important;
+}
+
+::placeholder {
+	color: #d6d6d6 !important;
+	opacity: 0.1;
+}
+
+.form-control-label {
+	font-size: 12px;
+	margin-left: 15px;
+}
+
+.msg-info {
+	padding-left: 15px;
+	margin-bottom: 30px;
+}
+
+.btn-color {
+	border-radius: 50px;
+	background-color: #007bff;
+	color: #fbfbfb;
+	padding: 10px;
+	cursor: pointer;
+	border: none !important;
+	margin-top: 10px;
+	transition: box-shadow 0.75s ease-in-out;
+}
+.btn-color:hover {
+	box-shadow: 0px 0px 25px #007bff5d;
+}
+
+.btn-white {
+	border-radius: 50px;
+	color: #d500f9;
+	background-color: #fff;
+	padding: 8px 40px;
+	cursor: pointer;
+	border: 2px solid #d500f9 !important;
+}
+
+.margenarriba {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.btn-white:hover {
+	color: #fff;
+	background-image: linear-gradient(to right, #ffd54f, #d500f9);
+}
+
+a {
+	color: #000;
+}
+
+a:hover {
+	color: #000;
+}
+
+.bottom {
+	width: 100%;
+	margin-top: 50px !important;
+}
+
+.sm-text {
+	font-size: 15px;
+}
+
+.mycenter {
+	top: 20%;
+	position: absolute;
+}
+
+@media screen and (max-width: 992px) {
+	.card1 {
+		width: 100%;
+		padding: 40px 30px 10px 30px;
+	}
+
+	.card2 {
+		width: 100%;
+	}
+
+	.right {
+		margin-top: 100px !important;
+		margin-bottom: 100px !important;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		padding: 10px !important;
+	}
+
+	.card2 {
+		padding: 50px;
+	}
+
+	.right {
+		margin-top: 50px !important;
+		margin-bottom: 50px !important;
+	}
+}
+
+
+.product-links button:focus {
+    outline: none;
+    box-shadow: none;
+}

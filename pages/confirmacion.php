@@ -10,6 +10,10 @@
 include "../components/header.php";
 include '../conexion.php';
 
+session_start();
+$nombreUsuario = $_SESSION['nombreUsuario'];
+$apellidoUsuario = $_SESSION['apellidoUsuario'];
+
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
 
@@ -28,9 +32,6 @@ oci_bind_by_name($getOrden, ":CM", $curs, -1, OCI_B_CURSOR);
 oci_execute($getOrden);
 oci_execute($curs);
 
-// Start the session to get the total amount value from carrito.php
-session_start();
-
 ?>
 
 <body>
@@ -38,9 +39,9 @@ session_start();
         <div class="row d-flex justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="text-left logo p-2 px-5"> <img src="../images/isotipo.svg" width="50"> </div>
+                    <div class="text-left logo p-2 px-5"> <img src="../images/isotipoDark.svg" width="50"> </div>
                     <div class="invoice p-5">
-                        <h5>Tú orden confirmada!</h5> <span class="font-weight-bold d-block mt-4">Hola, Mariano</span> <span>Tú orden ha sido confirmada y será enviada en los próximos 2 días!</span>
+                        <h5>Tú orden confirmada!</h5> <span class="font-weight-bold d-block mt-4">Hola <?php echo $nombreUsuario . ' ' . $apellidoUsuario ?></span> <span>Tú orden ha sido confirmada y será enviada en los próximos 2 días!</span>
                         <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
                             <table class="table table-borderless">
                                 <tbody>
@@ -134,7 +135,7 @@ session_start();
                                         </tr>
                                         <tr class="border-top border-bottom">
                                             <td>
-                                                <div class="text-left"> <span class="font-weight-bold">Subtotal</span> </div>
+                                                <div class="text-left"> <span class="font-weight-bold">Monto total</span> </div>
                                             </td>
                                             <td>
                                                 <?php

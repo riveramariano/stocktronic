@@ -1,0 +1,35 @@
+/* Salazar Revise que los fonts esten bien tengo un colocho */
+
+@font-face {
+	src: url(../fonts/SF-Pro-Display-Bold.otf);
+	font-family: sf-bold;
+}
+
+@font-face {
+	src: url(../fonts/SF-Pro.ttf);
+	font-family: sf-regular;
+}
+
+@font-face {
+	src: url(../fonts/SF-Pro-Display-Regular.otf);
+	font-family: sf-regular-display;
+}
+
+@font-face {
+	src: url(../fonts/SF-Compact-Rounded-Regular.otf);
+	font-family: sf-rounded;
+}
+
+h1,
+h3 {
+	font-family: sf-bold;
+}
+
+h6 {
+	font-family: sf-bold;
+}
+
+a {
+	font-family: sf-regular;
+	font-size: 13px;
+}

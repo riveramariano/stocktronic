@@ -70,7 +70,7 @@ oci_execute($curs);
                                 <div class='product-bottom-details'>
                                 <div class='product-price'>₡$precio</div>";
                     // I created a dinamic button name and id to create a func. for each one, the func's are on scripts/sweetalert2.js. Could you change that file name? Thx
-                                echo '<div class="product-links">
+                    echo '<div class="product-links">
                                             <button data-id="' . $id . '" type="button" class="btnAdd" 
                                             onclick="addCart(\'' . $nombre . '\')">
                                                 <i class="fa fa-shopping-cart"></i>

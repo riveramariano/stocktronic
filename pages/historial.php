@@ -3,13 +3,16 @@
     <link href="../styles/modal.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 
-
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <?php
+session_start();
+$idUsuario = $_SESSION['idUsuario'];
+$nombreUsuario = $_SESSION['nombreUsuario'];
+
 // Import header.php and conexion.php
 include "../components/header.php";
 include '../conexion.php';
@@ -21,24 +24,23 @@ $curs = oci_new_cursor($conn);
 $idOrden = "";
 
 // Call the stored procedure to bring all metodos de pago
-$getOrden = oci_parse($conn, "begin GET_ORDENES(:CM, 1); end;");
+$getOrden = oci_parse($conn, "begin GET_ORDENES(:CM, :ID_USUARIO); end;");
 
 // Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
 oci_bind_by_name($getOrden, ":CM", $curs, -1, OCI_B_CURSOR);
+oci_bind_by_name($getOrden, ":ID_USUARIO", $idUsuario, 32);
 
 // Execute the stored procedured and the memory cursor
 oci_execute($getOrden);
 oci_execute($curs);
 
-// Start the session to get the total amount value from carrito.php
-session_start();
 ?>
 
 <body>
 
     <div class="wrapper rounded mt-5">
         <nav class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start">
-            <a class="navbar-brand" href="#">Ordenes<p class="text-muted pl-1">Bienvenido a tú historial de ordenes</p> </a>
+            <a class="navbar-brand" href="#">Ordenes<p class="text-muted pl-1">Bienvenido a tú historial de ordenes <?php echo $nombreUsuario ?></p> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
