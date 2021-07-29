@@ -61,6 +61,18 @@ echo '<!DOCTYPE html>
                 <li class="nav-item mt-1">
                     <a class="nav-link" href="/stocktronic/pages/historial.php">Historial</a>
                 </li>
+                <l class="nav-item mt-1">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>
+                            <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>
+                            <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
+                        </div>
+                    </div>
+                </l i>
             </ul>
         </div>
     </nav>
