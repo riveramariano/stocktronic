@@ -123,28 +123,26 @@ oci_execute($curs);
                         <div class="rigth_side p-3 shadow bg-white">
                             <h2 class="product_name mb-4">Desgloce Factura:</h2>
                             <?php
-                            // Create the cursor and the stored procedure call
+                            // Call a stored procedure that returns the list of items inside the cart
+                            $getCarritos = oci_parse($conn, "begin GET_CARRITOS(:CM, :ID_USUARIO); end;");
+                            // Create the memory cursor to iterate through the stored procedure
                             $curs = oci_new_cursor($conn);
-                            $sp = oci_parse($conn, "begin GET_CARRITOS(:CM, :ID_USUARIO); end;");
 
-                            // Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
-                            oci_bind_by_name($sp, ":CM", $curs, -1, OCI_B_CURSOR);
-                            oci_bind_by_name($sp, ":ID_USUARIO", $idUsuario, 32);
+                            // Bind the memory cursor and the user id into the stored procedure
+                            oci_bind_by_name($getCarritos, ":CM", $curs, -1, OCI_B_CURSOR);
+                            oci_bind_by_name($getCarritos, ":ID_USUARIO", $idUsuario, 32);
 
-                            // Execute it one more time
-                            oci_execute($sp);
+                            // Execute the stored procedure and the memory cursor
+                            oci_execute($getCarritos);
                             oci_execute($curs);
 
                             // The reason of calling the same stored procedure one more time is to dinamicly add the prices to the factura section
                             while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                // Attributes of the carrito table
+                                // Catch the table values into variables
                                 $idCarrito = $row['ID_CARRITO'];
                                 $cantidadCarrito = $row['CANTIDAD'];
                                 $idUsuario = $row['ID_USUARIO'];
                                 $idProducto = $row['ID_PRODUCTO'];
-                                // Attributes of the producto table
-                                $total = $cantidadCarrito * $precioProducto;
-                                $montoTotal = $montoTotal + $total;
                                 $nombreProducto = $row['NOMBRE'];
                                 $descripcionProducto = $row['DESCRIPCION'];
                                 $urlImagen = $row['URL_IMAGEN'];
@@ -152,20 +150,23 @@ oci_execute($curs);
 
                                 // Multiply the product price by the quantity to get the total of each product
                                 $total = $precioProducto * $cantidadCarrito;
+                                $montoTotal = $montoTotal + $total;
+
+                                // Print the results into the right bar
                                 echo "<div class='price-indiv d-flex justify-content-between'>
                                         <p>$nombreProducto</p>
                                         <p>+ ₡<span>$total</span></p>
                                     </div>";
                             }
-                            // Close the connection
-                            oci_close($conn);
                             ?>
                             <hr />
                             <!-- In the near future there wi'll be a function in the db to get the total amount plus the taxes -->
                             <div class="total-amt d-flex justify-content-between font-weight-bold">
                                 <p>Monto Total</p>
                                 <?php
+                                // Put the total amount of the cart inside a variable session
                                 $_SESSION['total'] = $montoTotal;
+                                // Print the total amount into the right bar
                                 echo '<p>₡<span id="total_cart_amt">' . $montoTotal . '</span></p>';
                                 ?>
                             </div>
@@ -189,4 +190,7 @@ oci_execute($curs);
 
 </body>
 
-<!-- We'll need to free the statments and close the conn here -->
+<?php
+// The final thing we do is close the connection with Oracle
+oci_close($conn);
+?>

@@ -1,5 +1,5 @@
 <?php
-// Import header.php and conexion.php
+// Import the conexion.php
 include '../conexion.php';
 
 $pasar = $_GET['ajaxid'];
@@ -19,7 +19,7 @@ while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false)
     $precio = $row2['PRECIO'];
     $cantidad = $row2['CANTIDAD'];
     $nombre = $row2['NOMBRE'];
-    echo "<tr'>
+    echo "<tr class='text-center'>
             <th scope='row'>$idDetalle</th>
             <td>$nombre</td>
             <td>$cantidad</td>

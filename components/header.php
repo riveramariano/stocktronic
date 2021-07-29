@@ -34,9 +34,11 @@ echo '<!DOCTYPE html>
         </button>
         <div class="collapse navbar-collapse" id="collapse_target">
             <ul class="navbar-nav list-inline mx-auto justify-content-center">
-                <a class="navbar-brand mb-2 mr-5" href="/stocktronic/pages/inicio.php">
-                    <img src="../images/isotipo.svg" width="20" height="20" />
-                </a>
+                <li class="nav-item mt-1 mr-5">
+                    <a class="navbar-brand" href="/stocktronic/pages/inicio.php">
+                        <img src="../images/isotipo.svg" width="20" height="20" />
+                    </a>
+                </li>
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/componentes.php">Componentes</a>
                 </li>
@@ -58,13 +60,13 @@ echo '<!DOCTYPE html>
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i></a>
                 </li>
-                <li class="nav-item mt-1">
+                <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/historial.php">Historial</a>
                 </li>
-                <l class="nav-item mt-1">
+                <li class="nav-item">
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown button
+                        <button class="btn border border-light text-light btn-sm dropdown-toggle rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                            Opciones
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>
@@ -72,7 +74,7 @@ echo '<!DOCTYPE html>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
                         </div>
                     </div>
-                </l i>
+                </li>
             </ul>
         </div>
     </nav>

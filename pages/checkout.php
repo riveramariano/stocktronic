@@ -4,12 +4,14 @@
 </head>
 
 <?php
+// The first thing is always start the session
+session_start();
+$idUsuario = $_SESSION['idUsuario'];
+
 // Import header.php and conexion.php
 include "../components/header.php";
 include '../conexion.php';
 
-session_start();
-$idUsuario = $_SESSION['idUsuario'];
 
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
@@ -68,7 +70,7 @@ if (isset($_POST['submitBtn'])) {
         <section class="payment-form dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2>Payment</h2>
+                    <h2>C</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
 
@@ -87,7 +89,7 @@ if (isset($_POST['submitBtn'])) {
                             $precioProducto = $row2['PRECIO'];
 
                             echo '<div class="item">
-                                    <span class="price">₡' . $precioProducto . '</span>
+                                    <span class="price">₡' . $precioProducto * $cantidadCarrito . '</span>
                                         <p class="item-name">' . $nombreProducto . ' (' . $cantidadCarrito . ')' . '</p>
                                         <p class="item-description">' . $descripcionProducto . '</p>
                                 </div>';
