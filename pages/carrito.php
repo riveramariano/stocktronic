@@ -1,8 +1,6 @@
 <head>
     <link href="../styles/historial.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
-
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <link href="../styles/carrito.css" rel="stylesheet" />
 </head>
 

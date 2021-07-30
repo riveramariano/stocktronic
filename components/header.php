@@ -1,4 +1,5 @@
 <?php
+
 echo '<!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@ echo '<!DOCTYPE html>
     <meta name="author" content="" />
 
     <title>Stocktronic</title>
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel=" stylesheet" />
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../styles/simple-sidebar.css" rel="stylesheet" />
     <link href="../styles/index.css" rel="stylesheet" />
 
@@ -28,7 +29,7 @@ echo '<!DOCTYPE html>
 </head>
 
 <body>
-    <nav class=" navbar navbar-expand-md navbar-dark border-bottom">
+    <nav class="navbar navbar-expand-md navbar-dark border-bottom">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -90,3 +91,4 @@ echo '<!DOCTYPE html>
     </script>
     
 <body>';
+?>

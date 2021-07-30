@@ -6,13 +6,14 @@
 </head>
 
 <?php
-// Import header.php and conexion.php
-include "../components/header.php";
-include '../conexion.php';
-
+// The first thing is always start the session
 session_start();
 $nombreUsuario = $_SESSION['nombreUsuario'];
 $apellidoUsuario = $_SESSION['apellidoUsuario'];
+
+// Import header.php and conexion.php
+include "../components/header.php";
+include '../conexion.php';
 
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
