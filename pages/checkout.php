@@ -1,4 +1,5 @@
 <head>
+    <title>Compras - Stocktronic</title>
     <link href="../styles/checkout.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
@@ -12,35 +13,6 @@ $idUsuario = $_SESSION['idUsuario'];
 
 // The most important file of the project
 include '../conexion.php';
-
-// After pressing the button the "isset" func. is going to search for the inputs with the following names:
-if (isset($_POST['submitBtn'])) {
-    // Set the input values to a variable
-    $numeroTarjeta = $_POST['tarjeta'];
-    $direccion1 = $_POST['dir1'];
-    $direccion2 = $_POST['dir2'];
-    $telefono = $_POST['telefono'];
-    $total = $_SESSION['total'];
-    $metodoPago = $_POST['metodo'];
-
-    // Call the stored procedure to insert the payment info
-    $insertInfoPago = oci_parse($conn, "begin INSERT_INFOPAGO(:NUM_TARJETA, :DIR_FACTURACION, :DIR_FACTURACION2, :TELEFONO, :TOTAL, :ID_USUARIO, :ID_METODOPAGO); end;");
-
-    // Bind the parameters into the stored procedure, this is strictly neccesary
-    oci_bind_by_name($insertInfoPago, ":NUM_TARJETA", $numeroTarjeta, -1);
-    oci_bind_by_name($insertInfoPago, ":DIR_FACTURACION", $direccion1, -1);
-    oci_bind_by_name($insertInfoPago, ":DIR_FACTURACION2", $direccion2, -1);
-    oci_bind_by_name($insertInfoPago, ":TELEFONO", $telefono, -1);
-    oci_bind_by_name($insertInfoPago, ":TOTAL", $total, -1);
-    oci_bind_by_name($insertInfoPago, ":ID_USUARIO", $idUsuario, -1);
-    oci_bind_by_name($insertInfoPago, ":ID_METODOPAGO", $metodoPago, -1);
-
-    // Execute de stored procedure
-    oci_execute($insertInfoPago);
-
-    // Redirect to "confirmacion.php" after the insert is accomplished
-    header('Location: confirmacion.php');
-}
 
 // If you got an include and a header() the header by force needs to be the first line code
 include "../components/header.php";
@@ -75,7 +47,7 @@ oci_execute($curs2);
                 </div>
 
                 <!-- First section -->
-                <form id="formCheckout" action="" method="post">
+                <form id="formCheckout" action="">
                     <div class="products">
                         <h3 class="title">Checkout</h3>
                         <?php
@@ -106,7 +78,7 @@ oci_execute($curs2);
                         <div class="row">
                             <div class="form-group col-sm-7">
                                 <label for="metodo">Método de Pago</label>
-                                <select name="metodo" class="form-control">
+                                <select id="selectMet" name="metodo" class="form-control">
                                     <?php
                                     while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                                         // Fetch the table values into variables
@@ -119,27 +91,22 @@ oci_execute($curs2);
                                 </select>
                             </div>
                             <div class="form-group col-sm-5">
-                                <label for="">Fecha de Expiración</label>
+                                <label id="fecVal">Fecha de Expiración</label>
                                 <div class="input-group expiration-date">
-                                    <input type="text" class="form-control" placeholder="MM">
+                                    <input id="mm" type="text" class="form-control" placeholder="MM" maxlength="2">
                                     <span class="date-separator">/</span>
-                                    <input type="text" class="form-control" placeholder="YY">
+                                    <input id="yy" type="text" class="form-control" placeholder="YY" maxlength="2">
                                 </div>
                             </div>
-                            <div class="form-group col-sm-8">
+                            <div class="form-group col-sm-7">
                                 <label id="tarjetaVal">Número de Tarjeta</label>
                                 <input id="tarjeta" name="tarjeta" type="text" class="form-control" maxlength="16">
                             </div>
-                            <div class="form-group col-sm-4">
-                                <label for="cvc">Código de Seguridad</label>
-                                <input type="text" class="form-control" placeholder="CVC">
+                            <div class="form-group col-sm-5">
+                                <label id="cvcVal">Código de Seguridad</label>
+                                <input id="cvc" type="text" class="form-control" placeholder="CVC" maxlength="3">
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Third section -->
-                    <div class="card-details">
-                        <h3 class="title text-uppercase">Información de Facturación</h3>
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label id="dir1Val">Dirección Línea 1</label>
@@ -151,16 +118,16 @@ oci_execute($curs2);
                                     <input id="dir2" name="dir2" type="text" class="form-control" maxlength="30">
                                 </div>
                             </div>
-                            <div class="form-group col-sm-7">
+                            <div class="form-group col-sm-6">
                                 <label id="telVal">Teléfono</label>
-                                <input id="tel" name="telefono" type="text" class="form-control">
+                                <input id="tel" name="telefono" type="text" class="form-control" maxlength="8">
                             </div>
-                            <div class="form-group col-sm-5">
-                                <label for="cvc">Código Postal</label>
-                                <input type="text" class="form-control" maxlength="10">
+                            <div class="form-group col-sm-6">
+                                <label id="codVal">Código Postal</label>
+                                <input id="cod" type="text" class="form-control" maxlength="10">
                             </div>
                             <div class="form-group col-sm-12">
-                                <button id="btnBuy" name="submitBtn" type="submit" class="btn btn-primary btn-block">Confirmar Compra</button>
+                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-primary btn-block">Confirmar Compra</button>
                             </div>
                         </div>
                     </div>
@@ -172,6 +139,11 @@ oci_execute($curs2);
     <?php
     include '../components/footer.php';
     ?>
+
+    <!-- Add sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../scripts/sweetalert2.js"></script>
+
     <script src="../scripts/validacionForm.js"></script>
 
 </body>

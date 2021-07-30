@@ -1,4 +1,5 @@
 <head>
+    <title>Componentes - Stocktronic</title>
     <link href="../styles/catalogo.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>

@@ -1,4 +1,5 @@
 <head>
+    <title>Confirmación - Stocktronic</title>
     <link href="../styles/confirmacion.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
