@@ -75,7 +75,7 @@ oci_execute($curs2);
                 </div>
 
                 <!-- First section -->
-                <form action="" method="post">
+                <form id="formCheckout" action="" method="post">
                     <div class="products">
                         <h3 class="title">Checkout</h3>
                         <?php
@@ -121,14 +121,14 @@ oci_execute($curs2);
                             <div class="form-group col-sm-5">
                                 <label for="">Fecha de Expiración</label>
                                 <div class="input-group expiration-date">
-                                    <input type="text" class="form-control" placeholder="MM" maxlength="2" minlength="2" required>
+                                    <input type="text" class="form-control" placeholder="MM">
                                     <span class="date-separator">/</span>
-                                    <input type="text" class="form-control" placeholder="YY" maxlength="2" minlength="2" required>
+                                    <input type="text" class="form-control" placeholder="YY">
                                 </div>
                             </div>
                             <div class="form-group col-sm-8">
-                                <label for="card-number">Número de Tarjeta</label>
-                                <input name="tarjeta" type="text" class="form-control" maxlength="16" minlength="16" required>
+                                <label id="tarjetaVal">Número de Tarjeta</label>
+                                <input id="tarjeta" name="tarjeta" type="text" class="form-control" maxlength="16">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="cvc">Código de Seguridad</label>
@@ -142,25 +142,25 @@ oci_execute($curs2);
                         <h3 class="title text-uppercase">Información de Facturación</h3>
                         <div class="row">
                             <div class="form-group col-sm-6">
-                                <label for="card-holder">Dirección Línea 1</label>
-                                <input name="dir1" type="text" class="form-control" maxlength="30" required>
+                                <label id="dir1Val">Dirección Línea 1</label>
+                                <input id="dir1" name="dir1" type="text" class="form-control" maxlength="30">
                             </div>
                             <div class="form-group col-sm-6">
-                                <label for="">Dirección Línea 2</label>
+                                <label id="dir2Val">Dirección Línea 2</label>
                                 <div class="input-group expiration-date">
-                                    <input name="dir2" type="text" class="form-control" maxlength="30" required>
+                                    <input id="dir2" name="dir2" type="text" class="form-control" maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group col-sm-7">
-                                <label for="card-number">Teléfono</label>
-                                <input name="telefono" type="text" class="form-control" maxlength="20" minlength="8" required">
+                                <label id="telVal">Teléfono</label>
+                                <input id="tel" name="telefono" type="text" class="form-control">
                             </div>
                             <div class="form-group col-sm-5">
                                 <label for="cvc">Código Postal</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" maxlength="10">
                             </div>
                             <div class="form-group col-sm-12">
-                                <button name="submitBtn" type="submit" class="btn btn-primary btn-block">Confirmar Compra</button>
+                                <button id="btnBuy" name="submitBtn" type="submit" class="btn btn-primary btn-block">Confirmar Compra</button>
                             </div>
                         </div>
                     </div>
@@ -172,6 +172,7 @@ oci_execute($curs2);
     <?php
     include '../components/footer.php';
     ?>
+    <script src="../scripts/validacionForm.js"></script>
 
 </body>
 
