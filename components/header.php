@@ -1,5 +1,4 @@
 <?php
-
 echo '<!DOCTYPE html>
 <html lang="en">
 
@@ -41,22 +40,22 @@ echo '<!DOCTYPE html>
                     </a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/componentes.php">Componentes</a>
+                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=1">Componentes</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/herramientas.php">Herramientas</a>
+                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/impresoras.php">Impresoras 3D</a>
+                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/cortadores.php">Cortadores Láser</a>
+                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/raspberry.php">Raspberry Pi</a>
+                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/wireless.php">Wireless</a>
+                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=6">Wireless</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i></a>

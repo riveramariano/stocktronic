@@ -9,6 +9,9 @@
 include '../components/header.php';
 include '../conexion.php';
 
+// Get the url id
+$categoria = $_GET['q'];
+
 // Declare a variable to generate dinamic id's
 $i = 0;
 
@@ -16,10 +19,11 @@ $i = 0;
 $curs = oci_new_cursor($conn);
 
 // Call the stored procedure to bring all products with id_categoria = 1
-$getProductos = oci_parse($conn, "begin GET_PRODUCTOS(:CM, 1); end;");
+$getProductos = oci_parse($conn, "begin GET_PRODUCTOS(:CM, :ID_CATEGORIA); end;");
 
-// Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
+// Pass the memory cursor into the stored procedure
 oci_bind_by_name($getProductos, ":CM", $curs, -1, OCI_B_CURSOR);
+oci_bind_by_name($getProductos, ":ID_CATEGORIA", $categoria, -1);
 
 // Execute the stored procedured and the memory cursor
 oci_execute($getProductos);
@@ -44,7 +48,7 @@ oci_execute($curs);
 
     <!-- Second container -->
     <div class="container-fluid mt-5" style="background-color: #f9f9fa; padding-top: 1rem">
-        <h1 class="text-center mt-4">Nuestros Componentes:</h1>
+        <h1 class="text-center mt-4">Nuestros Productos:</h1>
         <div class="container pt-5">
             <!-- Product card -->
             <div class="row">
