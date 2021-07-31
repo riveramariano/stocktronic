@@ -73,7 +73,7 @@ oci_execute($curs);
                                         <td>' . $cantidad . '</td>
                                         <td>' . $tipo . '</td>
                                         <td class="text-center">
-                                            <button class="btn btn-success btn-md">Actualizar</button> 
+                                            <a href="formProducto.php?q='.$idProducto.'"><button class="btn btn-success btn-md">Actualizar</button></a>
                                             <button class="btn btn-danger btn-md">Eliminar</button>
                                         </td>
                                     </tr>';
