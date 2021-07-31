@@ -265,7 +265,25 @@ $("#btnBuy").click(function () {
                         title: 'Compra Realizada',
                         text: 'Espere unos segundos...',
                         showCancelButton: false,
-                        showConfirmButton: false
+                        showConfirmButton: false,
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        timer: 3000,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            timerInterval = setInterval(() => {
+                                const content = Swal.getHtmlContainer()
+                                if (content) {
+                                    const b = content.querySelector('b')
+                                    if (b) {
+                                        b.textContent = Swal.getTimerLeft()
+                                    }
+                                }
+                            }, 100)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                        }
                     }), 3000);
                     setTimeout(function () {
                         window.location = 'confirmacion.php';

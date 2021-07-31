@@ -57,9 +57,9 @@ $(".btnDelete").click(function () {
         title: 'Atención',
         text: 'Desea eliminar el producto?',
         showCancelButton: true,
-        confirmButtonColor: '#b20000',
+        confirmButtonColor: '#DC143C',
         confirmButtonText: `Eliminar`,
-        denyButtonText: `Cancelar`,
+        cancelButtonText: 'Cancelar',
     }).then((result) => {
         // If the user confirm the action, then the product is deleted
         if (result.isConfirmed) {
