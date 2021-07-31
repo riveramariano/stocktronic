@@ -33,22 +33,110 @@ oci_execute($curs);
 <body>
     <!-- First container -->
     <div class="container-fluid">
-        <h3 class="text-center mt-5" style="color:orange">Nuevos</h3>
-        <h1 class="text-center mt-2">Componentes</h1>
-        <h6 class="text-center mt-3">Desde ₡1500</h6>
-        <div class="col text-center">
-            <button type="button" class="mt-3 btn btn-primary rounded-lg">Agregar al Carrito</button>
-        </div>
-        <div class="row justify-content-center minus-mt">
-            <div class="text-center">
-                <img class="img-fluid" src="../images/componentes.png" />
-            </div>
-        </div>
+        <?php
+        if ($categoria == 1) {
+            echo '<h3 class="text-center mt-5" style="color:orange">Nuevos</h3>';
+            echo '<h1 class="text-center mt-2">Componentes</h1>';
+            echo '<h6 class="text-center mt-3">Desde ₡1500</h6>';
+            echo '<div class="col text-center">';
+            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
+            echo '</div>';
+            echo '<div class="row justify-content-center minus-mt">';
+            echo '<div class="text-center">';
+            echo '<img class="img-fluid" src="../images/componentes.png" />';
+            echo ' </div>';
+            echo '</div>';
+        }
+        if ($categoria == 2) {
+            echo '<h3 class="text-center mt-5" style="color:orange">Nuevas</h3>';
+            echo '<h1 class="text-center mt-2">Herramientas</h1>';
+            echo '<h6 class="text-center mt-3">Desde ₡8000</h6>';
+            echo '<div class="col text-center">';
+            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
+            echo '</div>';
+            echo '<div class="row justify-content-center mt-3">';
+            echo '<div class="text-center">';
+            echo '<img class="img-fluid" src="../images/herramientas.png" width="845" height="auto" />';
+            echo ' </div>';
+            echo '</div>';
+        }
+        if ($categoria == 3) {
+            echo '<h3 class="text-center mt-5" style="color:orange">Nuevas</h3>';
+            echo '<h1 class="text-center mt-2">Impresoras 3D</h1>';
+            echo '<h6 class="text-center mt-3">Desde ₡30000</h6>';
+            echo '<div class="col text-center">';
+            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
+            echo '</div>';
+            echo '<div class="row justify-content-center">';
+            echo '<div class="text-center">';
+            echo '<img class="img-fluid" src="../images/impresoras.jpg" width="605" height="auto" />';
+            echo ' </div>';
+            echo '</div>';
+        }
+        if ($categoria == 4) {
+            echo '<h3 class="text-center mt-5" style="color:orange">Nuevos</h3>';
+            echo '<h1 class="text-center mt-2">Cortadores Láser</h1>';
+            echo '<h6 class="text-center mt-3">Desde ₡30000</h6>';
+            echo '<div class="col text-center">';
+            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
+            echo '</div>';
+            echo '<div class="row justify-content-center mt-5">';
+            echo '<div class="text-center">';
+            echo '<img class="img-fluid" src="../images/cortador-laser.png" width="760" height="auto" />';
+            echo ' </div>';
+            echo '</div>';
+        }
+        if ($categoria == 5) {
+            echo '<h3 class="text-center mt-5" style="color:orange">Nuevas</h3>';
+            echo '<h1 class="text-center mt-2">Raspberry Pi</h1>';
+            echo '<h6 class="text-center mt-3">Desde ₡20000</h6>';
+            echo '<div class="col text-center">';
+            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
+            echo '</div>';
+            echo '<div class="row justify-content-center mt-5">';
+            echo '<div class="text-center mt-3">';
+            echo '<img class="img-fluid" src="../images/raspberry.png" width="855" height="auto" />';
+            echo ' </div>';
+            echo '</div>';
+        }
+        if ($categoria == 6) {
+            echo '<h3 class="text-center mt-5" style="color:orange">Nuevos</h3>';
+            echo '<h1 class="text-center mt-2">Productos Wireless</h1>';
+            echo '<h6 class="text-center mt-3">Desde ₡5000</h6>';
+            echo '<div class="col text-center">';
+            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
+            echo '</div>';
+            echo '<div class="row justify-content-center mt-3">';
+            echo '<div class="text-center">';
+            echo '<img class="img-fluid" src="../images/wireless.jpg" width="545" height="auto" />';
+            echo ' </div>';
+            echo '</div>';
+        }
+        ?>
     </div>
 
     <!-- Second container -->
-    <div class="container-fluid mt-5" style="background-color: #f9f9fa; padding-top: 1rem">
-        <h1 class="text-center mt-4">Nuestros Productos:</h1>
+    <div id="productos" class="container-fluid mt-5" style="background-color: #f9f9fa; padding-top: 1rem">
+        <?php
+        if ($categoria == 1) {
+            echo '<h1 class="text-center mt-4">Nuestros Componentes:</h1>';
+        }
+        if ($categoria == 2) {
+            echo '<h1 class="text-center mt-4">Nuestras Herramientas:</h1>';
+        }
+        if ($categoria == 3) {
+            echo '<h1 class="text-center mt-4">Nuestras Impresoras 3D:</h1>';
+        }
+        if ($categoria == 4) {
+            echo '<h1 class="text-center mt-4">Nuestros Cortadores Láser:</h1>';
+        }
+        if ($categoria == 5) {
+            echo '<h1 class="text-center mt-4">Nuestras Raspberry Pi:</h1>';
+        }
+        if ($categoria == 6) {
+            echo '<h1 class="text-center mt-4">Nuestros Productos Wireless:</h1>';
+        }
+        ?>
         <div class="container pt-5">
             <!-- Product card -->
             <div class="row">
