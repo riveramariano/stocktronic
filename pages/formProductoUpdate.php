@@ -8,7 +8,7 @@
 include "../components/header.php";
 include '../conexion.php';
 
-// Get the url id
+// Get the url id 
 $idParametro = $_GET['q'];
 
 // Create the memory cursors to iterate through table values
@@ -42,9 +42,6 @@ oci_execute($curs2);
 oci_execute($getProducto);
 oci_execute($curs3);
 
-// This forms show another way to fetch an array
-$productoEncontrado = oci_fetch_array($curs3, OCI_ASSOC + OCI_RETURN_NULLS);
-
 ?>
 
 <body class="bg-light">
@@ -62,36 +59,49 @@ $productoEncontrado = oci_fetch_array($curs3, OCI_ASSOC + OCI_RETURN_NULLS);
                     <div class="card-details">
                         <h3 class="title text-uppercase">Actualizar Producto</h3>
                         <div class="row">
-                            <div class="form-group col-sm-4">
-                                <label for="">ID Producto</label>
-                                <input name="id" type="text" class="form-control" placeholder="Identificador" value="<?php echo $productoEncontrado['ID_PRODUCTO']; ?>" maxlength="2" minlength="2" disabled>
-                            </div>
-                            <div class="form-group col-sm-8">
-                                <label for="">Nombre Producto</label>
-                                <input name="nombre" type="text" class="form-control" placeholder="Nombre" value="<?php echo $productoEncontrado['NOMBRE']; ?>" maxlength="2" minlength="2" required>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="">Descripción Producto</label>
-                                <input name="desc" type="text" class="form-control" placeholder="Descripcion" value="<?php echo $productoEncontrado['DESCRIPCION']; ?>" maxlength="2" minlength="2" required>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="">URL Imagen</label>
-                                <input name="url" type="text" class="form-control" placeholder="URL" value="<?php echo $productoEncontrado['URL_IMAGEN']; ?>" maxlength="2" minlength="2" required>
-                            </div>
+                            <?php
+                            // Fetch the array of the first stored procedure to create a new option for each metodo de pago
+                            while (($row3 = oci_fetch_array($curs3, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                                $idProducto = $row3['ID_PRODUCTO'];
+                                $nombreProducto = $row3['NOMBRE'];
+                                $descProducto = $row3['DESCRIPCION'];
+                                $urlProducto = $row3['URL_IMAGEN'];
+                                $precioProducto = $row3['PRECIO'];
+                                $cantProducto = $row3['CANTIDAD'];
+                                $idProveedor = $row3['ID_PROVEEDOR'];
+                                $idCategoria = $row3['ID_CATEGORIA'];
+                                echo '<div class="form-group col-sm-4">
+                                        <label>ID Producto</label>
+                                        <input id="idProducto" name="id" type="text" class="form-control" placeholder="Identificador" value="'. $idProducto . '" disabled>
+                                    </div>
+                                    <div class="form-group col-sm-8">
+                                        <label>Nombre Producto</label>
+                                        <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" value="' . $nombreProducto . '" required>
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <label>Descripción Producto</label>
+                                        <input id="desc" name="desc" type="text" class="form-control" placeholder="Descripcion" value="' . $descProducto . '" required>
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <label>URL Imagen</label>
+                                        <input id="url" name="url" type="text" class="form-control" placeholder="URL" value="' . $urlProducto . '"  required>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>Precio Producto</label>
+                                        <input id="precio" name="precio" type="number" class="form-control" placeholder="Precio" value="' . $precioProducto . '" required>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>Cantidad Producto</label>
+                                        <input id="cant" name="cantidad" type="number" class="form-control" placeholder="Cantidad" value="' . $cantProducto . '" required>
+                                    </div>';
+                            }
+                            ?>
                             <div class="form-group col-sm-6">
-                                <label for="">Precio Producto</label>
-                                <input name="precio" type="number" class="form-control" placeholder="Precio" value="<?php echo $productoEncontrado['PRECIO']; ?>" maxlength="2" minlength="2">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="">Cantidad Producto</label>
-                                <input name="cant" type="number" class="form-control" placeholder="Cantidad" value="<?php echo $productoEncontrado['CANTIDAD']; ?>" maxlength="2" minlength="2">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="metodo">Proveedor</label>
-                                <select name="proveedor" class="form-control">
+                                <label>Proveedor</label>
+                                <select id="selectProveedor" name="proveedor" class="form-control">
                                     <?php
                                     while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                        if ($row["ID_PROVEEDOR"] == $productoEncontrado['ID_PROVEEDOR']) {
+                                        if ($row["ID_PROVEEDOR"] == $idProveedor) {
                                             echo "<option value=" . $row["ID_PROVEEDOR"] . " selected>" . $row["NOMBRE"] . "</option>";
                                         } else {
                                             echo "<option value=" . $row["ID_PROVEEDOR"] . ">" . $row["NOMBRE"] . "</option>";
@@ -101,11 +111,11 @@ $productoEncontrado = oci_fetch_array($curs3, OCI_ASSOC + OCI_RETURN_NULLS);
                                 </select>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label for="metodo">Categoría</label>
-                                <select name="categoria" class="form-control">
+                                <label>Categoría</label>
+                                <select id="selectCategoria" name="categoria" class="form-control">
                                     <?php
                                     while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                        if ($row2["ID_CATEGORIA"] == $productoEncontrado['ID_CATEGORIA']) {
+                                        if ($row2["ID_CATEGORIA"] == $idCategoria) {
                                             echo "<option value=" . $row2["ID_CATEGORIA"] . " selected>" . $row2["TIPO"] . "</option>";
                                         } else {
                                             echo "<option value=" . $row2["ID_CATEGORIA"] . ">" . $row2["TIPO"] . "</option>";
@@ -115,7 +125,7 @@ $productoEncontrado = oci_fetch_array($curs3, OCI_ASSOC + OCI_RETURN_NULLS);
                                 </select>
                             </div>
                             <div class="form-group col-sm-12">
-                                <button id="submitBtn" name="submitBtn" class="btn btn-success btn-block">Actualizar Producto</button>
+                                <button id="btnUpdate" type="submit" name="submitBtn" class="btn btn-success btn-block">Actualizar Producto</button>
                             </div>
                         </div>
                     </div>

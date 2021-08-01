@@ -9,7 +9,7 @@ $idUsuario = $_SESSION['idUsuario'];
 // The most important file of the project
 include '../conexion.php';
 
-$numeroTarjeta = $_GET['numTarjeta'];
+$numeroTarjeta = $_GET['numTarjeta']; 
 $direccion1 = $_GET['dir1'];
 $direccion2 = $_GET['dir2'];
 $telefono = $_GET['telefono'];

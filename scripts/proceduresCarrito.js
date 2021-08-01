@@ -49,7 +49,7 @@ $(".btnPlus").click(function () {
         });
     }
 });
-
+ 
 // This function will call an alert for the user
 $(".btnDelete").click(function () {
     Swal.fire({

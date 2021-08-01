@@ -34,6 +34,7 @@ oci_execute($curs);
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Inventario Stocktronic</h2>
+                <a href="formProductoInsert.php"><button class="btn btn-dark mt-3 mb-4">Agregar Producto</button></a>
             </div>
         </div>
         <div class="row">
@@ -73,8 +74,8 @@ oci_execute($curs);
                                         <td>' . $cantidad . '</td>
                                         <td>' . $tipo . '</td>
                                         <td class="text-center">
-                                            <a href="formProducto.php?q=' . $idProducto . '"><button class="btn btn-success btn-md">Actualizar</button></a>
-                                            <button class="btn btn-danger btn-md">Eliminar</button>
+                                            <a href="formProductoUpdate.php?q=' . $idProducto . '"><button class="btn btn-success btn-md">Actualizar</button></a>
+                                            <button data-id="' . $idProducto . '" type="button" class="btnDelete btn btn-danger btn-md">Eliminar</button>
                                         </td>
                                     </tr>';
                             }
@@ -91,6 +92,10 @@ oci_execute($curs);
     include '../components/footer.php';
     ?>
 
+    <!-- Add sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="../scripts/proceduresProducto.js"></script>
     <script src="../scripts/historial.js"></script>
 
     <!-- Scripts for the table pagination -->

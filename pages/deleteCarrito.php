@@ -8,5 +8,5 @@ $deleteCarrito= oci_parse($conn, "begin DELETE_CARRITO($idCarrito); end;");
 
 // Execute de stored procedure
 oci_execute($deleteCarrito);
-
+ 
 ?>

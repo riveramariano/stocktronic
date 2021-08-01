@@ -127,7 +127,7 @@ oci_execute($curs2);
                                 <input id="cod" type="text" class="form-control" maxlength="10">
                             </div>
                             <div class="form-group col-sm-12">
-                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-primary btn-block">Confirmar Compra</button>
+                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-primary btn-block">Confirmar Compra</button> 
                             </div>
                         </div>
                     </div>
