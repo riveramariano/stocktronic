@@ -1,4 +1,31 @@
 <?php
+function login($conn)
+{
+    $emailusuario = $_POST['email'];
+    $passusuario = $_POST['psw'];
+
+    $curs = oci_new_cursor($conn);
+
+    $login = oci_parse($conn, "begin LOGIN(:CM, :email, :passwrd); end;");
+
+    oci_bind_by_name($login, ":CM", $curs, -1, OCI_B_CURSOR);
+    oci_bind_by_name($login, ":email", $emailusuario, 32);
+    oci_bind_by_name($login, ":passwrd", $passusuario, 32);
+
+    oci_execute($login);
+    oci_execute($curs);
+
+    $row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS);
+
+    $_SESSION['loggedUser'] = 1;
+    $_SESSION['idUsuario'] = $row['ID_USUARIO'];
+    $_SESSION['nombreUsuario'] = $row['NOMBRE'];
+    $_SESSION['apellidoUsuario'] = $row['APELLIDO1'];
+    $_SESSION['idRol'] = $row['ID_ROL'];
+
+    header('Location: pages/inicio.php ');
+};
+
 function get_products($conn, $categoria)
 {
     $curs = oci_new_cursor($conn);

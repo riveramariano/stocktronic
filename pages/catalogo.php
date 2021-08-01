@@ -1,13 +1,15 @@
 <?php
 session_start();
-// Imports
+
 include '../conexion.php';
 include '../scripts/procedures.php';
+include '../components/validator.php';
 
 $categoria = $_GET['q'];
 $dataCategoria = get_categoria($conn, $categoria);
 $infoCategoria = oci_fetch_array($dataCategoria, OCI_ASSOC + OCI_RETURN_NULLS);
 $tipo = $infoCategoria['TIPO'];
+
 $i = 0;
 ?>
 
@@ -27,6 +29,7 @@ include '../components/header.php';
     $datas = get_lowest_price($conn, $categoria);
     $linea = oci_fetch_array($datas, OCI_ASSOC + OCI_RETURN_NULLS);
     $lowestPrice = $linea['PRECIO'];
+
     echo "
             <h3 class='text-center mt-5' style='color:orange'>Novedades en:</h3>
             <h1 class='text-center mt-2'>$tipo</h1>

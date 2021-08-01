@@ -69,7 +69,7 @@
                             <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/stocktronic/index.php" onclick="session_destroy()">Cerrar Sesión</a>
+                            <a class="dropdown-item" href="/stocktronic/index.php" onclick="session_destroy()" style='color:red'>Cerrar Sesión</a>
                         </div>
                     </div>
                 </li>

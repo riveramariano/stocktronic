@@ -1,4 +1,5 @@
 <head>
+    <link href="../styles/fonts.css" rel="stylesheet" />
     <link href="../styles/catalogo.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
@@ -8,6 +9,7 @@ session_start();
 include '../components/header.php';
 include '../scripts/procedures.php';
 include '../conexion.php';
+include '../components/validator.php'; // <- Revisar funcionalidad
 $i = 0;
 ?>
 
@@ -25,7 +27,6 @@ $i = 0;
             <h1 class="text-center mt-5">Explore nuestros Productos</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                 <?php
-                // var_dump($_SESSION['nombreUsuario']);
                 $data = get_products_random($conn);
                 while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                     $i = $i + 1;
@@ -38,7 +39,6 @@ $i = 0;
                                         onclick="addCart(\'' . $productoNombre . '\')">
                                         <i class="fa fa-shopping-cart"></i>
                                     </button>';
-
                     echo "<div class='product-card mb-5'>
                             <div class='badge'>Nuevo</div>
                             <div class='product-tumb'>
