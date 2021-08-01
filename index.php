@@ -19,6 +19,7 @@ if (isset($_POST['btnEntrar'])) {
     oci_execute($curs);
 
     $row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS);
+    
     $_SESSION['idUsuario'] = $row['ID_USUARIO'];
     $_SESSION['nombreUsuario'] = $row['NOMBRE'];
     $_SESSION['apellidoUsuario'] = $row['APELLIDO1'];

@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Imports
 include '../conexion.php';
 include '../scripts/procedures.php';
@@ -21,7 +22,28 @@ include '../components/header.php';
 ?>
 
 <body>
-    <section class="py-5">
+    <?php
+
+    $datas = get_lowest_price($conn, $categoria);
+    $linea = oci_fetch_array($datas, OCI_ASSOC + OCI_RETURN_NULLS);
+    $lowestPrice = $linea['PRECIO'];
+    echo "
+            <h3 class='text-center mt-5' style='color:orange'>Novedades en:</h3>
+            <h1 class='text-center mt-2'>$tipo</h1>
+            <h6 class='text-center mt-3'>Desde ₡$lowestPrice</h6>
+            <div class='col text-center'>
+                <a href='#productos'><button type='button' class='mt-3 btn btn-primary rounded-lg'>Conocer Productos</button></a>
+            </div>
+            <div class='row justify-content-center'>
+                <div class='text-center'>
+                    <img class='img-fluid' src='../images/imagen-$categoria.png' width='605' height='auto' />
+                </div>
+            </div>
+        ";
+    ?>
+
+    <!-- Product Secction -->
+    <section id="productos" class="py-5" style="background-color: #f9f9fa; padding-top: 1rem">
         <div class="container px-4 px-lg-5 mt-4">
             <h1 class="text-center mt-5">Explore nuestros Productos</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
@@ -30,7 +52,6 @@ include '../components/header.php';
                 while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                     $id = $row['ID_PRODUCTO'];
                     $nombre = $row['NOMBRE'];
-                    $hola = 'hola';
                     $descripcion = $row['DESCRIPCION'];
                     $url = $row['URL_IMAGEN'];
                     $precio = $row['PRECIO'];
@@ -62,24 +83,22 @@ include '../components/header.php';
         </div>
     </section>
 
-    <?php
-    include '../components/footer.php';
-    ?>
+    < <?php
+        include '../components/footer.php';
+        ?> <!-- Add sweetalert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../scripts/sweetalert2.js"></script>
 
-    <!-- Add sweetalert2 -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/sweetalert2.js"></script>
+        <!-- This one call the ajax to add carrito -->
+        <script src="../scripts/addCarrito.js"></script>
 
-    <!-- This one call the ajax to add carrito -->
-    <script src="../scripts/addCarrito.js"></script>
-
-    <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

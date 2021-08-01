@@ -20,12 +20,12 @@ $i = 0;
             No dudes en consultarnos cualquier cosa
         </h4>
     </div>
-    
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-4">
             <h1 class="text-center mt-5">Explore nuestros Productos</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                 <?php
+                // var_dump($_SESSION['nombreUsuario']);
                 $data = get_products_random($conn);
                 while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                     $i = $i + 1;

@@ -1,10 +1,3 @@
-<?php
-// function closeSession()
-// {
-//     session_destroy();
-// }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
