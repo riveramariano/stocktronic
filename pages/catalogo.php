@@ -1,149 +1,33 @@
+<?php
+// Imports
+include '../conexion.php';
+include '../scripts/procedures.php';
+
+$categoria = $_GET['q'];
+$dataCategoria = get_categoria($conn, $categoria);
+$infoCategoria = oci_fetch_array($dataCategoria, OCI_ASSOC + OCI_RETURN_NULLS);
+$tipo = $infoCategoria['TIPO'];
+$i = 0;
+?>
+
 <head>
-    <title>Componentes - Stocktronic</title>
+    <title><?php echo "$tipo - Stocktronic" ?></title>
     <link href="../styles/catalogo.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
 
 <?php
-// Import header.php and conexion.php
 include '../components/header.php';
-include '../conexion.php';
-
-// Get the url id
-$categoria = $_GET['q'];
-
-// Declare a variable to generate dinamic id's
-$i = 0;
-
-// Create a memory cursor to iterate through table values
-$curs = oci_new_cursor($conn);
-
-// Call the stored procedure to bring all products with id_categoria = 1
-$getProductos = oci_parse($conn, "begin GET_PRODUCTOS(:CM, :ID_CATEGORIA); end;");
-
-// Pass the memory cursor into the stored procedure
-oci_bind_by_name($getProductos, ":CM", $curs, -1, OCI_B_CURSOR);
-oci_bind_by_name($getProductos, ":ID_CATEGORIA", $categoria, -1);
-
-// Execute the stored procedured and the memory cursor
-oci_execute($getProductos);
-oci_execute($curs);
 ?>
 
 <body>
-    <!-- First container -->
-    <div class="container-fluid">
-        <?php
-        if ($categoria == 1) {
-            echo '<h3 class="text-center mt-5" style="color:orange">Nuevos</h3>';
-            echo '<h1 class="text-center mt-2">Componentes</h1>';
-            echo '<h6 class="text-center mt-3">Desde ₡1500</h6>';
-            echo '<div class="col text-center">';
-            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
-            echo '</div>';
-            echo '<div class="row justify-content-center minus-mt">';
-            echo '<div class="text-center">';
-            echo '<img class="img-fluid" src="../images/componentes.png" />';
-            echo ' </div>';
-            echo '</div>';
-        }
-        if ($categoria == 2) {
-            echo '<h3 class="text-center mt-5" style="color:orange">Nuevas</h3>';
-            echo '<h1 class="text-center mt-2">Herramientas</h1>';
-            echo '<h6 class="text-center mt-3">Desde ₡8000</h6>';
-            echo '<div class="col text-center">';
-            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
-            echo '</div>';
-            echo '<div class="row justify-content-center mt-3">';
-            echo '<div class="text-center">';
-            echo '<img class="img-fluid" src="../images/herramientas.png" width="845" height="auto" />';
-            echo ' </div>';
-            echo '</div>';
-        }
-        if ($categoria == 3) {
-            echo '<h3 class="text-center mt-5" style="color:orange">Nuevas</h3>';
-            echo '<h1 class="text-center mt-2">Impresoras 3D</h1>';
-            echo '<h6 class="text-center mt-3">Desde ₡30000</h6>';
-            echo '<div class="col text-center">';
-            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
-            echo '</div>';
-            echo '<div class="row justify-content-center">';
-            echo '<div class="text-center">';
-            echo '<img class="img-fluid" src="../images/impresoras.jpg" width="605" height="auto" />';
-            echo ' </div>';
-            echo '</div>';
-        }
-        if ($categoria == 4) {
-            echo '<h3 class="text-center mt-5" style="color:orange">Nuevos</h3>';
-            echo '<h1 class="text-center mt-2">Cortadores Láser</h1>';
-            echo '<h6 class="text-center mt-3">Desde ₡30000</h6>';
-            echo '<div class="col text-center">';
-            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
-            echo '</div>';
-            echo '<div class="row justify-content-center mt-5">';
-            echo '<div class="text-center">';
-            echo '<img class="img-fluid" src="../images/cortador-laser.png" width="760" height="auto" />';
-            echo ' </div>';
-            echo '</div>';
-        }
-        if ($categoria == 5) {
-            echo '<h3 class="text-center mt-5" style="color:orange">Nuevas</h3>';
-            echo '<h1 class="text-center mt-2">Raspberry Pi</h1>';
-            echo '<h6 class="text-center mt-3">Desde ₡20000</h6>';
-            echo '<div class="col text-center">';
-            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
-            echo '</div>';
-            echo '<div class="row justify-content-center mt-5">';
-            echo '<div class="text-center mt-3">';
-            echo '<img class="img-fluid" src="../images/raspberry.png" width="855" height="auto" />';
-            echo ' </div>';
-            echo '</div>';
-        }
-        if ($categoria == 6) {
-            echo '<h3 class="text-center mt-5" style="color:orange">Nuevos</h3>';
-            echo '<h1 class="text-center mt-2">Productos Wireless</h1>';
-            echo '<h6 class="text-center mt-3">Desde ₡5000</h6>';
-            echo '<div class="col text-center">';
-            echo '<a href="#productos"><button type="button" class="mt-3 btn btn-primary rounded-lg">Conocer Productos</button><a/>';
-            echo '</div>';
-            echo '<div class="row justify-content-center mt-3">';
-            echo '<div class="text-center">';
-            echo '<img class="img-fluid" src="../images/wireless.jpg" width="545" height="auto" />';
-            echo ' </div>';
-            echo '</div>';
-        }
-        ?>
-    </div>
-
-    <!-- Second container -->
-    <div id="productos" class="container-fluid mt-5" style="background-color: #f9f9fa; padding-top: 1rem">
-        <?php
-        if ($categoria == 1) {
-            echo '<h1 class="text-center mt-4">Nuestros Componentes:</h1>';
-        }
-        if ($categoria == 2) {
-            echo '<h1 class="text-center mt-4">Nuestras Herramientas:</h1>';
-        }
-        if ($categoria == 3) {
-            echo '<h1 class="text-center mt-4">Nuestras Impresoras 3D:</h1>';
-        }
-        if ($categoria == 4) {
-            echo '<h1 class="text-center mt-4">Nuestros Cortadores Láser:</h1>';
-        }
-        if ($categoria == 5) {
-            echo '<h1 class="text-center mt-4">Nuestras Raspberry Pi:</h1>';
-        }
-        if ($categoria == 6) {
-            echo '<h1 class="text-center mt-4">Nuestros Productos Wireless:</h1>';
-        }
-        ?>
-        <div class="container pt-5">
-            <!-- Product card -->
-            <div class="row">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-4">
+            <h1 class="text-center mt-5">Explore nuestros Productos</h1>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                 <?php
-                // Fetch the array to create a new card for each product with id_categoria = 1
-                while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                    // This is how you bind the values of the array to a variable
+                $data = get_products($conn, $categoria);
+                while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                     $id = $row['ID_PRODUCTO'];
                     $nombre = $row['NOMBRE'];
                     $hola = 'hola';
@@ -164,22 +48,21 @@ oci_execute($curs);
                                 <div class='product-price'>₡$precio</div>";
                     // I created a dinamic button name and id to create a func. for each one, the func's are on scripts/sweetalert2.js. Could you change that file name? Thx
                     echo '<div class="product-links">
-                                            <button data-id="' . $id . '" type="button" class="btnAdd" 
-                                            onclick="addCart(\'' . $nombre . '\')">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </button>
-                                        </div>
-                            </div>
+                                        <button data-id="' . $id . '" type="button" class="btnAdd" 
+                                        onclick="addCart(\'' . $nombre . '\')">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>';
                 }
                 ?>
             </div>
         </div>
-    </div>
+    </section>
 
     <?php
-    // Import the footer.php
     include '../components/footer.php';
     ?>
 

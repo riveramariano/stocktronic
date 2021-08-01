@@ -1,5 +1,11 @@
 <?php
-echo '<!DOCTYPE html>
+// function closeSession()
+// {
+//     session_destroy();
+// }
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,12 +13,10 @@ echo '<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
     <title>Stocktronic</title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../styles/simple-sidebar.css" rel="stylesheet" />
     <link href="../styles/index.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
@@ -24,7 +28,6 @@ echo '<!DOCTYPE html>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-    
 </head>
 
 <body>
@@ -65,20 +68,22 @@ echo '<!DOCTYPE html>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <button class="btn border border-light text-light btn-sm dropdown-toggle rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                        <button class="btn border border-light text-light btn-sm dropdown-toggle rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                             Opciones
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/stocktronic/index.php" onclick="session_destroy()">Cerrar Sesión</a>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
     </nav>
-    
+
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -88,6 +93,5 @@ echo '<!DOCTYPE html>
             $("#wrapper").toggleClass("toggled");
         });
     </script>
-    
-<body>';
-?>
+
+</body>

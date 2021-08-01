@@ -38,7 +38,7 @@ oci_execute($curs);
     <!-- Cart items -->
     <div class="container-fluid mb-5">
         <div class="row">
-            <div class="col-md-8 col-11 mx-auto">
+            <div class="col-md-10 col-11 mx-auto">
                 <div class="row mt-5 gx-4">
                     <!-- Left side -->
                     <div class="col-md-12 col-lg-8 col-10 mx-auto main-cart mb-lg-0 mb-5 shadow">

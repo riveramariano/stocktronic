@@ -1,9 +1,17 @@
+<head>
+    <link href="../styles/catalogo.css" rel="stylesheet" />
+    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+</head>
+
 <?php
+session_start();
 include '../components/header.php';
+include '../scripts/procedures.php';
+include '../conexion.php';
+$i = 0;
 ?>
 
 <body>
-
     <div class=" container-fluid">
         <h1 class="text-center" style="margin-top: 8rem">
             Todo lo que ama de nuestra tienda <br /> a un clic de su alcance.
@@ -12,144 +20,53 @@ include '../components/header.php';
             No dudes en consultarnos cualquier cosa
         </h4>
     </div>
+    
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-4">
+            <h1 class="text-center mt-5">Explore nuestros Productos</h1>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
+                <?php
+                $data = get_products_random($conn);
+                while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                    $i = $i + 1;
+                    $productoNombre = $row['NOMBRE'];
+                    $productoPrecio = $row['PRECIO'];
+                    $productoID = $row['ID_PRODUCTO'];
+                    $productoImagen = $row['URL_IMAGEN'];
+                    $productoDescripcion = $row['DESCRIPCION'];
+                    $btnCarrito = '<button data-id="' . $productoID . '" type="button" class="btnAdd"
+                                        onclick="addCart(\'' . $productoNombre . '\')">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </button>';
 
-    <!-- Anuncios -->
-    <div class="container-fluid">
-        <div class="row justify-content-center" style="margin-top: 4rem">
-            <div class="col-6 card text-white bg-dark mr-3" style="max-width: 31rem">
-                <div class="card-header">Item 1</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Nos puedes contactar en cuarquier momento</p>
-                </div>
-            </div>
-            <div class="col-6 card text-white bg-info" style="max-width: 31rem">
-                <div class="card-header">Item 2</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Que tenemos free shipping</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mostrar Producto -->
-    <div class="container-fluid">
-        <div class="row mt-3 justify-content-center">
-            <div class="col-12 card text-white bg-dark mr-3" style="max-width: 62rem">
-                <div class="card-header">Item 1</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Aqui mostramos un producto</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- La seccion 04 es la de mostrar productos en tendencia -->
-    <h1 class="text-center mt-5">Explore nuestros Productos</h1>
-    <!-- Cards 01 -->
-    <div class="container pt-5" style="max-width: 65rem">
-        <div class="row">
-            <!-- Primera Card -->
-            <div class="col-lg-4 pb-5">
-                <div class="card ho">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Impresora 3D</h5>
-                    </div>
-                    <div class="view overlay">
-                        <img class="card-img-top" src="images/3dprinter.png" />
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Primera Card -->
-
-            <!-- Segunda Card -->
-            <div class="col-lg-4 pb-5">
-                <div class="card ho">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Impresora 3D</h5>
-                    </div>
-                    <div class="view overlay">
-                        <img class="card-img-top" src="images/3dprinter.png" />
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Segunda Card -->
-
-            <!-- Tercera Card -->
-            <div class="col-lg-4 pb-5">
-                <div class="card ho">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Impresora 3D</h5>
-                    </div>
-                    <div class="view overlay">
-                        <img class="card-img-top" src="images/3dprinter.png" />
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Tercera Card -->
-
-            <div class="col-lg-4 pb-5">
-                <div class="card ho">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Impresora 3D</h5>
-                    </div>
-                    <div class="view overlay">
-                        <img class="card-img-top" src="images/3dprinter.png" />
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 pb-5">
-                <div class="card ho">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Impresora 3D</h5>
-                    </div>
-                    <div class="view overlay">
-                        <img class="card-img-top" src="images/3dprinter.png" />
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 pb-5">
-                <div class="card ho">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Impresora 3D</h5>
-                    </div>
-                    <div class="view overlay">
-                        <img class="card-img-top" src="images/3dprinter.png" />
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
+                    echo "<div class='product-card mb-5'>
+                            <div class='badge'>Nuevo</div>
+                            <div class='product-tumb'>
+                                <img src='$productoImagen' alt=''>
+                            </div>
+                            <div class='product-details'>
+                                <h4><a id='productName$i' href='#'>$productoNombre</a></h4>
+                                <p>$productoDescripcion</p>
+                                <div class='product-bottom-details'>
+                                <div class='product-price'>₡$productoPrecio</div><div class='product-links'>
+                                    $btnCarrito
+                                </div>
+                                </div>
+                            </div>
+                        </div>";
+                }
+                ?>
             </div>
         </div>
-    </div>
-
+    </section>
     <?php
     include '../components/footer.php';
     ?>
-
+    <script src="../scripts/addCarrito.js"></script>
+    <script src="../scripts/sweetalert2.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();

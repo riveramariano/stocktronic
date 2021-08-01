@@ -18,12 +18,11 @@ if (isset($_POST['btnEntrar'])) {
     oci_execute($login);
     oci_execute($curs);
 
-    while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-        $_SESSION['idUsuario'] = $row['ID_USUARIO'];
-        $_SESSION['nombreUsuario'] = $row['NOMBRE'];
-        $_SESSION['apellidoUsuario'] = $row['APELLIDO1'];
-        $_SESSION['idRol'] = $row['ID_ROL'];
-    }
+    $row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS);
+    $_SESSION['idUsuario'] = $row['ID_USUARIO'];
+    $_SESSION['nombreUsuario'] = $row['NOMBRE'];
+    $_SESSION['apellidoUsuario'] = $row['APELLIDO1'];
+    $_SESSION['idRol'] = $row['ID_ROL'];
 
     header('Location: pages/inicio.php ');
 }

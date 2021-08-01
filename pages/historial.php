@@ -36,7 +36,7 @@ oci_execute($getOrdenes);
 oci_execute($curs);
 ?>
 
-<body>
+<body> 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
