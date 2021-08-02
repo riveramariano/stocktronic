@@ -55,14 +55,11 @@ if (isset($_POST['btnEntrar'])) {
                     </div>
 
                     <div class="row justify-content-center my-3 px-5">
-                        <!-- <input type="submit" alt="Entrar" name="btnEntrar"> -->
-                        <button name="btnEntrar" type="submit">ENTRAR
-                            <!-- <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#007BFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                                </svg>
-                            </a> -->
-                        </button>
+                        <div class="product-links">
+                            <button name="btnEntrar" type="submit">
+                                <i class="fas fa-chevron-circle-right fa-2x mt-3"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="row justify-content-center my-2">
                         <a href="#">

@@ -68,7 +68,6 @@ h2 {
 }
 
 .set-quantity::after {
-    content: '(Nota, 1 artículo)';
     width: auto;
     height: auto;
     text-align: center;

@@ -26,7 +26,7 @@ $("#btnInsert").click(function (e) {
             setTimeout(Swal.fire({
                 icon: 'success',
                 title: 'Agregando Producto',
-                text: 'Espere unos segundos.. redirigiendo',
+                text: 'Redirigiendo... espere unos segundos.',
                 showCancelButton: false,
                 showConfirmButton: false,
                 allowEscapeKey: false,
@@ -86,7 +86,7 @@ $(".btnDelete").click(function () {
     Swal.fire({
         icon: 'warning',
         title: 'Atención',
-        text: 'Desea eliminar el producto?',
+        text: '¿Desea eliminar el producto?',
         showCancelButton: true,
         confirmButtonColor: '#DC143C',
         confirmButtonText: `Eliminar`,
@@ -101,8 +101,35 @@ $(".btnDelete").click(function () {
                 data: {
                     idProducto: id
                 },
-                success: function (data) {
-                    setTimeout(function () { location.reload(); }, 700);
+                success: function (data) { 
+                    setTimeout(Swal.fire({
+                        icon: 'info',
+                        title: 'Producto Eliminado Correctamente',
+                        text: 'Redirigiendo... espere unos segundos.',
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        timer: 3000,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            timerInterval = setInterval(() => {
+                                const content = Swal.getHtmlContainer()
+                                if (content) {
+                                    const b = content.querySelector('b')
+                                    if (b) {
+                                        b.textContent = Swal.getTimerLeft()
+                                    }
+                                }
+                            }, 100)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                        }
+                    }), 3000);
+                    setTimeout(function () {
+                        window.location = 'tablaProductos.php';
+                    }, 3000);
                 },
             });
         }

@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark border-bottom">
+    <nav class="navbar navbar-expand-md navbar-dark border-bottom fixed-top">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -71,7 +71,7 @@ oci_execute($curs2);
                                 <select id="selectProveedor" name="proveedor" class="form-control">
                                     <?php
                                     while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                        echo "<option value=" . $row["ID_PROVEEDOR"] . " selected>" . $row["NOMBRE"] . "</option>";
+                                        echo "<option value=" . $row["ID_PROVEEDOR"] . ">" . $row["NOMBRE"] . "</option>";
                                     }
                                     ?>
                                 </select>
@@ -81,7 +81,7 @@ oci_execute($curs2);
                                 <select id="selectCategoria" name="categoria" class="form-control">
                                     <?php
                                     while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                        echo "<option value=" . $row2["ID_CATEGORIA"] . " selected>" . $row2["TIPO"] . "</option>";
+                                        echo "<option value=" . $row2["ID_CATEGORIA"] . ">" . $row2["TIPO"] . "</option>";
                                     }
                                     ?>
                                 </select>

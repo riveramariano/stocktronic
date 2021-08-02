@@ -100,11 +100,11 @@ oci_execute($curs2);
                             </div>
                             <div class="form-group col-sm-7">
                                 <label id="tarjetaVal">Número de Tarjeta</label>
-                                <input id="tarjeta" name="tarjeta" type="text" class="form-control" maxlength="16">
+                                <input id="tarjeta" name="tarjeta" type="number" class="form-control" maxlength="16" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             </div>
                             <div class="form-group col-sm-5">
                                 <label id="cvcVal">Código de Seguridad</label>
-                                <input id="cvc" type="text" class="form-control" placeholder="CVC" maxlength="3">
+                                <input id="cvc" type="number" class="form-control" placeholder="CVC" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             </div>
                         </div>
                         <div class="row">
@@ -120,14 +120,14 @@ oci_execute($curs2);
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="telVal">Teléfono</label>
-                                <input id="tel" name="telefono" type="text" class="form-control" maxlength="8">
+                                <input id="tel" name="telefono" type="number" class="form-control" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             </div>
                             <div class="form-group col-sm-6">
                                 <label id="codVal">Código Postal</label>
-                                <input id="cod" type="text" class="form-control" maxlength="10">
+                                <input id="cod" type="number" class="form-control" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             </div>
                             <div class="form-group col-sm-12">
-                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-primary btn-block">Confirmar Compra</button> 
+                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-primary btn-block">Confirmar Compra</button>
                             </div>
                         </div>
                     </div>

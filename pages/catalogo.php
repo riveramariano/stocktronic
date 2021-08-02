@@ -23,7 +23,7 @@ $i = 0;
 include '../components/header.php';
 ?>
 
-<body>
+<body class="mt-5">
     <?php
 
     $datas = get_lowest_price($conn, $categoria);

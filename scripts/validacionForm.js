@@ -240,7 +240,7 @@ $("#btnBuy").click(function () {
     Swal.fire({
         icon: 'info',
         title: 'Atención',
-        text: 'Desea confirmar la compra?',
+        text: '¿Desea confirmar la compra?',
         showCancelButton: true,
         confirmButtonColor: '#00913f',
         cancelButtonColor: '#DC143C',

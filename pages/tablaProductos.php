@@ -34,7 +34,7 @@ oci_execute($curs);
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Inventario Stocktronic</h2>
-                <a href="formProductoInsert.php"><button class="btn btn-dark mt-3 mb-4">Agregar Producto</button></a>
+                <a href="formProductoInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Producto</button></a>
             </div>
         </div>
         <div class="row">
