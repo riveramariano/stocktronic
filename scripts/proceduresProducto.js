@@ -12,7 +12,7 @@ $("#btnInsert").click(function (e) {
     e.preventDefault();
     $.ajax({
         type: "GET",
-        url: "../pages/insertProducto.php",
+        url: "../pages/productoSP/insertProducto.php",
         data: {
             nombre: nombreProducto.value,
             desc: descProducto.value,
@@ -60,7 +60,7 @@ $("#btnUpdate").click(function (e) {
     e.preventDefault();
     $.ajax({
         type: "GET",
-        url: "../pages/updateProducto.php",
+        url: "../pages/productoSP/updateProducto.php",
         data: {
             id: idProducto.value,
             nombre: nombreProducto.value,
@@ -97,7 +97,7 @@ $(".btnDelete").click(function () {
             var id = $(this).attr("data-id");
             $.ajax({
                 type: "GET",
-                url: "../pages/deleteProducto.php",
+                url: "../pages/productoSP/deleteProducto.php",
                 data: {
                     idProducto: id
                 },
