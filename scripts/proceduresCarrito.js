@@ -1,3 +1,54 @@
+// The transition to the div with the id="productos" is smooth
+$('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function (event) {
+        // On-page links
+        if (
+            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+            &&
+            location.hostname == this.hostname
+        ) {
+            // Figure out element to scroll to
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            // Does a scroll target exist?
+            if (target.length) {
+                // Only prevent default if animation is actually gonna happen
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000, function () {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false;
+                    } else {
+                        $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                        $target.focus(); // Set focus again
+                    };
+                });
+            }
+        }
+    });
+
+$(".btnAdd").click(function () {
+    var id = $(this).attr("data-id");
+    $.ajax({
+        type: "GET",
+        url: "../pages/carritoSP/insertCarrito.php",
+        data: {
+            ajaxid: id,
+        },
+        success: function (data) {
+            $("#display_rows").html(data);
+        },
+    });
+});
+
 // This function will reduce the product quantity
 $(".btnMinus").click(function () {
     var cantidad = $(this).attr("data-filter");
@@ -8,11 +59,11 @@ $(".btnMinus").click(function () {
             text: 'No se puede reducir la cantidad',
             confirmButtonText: `Aceptar`
         });
-    }  else {
+    } else {
         var id = $(this).attr("data-id");
         $.ajax({
             type: "GET",
-            url: "../pages/updateCarrito.php",
+            url: "../pages/carritoSP/updateCarrito.php",
             data: {
                 idCarrito: id,
                 cantidad: -1
@@ -21,7 +72,7 @@ $(".btnMinus").click(function () {
                 setTimeout(function () { location.reload(); }, 700);
             },
         });
-    } 
+    }
 });
 
 // This function will increase the product quantity
@@ -38,7 +89,7 @@ $(".btnPlus").click(function () {
         var id = $(this).attr("data-id");
         $.ajax({
             type: "GET",
-            url: "../pages/updateCarrito.php",
+            url: "../pages/carritoSP/updateCarrito.php",
             data: {
                 idCarrito: id,
                 cantidad: 1
@@ -49,7 +100,7 @@ $(".btnPlus").click(function () {
         });
     }
 });
- 
+
 // This function will call an alert for the user
 $(".btnDelete").click(function () {
     Swal.fire({
@@ -66,7 +117,7 @@ $(".btnDelete").click(function () {
             var id = $(this).attr("data-id");
             $.ajax({
                 type: "GET",
-                url: "../pages/deleteCarrito.php",
+                url: "../pages/carritoSP/deleteCarrito.php",
                 data: {
                     idCarrito: id
                 },
@@ -74,6 +125,6 @@ $(".btnDelete").click(function () {
                     setTimeout(function () { location.reload(); }, 700);
                 },
             });
-        } 
+        }
     });
 });

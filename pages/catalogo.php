@@ -93,7 +93,7 @@ include '../components/header.php';
         <script src="../scripts/sweetalert2.js"></script>
 
         <!-- This one call the ajax to add carrito -->
-        <script src="../scripts/addCarrito.js"></script>
+        <script src="../scripts/proceduresCarrito.js"></script>
 
         <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

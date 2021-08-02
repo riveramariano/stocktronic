@@ -1,6 +1,6 @@
 <?php
 // Import header.php and conexion.php
-include '../conexion.php';
+include '../../conexion.php';
 
 $idCarrito = $_GET['idCarrito'];
 $cantidad = $_GET['cantidad'];
