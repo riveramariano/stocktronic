@@ -6,11 +6,9 @@
 </head>
 
 <?php
-session_start();
-$idUsuario = $_SESSION['idUsuario'];
-
 // Import header.php and conexion.php
 include '../components/header.php';
+$idUsuario = $_SESSION['idUsuario'];
 include '../conexion.php';
 
 $total = 0;

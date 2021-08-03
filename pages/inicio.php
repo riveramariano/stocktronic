@@ -5,11 +5,10 @@
 </head>
 
 <?php
-session_start();
 include '../components/header.php';
 include '../scripts/procedures.php';
 include '../conexion.php';
-include '../components/validator.php'; // <- Revisar funcionalidad
+// include '../components/validator.php'; // <- Revisar funcionalidad
 $i = 0;
 ?>
 

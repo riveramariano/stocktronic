@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+include '../components/header.php';
 include '../conexion.php';
 include '../scripts/procedures.php';
 include '../components/validator.php';
@@ -20,7 +19,7 @@ $i = 0;
 </head>
 
 <?php
-include '../components/header.php';
+
 ?>
 
 <body class="mt-5">

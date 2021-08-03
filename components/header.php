@@ -1,3 +1,10 @@
+<?php
+session_start();
+// Get the user id from the session
+$nombreUsuario = $_SESSION['nombreUsuario'];
+$apellidoUsuario = $_SESSION['apellidoUsuario'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,6 +72,7 @@
                             Opciones
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item font-weight-bold" href="#"><?php echo $nombreUsuario . '     ' . $apellidoUsuario ?></a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
