@@ -47,27 +47,27 @@ oci_execute($curs2);
                         <h3 class="title text-uppercase">Actualizar Producto</h3>
                         <div class="row">
                             <div class="form-group col-sm-12">
-                                <label>Nombre Producto</label>
+                                <label id="nomVal">Nombre Producto</label>
                                 <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" value="" required>
                             </div>
                             <div class="form-group col-sm-12">
-                                <label>Descripción Producto</label>
+                                <label id="descVal">Descripción Producto</label>
                                 <input id="desc" name="desc" type="text" class="form-control" placeholder="Descripcion" value="" required>
                             </div>
                             <div class="form-group col-sm-12">
-                                <label>URL Imagen</label>
+                                <label id="urlVal">URL Imagen</label>
                                 <input id="url" name="url" type="text" class="form-control" placeholder="URL" value="" required>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label>Precio Producto</label>
+                                <label id="precioVal">Precio Producto</label>
                                 <input id="precio" name="precio" type="number" class="form-control" placeholder="Precio" value="" required>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label>Cantidad Producto</label>
+                                <label id="cantVal">Cantidad Producto</label>
                                 <input id="cant" name="cantidad" type="number" class="form-control" placeholder="Cantidad" value="" required>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label>Proveedor</label>
+                                <label id="proveedorVal">Proveedor</label>
                                 <select id="selectProveedor" name="proveedor" class="form-control">
                                     <?php
                                     while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
@@ -77,7 +77,7 @@ oci_execute($curs2);
                                 </select>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label>Categoría</label>
+                                <label id="categoriaVal">Categoría</label>
                                 <select id="selectCategoria" name="categoria" class="form-control">
                                     <?php
                                     while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
@@ -87,7 +87,7 @@ oci_execute($curs2);
                                 </select>
                             </div>
                             <div class="form-group col-sm-12">
-                                <button id="btnInsert" type="submit" name="submitBtn" class="btn btn-primary btn-block">Agregar Producto</button>
+                                <button id="btnInsert" type="submit" class="btn btn-primary btn-block">Agregar Producto</button>
                             </div>
                         </div>
                     </div>

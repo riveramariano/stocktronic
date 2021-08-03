@@ -1,11 +1,6 @@
 // "Método Pago" select variable
 let selectMetodo = document.getElementById('selectMet');
 
-// "Fecha Expiración" input and label variables
-let inputMM = document.getElementById('mm');
-let inputYY = document.getElementById('yy');
-const pFechaExpiracion = document.getElementById('fecVal');
-
 // "Número Tarjeta" input and label variables
 let inputTarjeta = document.getElementById('tarjeta');
 const pTarjeta = document.getElementById('tarjetaVal');
@@ -34,7 +29,6 @@ const pCod = document.getElementById('codVal');
 const btn = document.getElementById('btnBuy');
 
 // Restoration variables, this works for the messages
-const reparacionMMYY = pFechaExpiracion.innerText;
 const reparacionTarjeta = pTarjeta.innerText;
 const reparacionCVC = pCVC.innerText;
 const reparacionDir1 = pDir1.innerText;
@@ -43,8 +37,6 @@ const reparacionTel = pTel.innerText;
 const reparacionCod = pCod.innerText;
 
 // Listeners for the changes in the inputs
-inputMM.addEventListener('change', getValueMM);
-inputYY.addEventListener('change', getValueYY);
 inputTarjeta.addEventListener('change', getValueTarjeta);
 inputCVC.addEventListener('change', getValueCVC);
 inputDir1.addEventListener('change', getValueDir1);
@@ -56,63 +48,14 @@ inputCod.addEventListener('change', getValueCod);
 $(document).ready(function () {
     $('#btnBuy').attr('disabled', true);
     $('input').keyup(function () {
-        if (inputMM.value.trim().length == 2 && inputYY.value.trim().length == 2 && inputTarjeta.value.trim().length == 16
-            && inputCVC.value.trim().length >= 1 && inputDir1.value.trim().length >= 1 && inputDir2.value.trim().length >= 1
-            && inputTel.value.trim().length == 8 && inputCod.value.trim().length >= 1) {
+        if (inputTarjeta.value.trim().length == 16 && inputCVC.value.trim().length == 3 && inputDir1.value.trim().length >= 5 
+            && inputDir2.value.trim().length >= 5 && inputTel.value.trim().length == 8 && inputCod.value.trim().length == 5) {
             $('#btnBuy').attr('disabled', false);
         } else {
             $('#btnBuy').attr('disabled', true);
         }
     });
 });
-
-// This functions cheks if the input is blank or if the length < 2
-function getValueMM(e) {
-    if (e.target.value.trim() == 0) {
-        pFechaExpiracion.innerText = reparacionMMYY;
-        let validacion = ' Obligatorio (*)';
-        pFechaExpiracion.innerText += validacion;
-        pFechaExpiracion.style.color = "RED";
-    } else if (e.target.value.trim() != 0) {
-        pFechaExpiracion.innerText = reparacionMMYY;
-        pFechaExpiracion.style.color = "GREY";
-        let noStartWS = e.target.value.trimStart();
-        let withoutWS = noStartWS.replace(/\s/g, '');
-        inputMM.value = withoutWS;
-
-        // If there isn't 16 caracteres the error
-        if (inputMM.value.length < 2) {
-            pFechaExpiracion.innerText = reparacionMMYY;
-            let validacion = ' Algo esta mal (*)';
-            pFechaExpiracion.innerText += validacion;
-            pFechaExpiracion.style.color = "RED";
-        }
-    }
-}
-
-// This functions cheks if the input is blank or if the length < 2
-function getValueYY(e) {
-    if (e.target.value.trim() == 0) {
-        pFechaExpiracion.innerText = reparacionMMYY;
-        let validacion = ' Obligatorio (*)';
-        pFechaExpiracion.innerText += validacion;
-        pFechaExpiracion.style.color = "RED";
-    } else if (e.target.value.trim() != 0) {
-        pFechaExpiracion.innerText = reparacionMMYY;
-        pFechaExpiracion.style.color = "GREY";
-        let noStartWS = e.target.value.trimStart();
-        let withoutWS = noStartWS.replace(/\s/g, '');
-        inputYY.value = withoutWS;
-
-        // If there isn't 16 caracteres the error
-        if (inputYY.value.length < 2) {
-            pFechaExpiracion.innerText = reparacionMMYY;
-            let validacion = ' Algo esta mal (*)';
-            pFechaExpiracion.innerText += validacion;
-            pFechaExpiracion.style.color = "RED";
-        }
-    }
-}
 
 // This functions cheks if the input is blank or if the length < 16
 function getValueTarjeta(e) {
@@ -135,6 +78,11 @@ function getValueTarjeta(e) {
             let validacion = ' Mínimo 16 Caracteres (*)';
             pTarjeta.innerText += validacion;
             pTarjeta.style.color = "RED";
+        } else {
+            pTarjeta.innerText = reparacionTarjeta;
+            let validacion = ' Válido';
+            pTarjeta.innerText += validacion;
+            pTarjeta.style.color = "GREEN";
         }
     }
 }
@@ -159,6 +107,11 @@ function getValueCVC(e) {
             let validacion = ' Mínimo 3 Caracteres (*)';
             pCVC.innerText += validacion;
             pCVC.style.color = "RED";
+        } else {
+            pCVC.innerText = reparacionCVC;
+            let validacion = ' Válido';
+            pCVC.innerText += validacion;
+            pCVC.style.color = "GREEN";
         }
     }
 }
@@ -177,6 +130,18 @@ function getValueDir1(e) {
         let withoutWS = noStartWS.replace(/  +/g, ' ');
         inputDir1.value = withoutWS;
     }
+
+    if (inputDir1.value.length < 5) {
+        pDir1.innerText = reparacionDir1;
+        let validacion = ' Mínimo 5 Caracteres (*)';
+        pDir1.innerText += validacion;
+        pDir1.style.color = "RED";
+    } else {
+        pDir1.innerText = reparacionDir1;
+        let validacion = ' Válida';
+        pDir1.innerText += validacion;
+        pDir1.style.color = "GREEN";
+    }
 }
 
 // This functions cheks if the input is blank
@@ -192,6 +157,18 @@ function getValueDir2(e) {
         let noStartWS = e.target.value.trimStart();
         let withoutWS = noStartWS.replace(/  +/g, ' ');
         inputDir2.value = withoutWS;
+    }
+
+    if (inputDir2.value.length < 5) {
+        pDir2.innerText = reparacionDir2;
+        let validacion = ' Mínimo 5 Caracteres (*)';
+        pDir2.innerText += validacion;
+        pDir2.style.color = "RED";
+    } else {
+        pDir2.innerText = reparacionDir2;
+        let validacion = ' Válida';
+        pDir2.innerText += validacion;
+        pDir2.style.color = "GREEN";
     }
 }
 
@@ -215,6 +192,11 @@ function getValueTel(e) {
             let validacion = ' Mínimo 8 Caracteres (*)';
             pTel.innerText += validacion;
             pTel.style.color = "RED";
+        } else {
+            pTel.innerText = reparacionTel;
+            let validacion = ' Válido';
+            pTel.innerText += validacion;
+            pTel.style.color = "GREEN";
         }
     }
 }
@@ -232,6 +214,19 @@ function getValueCod(e) {
         let noStartWS = e.target.value.trimStart();
         let withoutWS = noStartWS.replace(/\s/g, '');
         inputCod.value = withoutWS;
+
+        // If there isn't 8 caracteres print a message into the label
+        if (inputCod.value.length < 5) {
+            pCod.innerText = reparacionCod;
+            let validacion = ' Mínimo 5 Caracteres (*)';
+            pCod.innerText += validacion;
+            pCod.style.color = "RED";
+        } else {
+            pCod.innerText = reparacionCod;
+            let validacion = ' Válido';
+            pCod.innerText += validacion;
+            pCod.style.color = "GREEN";
+        }
     }
 }
 

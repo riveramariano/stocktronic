@@ -95,7 +95,7 @@ oci_execute($curs);
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="../scripts/proceduresProducto.js"></script>
+    <script src="../scripts/deleteProducto.js"></script>
     <script src="../scripts/historial.js"></script>
 
     <!-- Scripts for the table pagination -->
