@@ -171,7 +171,7 @@ $(document).ready(function () {
         }
     });
 
-});
+}); 
 
 $("#btnRegister").click(function (e) {
     e.preventDefault();
@@ -186,13 +186,36 @@ $("#btnRegister").click(function (e) {
             password: inputPassword.value,
         },
         success: function (data) {
-            Swal.fire({
+            setTimeout(Swal.fire({
+                position: "top-end",
                 icon: 'success',
-                title: 'Atención!',
-                text: 'Producto actualizado correctamente.',
-                confirmButtonText: 'Aceptar',
-            });
-            window.location = 'pages/inicio.php';
+                title: 'Registro exitoso, iniciando sesión',
+                heightAuto: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                toast: true,
+                timer: 3000,
+                didOpen: () => {
+                    Swal.showLoading()
+                    timerInterval = setInterval(() => {
+                        const content = Swal.getHtmlContainer()
+                        if (content) {
+                            const b = content.querySelector('b')
+                            if (b) {
+                                b.textContent = Swal.getTimerLeft()
+                            }
+                        }
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }), 3000);
+            setTimeout(function () {
+                window.location = 'pages/inicio.php';
+            }, 3000);
         },
     });
 });
@@ -207,7 +230,36 @@ $("#btnLogin").click(function (e) {
             passwordLogin: inputPasswordLogin.value,
         },
         success: function (data) {
-            window.location = 'pages/inicio.php';
+            setTimeout(Swal.fire({
+                position: "top-end",
+                icon: 'success',
+                title: 'Iniciando sesión',
+                heightAuto: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                toast: true,
+                timer: 3000,
+                didOpen: () => {
+                    Swal.showLoading()
+                    timerInterval = setInterval(() => {
+                        const content = Swal.getHtmlContainer()
+                        if (content) {
+                            const b = content.querySelector('b')
+                            if (b) {
+                                b.textContent = Swal.getTimerLeft()
+                            }
+                        }
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }), 3000);
+            setTimeout(function () {
+                window.location = 'pages/inicio.php';
+            }, 3000);
         },
     });
 });
