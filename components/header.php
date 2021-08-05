@@ -77,7 +77,7 @@ $apellidoUsuario = $_SESSION['apellidoUsuario'];
                             <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/stocktronic/index.php" onclick="session_destroy()" style='color:red'>Cerrar Sesión</a>
+                            <a class="dropdown-item" href="/stocktronic/logout.php" style='color:red'>Cerrar Sesión</a>
                         </div>
                     </div>
                 </li>
