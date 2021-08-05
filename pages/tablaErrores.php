@@ -55,13 +55,13 @@ oci_execute($curs);
                                 $idError = $row['ID_ERRORES'];
                                 $fecError = $row['FEC_ERROR'];
                                 $descError = $row['DESCRIPCION'];
-                                $idUsuario = $row['ID_USUARIO'];
+                                $nombreUsuario = $row['NOMBRE'];
                                 // Printing the values into the table
                                 echo '<tr class="text-center">
                                         <th>' . $idError . '</th>
                                         <td scope="row">' . $fecError . '</td>
                                         <td>' . $descError . '</td>
-                                        <td>' . $idUsuario . '</td>
+                                        <td>' . $nombreUsuario . '</td>
                                     </tr>';
                             }
                             ?>

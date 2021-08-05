@@ -54,14 +54,14 @@ oci_execute($curs);
                                 // Atributos from the table productos inner join categoria
                                 $idEntrega = $row['ID_ENTREGAS'];
                                 $fecEntrega = $row['FEC_ENTREGA'];
-                                $idProducto = $row['ID_PRODUCTO'];
-                                $idProveedor = $row['ID_PROVEEDOR'];
+                                $nombreProducto = $row['NOMBRE'];
+                                $cedProveedor = $row['CED_JURIDICA'];
                                 // Printing the values into the table
                                 echo '<tr class="text-center">
                                         <th>' . $idEntrega . '</th>
                                         <td scope="row">' . $fecEntrega . '</td>
-                                        <td>' . $idProducto . '</td>
-                                        <td>' . $idProveedor . '</td>
+                                        <td>' . $nombreProducto . '</td>
+                                        <td>' . $cedProveedor . '</td>
                                     </tr>';
                             }
                             ?>
