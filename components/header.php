@@ -74,6 +74,7 @@ $apellidoUsuario = $_SESSION['apellidoUsuario'];
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item font-weight-bold" href="#"><?php echo $nombreUsuario . '     ' . $apellidoUsuario ?></a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>
+                            <a class="dropdown-item" href="/stocktronic/pages/tablaEntregas.php">Tabla Entregas</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
                             <div class="dropdown-divider"></div>
