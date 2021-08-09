@@ -84,7 +84,7 @@ $(document).ready(function () {
             if ($(this).val().length === 0) {
                 $(this).siblings('span.error').text('Campo obligatorio (*)').fadeIn().parent('.form-group').addClass('hasError');
                 usernameError = true;
-            } else if ($(this).val().length > 1 && $(this).val().length <= 4) {
+            } else if ($(this).val().length > 1 && $(this).val().length < 3) {
                 $(this).siblings('span.error').text('Debe tener almenos 4 caracteres').fadeIn().parent('.form-group').addClass('hasError');
                 usernameError = true;
             } else {
@@ -212,10 +212,10 @@ $("#btnRegister").click(function (e) {
                 willClose: () => {
                     clearInterval(timerInterval)
                 }
-            }), 3000);
+            }), 2000);
             setTimeout(function () {
                 window.location = 'pages/inicio.php';
-            }, 3000);
+            }, 2000);
         },
     });
 });
@@ -256,10 +256,10 @@ $("#btnLogin").click(function (e) {
                 willClose: () => {
                     clearInterval(timerInterval)
                 }
-            }), 3000);
+            }), 2000);
             setTimeout(function () {
                 window.location = 'pages/inicio.php';
-            }, 3000);
+            }, 2000);
         },
     });
 });
