@@ -131,3 +131,7 @@ h2 {
     outline: none;
     box-shadow: none;
 }
+
+.header-top {
+    margin-top: 4.0rem;
+}

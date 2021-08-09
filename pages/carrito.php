@@ -38,7 +38,7 @@ oci_execute($curs2);
     <?php
     // If $validation is true, then is something in the cart
     if (($validation = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS))) {
-    echo '<div class="container-fluid mb-5">
+    echo '<div class="container-fluid mb-5 header-top">
             <div class="row">
                 <div class="col-md-10 col-11 mx-auto">
                     <div class="row mt-5 gx-4">
