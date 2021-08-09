@@ -1,0 +1,26 @@
+#cancelar {
+    background-color: #444444;
+    color: white;
+}
+
+#cancelar:hover {
+    background-color: #333333;
+}
+
+#btnUpdate {
+    background-color: #00c851;
+    color: white;
+}
+
+#btnUpdate:hover {
+    background-color: #02de5b;
+}
+
+#btnInsert {
+    background-color: #4285f4;
+    color: white;
+}
+
+#btnInsert:hover {
+    background-color: #2974f0;
+}

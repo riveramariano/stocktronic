@@ -1,4 +1,5 @@
 <head>
+    <link href="../styles/formsButtons.css" rel="stylesheet" />
     <link href="../styles/checkout.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
@@ -33,18 +34,17 @@ oci_execute($curs2);
 
 <body class="bg-light">
 
-    <main class="page payment-page">
+    <main class="page payment-page header-top">
         <section class="payment-form dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2>Formulario</h2>
-                    <p>Este formulario tiene la función de actualizar la información de un producto específico.</p>
+                    <h2>Agregar Producto</h2>
                 </div>
 
                 <!-- Begin Form -->
                 <form action="" method="post">
                     <div class="card-details">
-                        <h3 class="title text-uppercase">Actualizar Producto</h3>
+                        <h3 class="title text-uppercase">Agregar Producto</h3>
                         <div class="row">
                             <div class="form-group col-sm-12">
                                 <label id="nomVal">Nombre Producto</label>
@@ -86,8 +86,11 @@ oci_execute($curs2);
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group col-sm-12">
-                                <button id="btnInsert" type="submit" class="btn btn-primary btn-block">Agregar Producto</button>
+                            <div class="form-group col-sm-6">
+                                <a href="tablaProductos.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button id="btnInsert" type="submit" class="btn btn-block">Agregar Producto</button>
                             </div>
                         </div>
                     </div>

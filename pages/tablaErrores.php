@@ -1,7 +1,6 @@
 <head>
     <title>Errores - Stocktronic</title>
-    <link href="../styles/catalogo.css" rel="stylesheet" />
-    <link href="../styles/historial.css" rel="stylesheet" />
+    <link href="../styles/checkout.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <!-- This link reference here is for the table pagination -->
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -30,7 +29,7 @@ oci_execute($curs);
 
 <body>
 
-    <div class="container">
+    <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Historial Errores</h2>

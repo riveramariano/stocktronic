@@ -63,9 +63,6 @@ $apellidoUsuario = $_SESSION['apellidoUsuario'];
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i></a>
                 </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/historial.php">Historial</a>
-                </li>
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn border border-light text-light btn-sm dropdown-toggle rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown">
@@ -73,6 +70,7 @@ $apellidoUsuario = $_SESSION['apellidoUsuario'];
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item font-weight-bold" href="#"><?php echo $nombreUsuario . '     ' . $apellidoUsuario ?></a>
+                            <a class="dropdown-item" href="/stocktronic/pages/historial.php">Historial</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaEntregas.php">Tabla Entregas</a>
                             <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>

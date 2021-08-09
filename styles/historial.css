@@ -2,3 +2,7 @@
 .table-wrap {
   overflow-x: scroll; 
 }
+
+.header-top {
+    margin-top: 1.0rem;
+}

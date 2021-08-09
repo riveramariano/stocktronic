@@ -1,6 +1,6 @@
 <head>
     <title>Historial - Stocktronic</title>
-    <link href="../styles/historial.css" rel="stylesheet" />
+    <link href="../styles/historial.css" rel="stylesheet" /> 
     <link href="../styles/modal.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <!-- This link reference here is for the table pagination -->
@@ -37,7 +37,7 @@ oci_execute($curs);
 ?>
 
 <body> 
-    <div class="container">
+    <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Historial de Compras</h2>

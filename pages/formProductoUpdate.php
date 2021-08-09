@@ -1,4 +1,5 @@
 <head>
+    <link href="../styles/formsButtons.css" rel="stylesheet" />
     <link href="../styles/checkout.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
@@ -46,12 +47,11 @@ oci_execute($curs3);
 
 <body class="bg-light">
 
-    <main class="page payment-page">
+    <main class="page payment-page header-top">
         <section class="payment-form dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2>Formulario</h2>
-                    <p>Este formulario tiene la función de actualizar la información de un producto específico.</p>
+                    <h2>Actualizar Producto</h2>
                 </div>
 
                 <!-- Begin Form -->
@@ -124,8 +124,11 @@ oci_execute($curs3);
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group col-sm-12">
-                                <button id="btnUpdate" type="submit" class="btn btn-success btn-block">Actualizar Producto</button>
+                            <div class="form-group col-sm-6">
+                                <a href="tablaProductos.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button id="btnUpdate" type="submit" class="btn btn-block">Actualizar Producto</button>
                             </div>
                         </div>
                     </div>
