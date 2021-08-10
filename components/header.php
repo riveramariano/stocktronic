@@ -1,8 +1,23 @@
 <?php
 session_start();
 // Get the user id from the session
+$idUsuario = $_SESSION['idUsuario'];
 $nombreUsuario = $_SESSION['nombreUsuario'];
 $apellidoUsuario = $_SESSION['apellidoUsuario'];
+$idRol = $_SESSION['idRol'];
+
+include '../conexion.php';
+// This first set of GET_CARRITOS is called for the validation
+$curs = oci_new_cursor($conn);
+$getCarritoCount = oci_parse($conn, "begin GET_CARRITO_COUNT(:CM, :ID_USUARIO); end;");
+oci_bind_by_name($getCarritoCount, ":CM", $curs, -1, OCI_B_CURSOR);
+oci_bind_by_name($getCarritoCount, ":ID_USUARIO", $idUsuario, 32);
+oci_execute($getCarritoCount);
+oci_execute($curs);
+
+$count = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS);
+$cantidadProductos = $count['COUNT(*)'];
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +76,11 @@ $apellidoUsuario = $_SESSION['apellidoUsuario'];
                     <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=6">Wireless</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i>
+                    <?php if ($cantidadProductos > 0) {
+                        echo ' ('. $cantidadProductos.')';
+                    } 
+                    ?></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -71,10 +90,16 @@ $apellidoUsuario = $_SESSION['apellidoUsuario'];
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item font-weight-bold" href="#"><?php echo $nombreUsuario . '     ' . $apellidoUsuario ?></a>
                             <a class="dropdown-item" href="/stocktronic/pages/historial.php">Historial</a>
-                            <a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>
-                            <a class="dropdown-item" href="/stocktronic/pages/tablaEntregas.php">Tabla Entregas</a>
-                            <a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>
-                            <a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a>
+                            <?php
+                            if ($idRol == 1 || $idRol == 2) {
+                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>';
+                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaEntregas.php">Tabla Entregas</a>';
+                            }
+                            if ($idRol == 1) {
+                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>';
+                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a> ';
+                            }
+                            ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/stocktronic/logout.php" style='color:red'>Cerrar Sesión</a>
                         </div>

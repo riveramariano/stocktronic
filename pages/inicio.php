@@ -7,8 +7,7 @@
 <?php
 include '../components/header.php';
 include '../scripts/procedures.php';
-include '../conexion.php';
-// include '../components/validator.php'; // <- Revisar funcionalidad
+include '../components/validator.php';
 $i = 0;
 ?>
 

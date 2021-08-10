@@ -1,10 +1,5 @@
 <?php
-/*
-    Esta seria una forma de validar que el usuario este registrado
-    para poder acceder al contenido de cada pagina, de lo contrario,
-    el usurio sera redirigido al index para registrarse.    
-*/
-
-if (!isset($_SESSION['loggedUser'])) {
+if (isset($_SESSION['idUsuario'])) {
     header('Location: ../index.php ');
 }
+?>

@@ -1,8 +1,8 @@
 <?php
-include '../components/header.php';
-include '../conexion.php';
 include '../scripts/procedures.php';
 include '../components/validator.php';
+include '../components/header.php';
+
 
 $categoria = $_GET['q'];
 $dataCategoria = get_categoria($conn, $categoria);
@@ -22,15 +22,14 @@ $i = 0;
 
 ?>
 
-<body class="mt-5">
+<body>
     <?php
 
     $datas = get_lowest_price($conn, $categoria);
     $linea = oci_fetch_array($datas, OCI_ASSOC + OCI_RETURN_NULLS);
     $lowestPrice = $linea['PRECIO'];
 
-    echo "
-            <h3 class='text-center mt-5' style='color:orange'>Novedades en:</h3>
+    echo "<h3 class='text-center header-top' style='color:orange'>Novedades en:</h3>
             <h1 class='text-center mt-2'>$tipo</h1>
             <h6 class='text-center mt-3'>Desde ₡$lowestPrice</h6>
             <div class='col text-center'>
@@ -40,8 +39,7 @@ $i = 0;
                 <div class='text-center'>
                     <img class='img-fluid' src='../images/imagen-$categoria.png' width='605' height='auto' />
                 </div>
-            </div>
-        ";
+            </div>";
     ?>
 
     <!-- Product Secction -->

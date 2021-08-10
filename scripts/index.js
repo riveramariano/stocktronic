@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('#btnRegister').attr('disabled', true);
     $('input').keyup(function () {
         let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (inputName.value.trim().length >= 4 && inputLastName1.value.trim().length >= 4 && inputLastName2.value.trim().length >= 4
+        if (inputName.value.trim().length > 1 && inputLastName1.value.trim().length > 1 && inputLastName2.value.trim().length > 1
             && regexEmail.test(inputEmail.value) && inputPassword.value.trim().length >= 8) {
             $('#btnRegister').attr('disabled', false);
         } else {
@@ -84,8 +84,8 @@ $(document).ready(function () {
             if ($(this).val().length === 0) {
                 $(this).siblings('span.error').text('Campo obligatorio (*)').fadeIn().parent('.form-group').addClass('hasError');
                 usernameError = true;
-            } else if ($(this).val().length > 1 && $(this).val().length < 3) {
-                $(this).siblings('span.error').text('Debe tener almenos 4 caracteres').fadeIn().parent('.form-group').addClass('hasError');
+            } else if ($(this).val().length > 1 && $(this).val().length < 1) {
+                $(this).siblings('span.error').text('Debe tener almenos 2 caracteres').fadeIn().parent('.form-group').addClass('hasError');
                 usernameError = true;
             } else {
                 $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
