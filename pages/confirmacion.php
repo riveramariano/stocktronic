@@ -7,14 +7,10 @@
 </head>
 
 <?php
-// The first thing is always start the session
-session_start();
+include "../components/header.php";
+
 $nombreUsuario = $_SESSION['nombreUsuario'];
 $apellidoUsuario = $_SESSION['apellidoUsuario'];
-
-// Import header.php and conexion.php
-include "../components/header.php";
-include '../conexion.php';
 
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
@@ -37,7 +33,7 @@ oci_execute($curs);
 ?>
 
 <body>
-    <div class="container mt-5 mb-5">
+    <div class="container header-top mb-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8">
                 <div class="card">

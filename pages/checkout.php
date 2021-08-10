@@ -5,17 +5,11 @@
 </head>
 
 <?php
-// The first thing is always start the session
-session_start();
+// If you got an include and a header() the header by force needs to be the first line code
+include "../components/header.php";
 
 // Get the user id from the session
 $idUsuario = $_SESSION['idUsuario'];
-
-// The most important file of the project
-include '../conexion.php';
-
-// If you got an include and a header() the header by force needs to be the first line code
-include "../components/header.php";
 
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
@@ -38,7 +32,7 @@ oci_execute($curs2);
 ?>
 
 <body class="bg-light">
-    <main class="page payment-page">
+    <main class="page payment-page header-top">
         <section class="payment-form dark">
             <div class="container">
                 <div class="block-heading">
