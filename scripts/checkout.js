@@ -255,7 +255,7 @@ $("#btnBuy").click(function () {
             // The AJAX is called
             $.ajax({
                 type: "GET",
-                url: "../pages/infoPagoSP/checkoutSP.php",
+                url: "../pages/infoPagoSP/insertInfoPago.php",
                 data: {
                     metodoPago: selectMetodo.value,
                     numTarjeta: inputTarjeta.value,

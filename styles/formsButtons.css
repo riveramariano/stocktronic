@@ -24,3 +24,12 @@
 #btnInsert:hover {
     background-color: #2974f0;
 }
+
+#btnBuy {
+    background-color: #4285f4;
+    color: white;
+}
+
+#btnBuy:hover {
+    background-color: #2974f0;
+}

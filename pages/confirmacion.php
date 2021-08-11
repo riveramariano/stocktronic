@@ -37,9 +37,9 @@ oci_execute($curs);
         <div class="row d-flex justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="text-left logo p-2 px-5"> <img src="../images/isotipoDark.svg" width="50"> </div>
+                    <div class="text-left logo p-2 px-5"> <img src="../images/isotipoDark.svg" width="40"> </div>
                     <div class="invoice p-5">
-                        <h5>Tú orden confirmada!</h5> <span class="font-weight-bold d-block mt-4">Hola <?php echo $nombreUsuario . ' ' . $apellidoUsuario ?></span> <span>Tú orden ha sido confirmada y será enviada en los próximos 2 días!</span>
+                        <h5>Tú orden ha sido confirmada!</h5> <span class="font-weight-bold d-block mt-4">Hola <?php echo $nombreUsuario . ' ' . $apellidoUsuario ?></span> <span>Tú orden ha sido confirmada y podrás ver los detalles de esta en tú historial</span>
                         <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
                             <table class="table table-borderless">
                                 <tbody>
@@ -55,16 +55,16 @@ oci_execute($curs);
                                             $metodoPago = $row['NOMBRE'];
 
                                             echo "<td>
-                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>Order Date</span> <span>$fecOrden</span> </div>
+                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>Fec. Orden</span> <span>$fecOrden</span> </div>
                                                 </td>
                                                 <td>
-                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>Order No</span> <span>$idOrden</span> </div>
+                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>No. Orden</span> <span>$idOrden</span> </div>
                                                 </td>
                                                 <td>
-                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>Payment</span> <span>$metodoPago</span> </div>
+                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>Método Pago</span> <span>$metodoPago</span> </div>
                                                 </td>
                                                 <td>
-                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>Shiping Address</span> <span>$dirFacturacion</span> </div>
+                                                    <div class='py-2'> <span class='d-block text-muted mb-2'>Dir. Facturación</span> <span>$dirFacturacion</span> </div>
                                                 </td>";
                                         }
                                         ?>
@@ -150,7 +150,7 @@ oci_execute($curs);
                         </div>
                         <p class="font-weight-bold mb-0">Gracias por confiar en nosotros!</p> <span>Stocktronic Team</span>
                     </div>
-                    <div class="d-flex justify-content-between footer p-3"> <span>Necesitas ayuda? visita nuestro <a href="#"> centro de ayuda</a></span> <span>Julio, 2021</span> </div>
+                    <div class="d-flex justify-content-between footer p-3"> <span>Regresar a la<a href="inicio.php"> página principal</a></span> <span>Agosto, 2021</span> </div>
                 </div>
             </div>
         </div>

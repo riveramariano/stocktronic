@@ -1,6 +1,7 @@
 <head>
     <title>Compras - Stocktronic</title>
     <link href="../styles/checkout.css" rel="stylesheet" />
+    <link href="../styles/formsButtons.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
 
@@ -37,7 +38,7 @@ oci_execute($curs2);
             <div class="container">
                 <div class="block-heading">
                     <h2>Formulario de Pago</h2>
-                    <p>Una vez finalizado la compra le redirigirá a una página de confirmación.</p>
+                    <p>Una vez finalizado la compra le redirigirá a una página de confirmación de su pedido.</p>
                 </div>
 
                 <!-- First section -->
@@ -144,8 +145,11 @@ oci_execute($curs2);
                                 <label id="codVal">Código Postal</label>
                                 <input id="cod" type="number" class="form-control" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             </div>
-                            <div class="form-group col-sm-12">
-                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-primary btn-block">Confirmar Compra</button>
+                            <div class="form-group col-sm-6">
+                                <a href="tablaProductos.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button id="btnBuy" name="submitBtn" type="button" class="btn btn-block">Confirmar Compra</button>
                             </div>
                         </div>
                     </div>
