@@ -12,7 +12,7 @@ function addCart(nombre) {
 }
 
 // This function will trigger when you subtract a product quantity
-function minusCart(nombre) {
+function minusCart(nombre) { 
     Swal.fire({
         // bottom-start, bottom-end, top-start
         position: "top-end",
@@ -30,20 +30,7 @@ function plusCart(nombre) {
         // bottom-start, bottom-end, top-start
         position: "top-end",
         icon: "success",
-        title: `Se agregó un ${nombre} al carrito`,
-        showConfirmButton: false,
-        timer: 2000,
-        toast: true,
-    });
-}
-
-// This function will trigger when you delete a product from the cart
-function deleteCart(nombre) {
-    Swal.fire({
-        // bottom-start, bottom-end, top-start
-        position: "top-end",
-        icon: "error",
-        title: `${nombre} se eliminó`,
+        title: `Se agregó un/a ${nombre} al carrito`,
         showConfirmButton: false,
         timer: 2000,
         toast: true,

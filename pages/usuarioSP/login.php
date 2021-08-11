@@ -3,7 +3,7 @@
 session_start();
 
 // The most important file of the project
-include 'conexion.php';
+include '../../conexion.php';
 
 // Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);

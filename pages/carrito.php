@@ -33,7 +33,7 @@ oci_execute($curs2);
 
 <!-- In the cart we'll need to add some fonts -->
 
-<body class="bg-light">
+<body>
     <?php
     // If $validation is true, then is something in the cart
     if (($validation = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS))) {
@@ -86,7 +86,7 @@ oci_execute($curs2);
                                                     </li>
                                                     <li class="page-item border">
                                                         <button type="button" onclick="plusCart(\'' . $nombreProducto . '\')" 
-                                                        data-id="' . $idCarrito . '" data-filter="' . $cantidadCarrito . '" class="page-link btnPlus">
+                                                        data-id="' . $idCarrito . '" data-filter="' . $cantidadCarrito . '" class="page-link btnPlus"> 
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </li>
@@ -178,18 +178,23 @@ oci_execute($curs2);
         </div>
     </div>';
     } else {
-        echo '
-        <h1 class="mt-5">Aqui</h1>
-        <h1 class="mt-5">No Hay Nada</h1>';
+        echo '<div id="outer" class="container">
+                <div id="inner">
+                    <img class="img-responsive" src="../images/isotipoDark.svg" alt="logo" />
+                    <h1 class="text-center mt-3">Carrito de Compras</h1>
+                    <p class="text-center">No has agregado ningún artículo</p>
+                    <a class="d-flex justify-content-center fs" href="inicio.php">Empecemos!</a>
+                </div>
+            </div>';
     }
     ?>
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/sweetalert2.js"></script>
+    <script src="../scripts/carritoSA.js"></script>
 
     <!-- This one call the ajax to add carrito -->
-    <script src="../scripts/proceduresCarrito.js"></script>
+    <script src="../scripts/carritoSP.js"></script>
 
 </body>
 

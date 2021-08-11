@@ -77,10 +77,10 @@ $cantidadProductos = $count['COUNT(*)'];
                 </li>
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i>
-                    <?php if ($cantidadProductos > 0) {
-                        echo ' ('. $cantidadProductos.')';
-                    } 
-                    ?></a>
+                        <?php if ($cantidadProductos > 0) {
+                            echo ' (' . $cantidadProductos . ')';
+                        }
+                        ?></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -101,7 +101,7 @@ $cantidadProductos = $count['COUNT(*)'];
                             }
                             ?>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/stocktronic/logout.php" style='color:red'>Cerrar Sesión</a>
+                            <a id="logout" class="dropdown-item" style='color:red'>Cerrar Sesión</a>
                         </div>
                     </div>
                 </li>
@@ -111,6 +111,8 @@ $cantidadProductos = $count['COUNT(*)'];
 
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/logout.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $("#menu-toggle").click(function(e) {

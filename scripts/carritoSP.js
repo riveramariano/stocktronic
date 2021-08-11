@@ -61,7 +61,7 @@ $(".btnMinus").click(function () {
         });
     } else {
         var id = $(this).attr("data-id");
-        $.ajax({
+        $.ajax({ 
             type: "GET",
             url: "../pages/carritoSP/updateCarrito.php",
             data: {
@@ -122,7 +122,32 @@ $(".btnDelete").click(function () {
                     idCarrito: id
                 },
                 success: function (data) {
-                    setTimeout(function () { location.reload(); }, 700);
+                    setTimeout(Swal.fire({
+                        icon: 'error',
+                        title: 'Eliminando Producto',
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        timer: 1000,
+                        // This function works for printing the typical loading spiral
+                        didOpen: () => {
+                            Swal.showLoading()
+                            timerInterval = setInterval(() => {
+                                const content = Swal.getHtmlContainer()
+                                if (content) {
+                                    const b = content.querySelector('b')
+                                    if (b) {
+                                        b.textContent = Swal.getTimerLeft()
+                                    }
+                                }
+                            }, 100)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                        }
+                    }), 1000);
+                    setTimeout(function () { location.reload(); }, 1000);
                 },
             });
         }

@@ -7,7 +7,7 @@ session_start();
 $idUsuario = $_SESSION['idUsuario'];
 
 // The most important file of the project
-include '../conexion.php';
+include '../../conexion.php';
 
 $numeroTarjeta = strval($_GET['numTarjeta']);
 $direccion1 = strval($_GET['dir1']);
@@ -15,12 +15,6 @@ $direccion2 = strval($_GET['dir2']);
 $telefono = strval($_GET['telefono']);
 $total = strval($_SESSION['total']);
 $metodoPago = strval($_GET['metodoPago']); 
-
-// $direccion1 = $_GET['dir1'];
-// $direccion2 = $_GET['dir2'];
-// $telefono = $_GET['telefono'];
-// $total = $_SESSION['total'];
-// $metodoPago = $_GET['metodoPago'];
 
 // Call the stored procedure to insert the payment info
 $insertInfoPago = oci_parse($conn, "begin INSERT_INFOPAGO(:NUM_TARJETA, :DIR_FACTURACION, :DIR_FACTURACION2, :TELEFONO, :TOTAL, :ID_USUARIO, :ID_METODOPAGO); end;");

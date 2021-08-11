@@ -4,7 +4,7 @@
 session_start();
 
 // The most important file of the project
-include 'conexion.php';
+include '../../conexion.php';
 
 $nombre = $_GET['nombre'];
 $primerApellido = $_GET['primerApellido'];

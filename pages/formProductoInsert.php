@@ -32,7 +32,7 @@ oci_execute($getAllCategorias);
 oci_execute($curs2);
 ?>
 
-<body class="bg-light">
+<body>
 
     <main class="page payment-page header-top">
         <section class="payment-form dark">
@@ -105,10 +105,9 @@ oci_execute($curs2);
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/sweetalert2.js"></script>
 
     <!-- This script calls the ajax to update producto -->
-    <script src="../scripts/proceduresProducto.js"></script>
+    <script src="../scripts/formProducto.js"></script>
 
 </body>
 

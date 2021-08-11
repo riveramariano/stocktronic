@@ -9,6 +9,7 @@ let inputPassword = document.getElementById('password');
 
 $(document).ready(function () {
 
+    // This is the validation for the login button, delete this one when the loginSP validation works
     $('#btnLogin').attr('disabled', true);
     $('input').keyup(function () {
         let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -66,7 +67,7 @@ $(document).ready(function () {
                 $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
                 emailLogin = false;
             }
-        }
+        } 
 
         // Password Login
         if ($(this).hasClass('passwordLogin')) {
@@ -84,7 +85,7 @@ $(document).ready(function () {
             if ($(this).val().length === 0) {
                 $(this).siblings('span.error').text('Campo obligatorio (*)').fadeIn().parent('.form-group').addClass('hasError');
                 usernameError = true;
-            } else if ($(this).val().length > 1 && $(this).val().length < 1) {
+            } else if ($(this).val().length > 0 && $(this).val().length < 2) {
                 $(this).siblings('span.error').text('Debe tener almenos 2 caracteres').fadeIn().parent('.form-group').addClass('hasError');
                 usernameError = true;
             } else {
@@ -98,8 +99,8 @@ $(document).ready(function () {
             if ($(this).val().length === 0) {
                 $(this).siblings('span.error').text('Campo obligatorio (*)').fadeIn().parent('.form-group').addClass('hasError');
                 lastName1Error = true;
-            } else if ($(this).val().length > 1 && $(this).val().length <= 4) {
-                $(this).siblings('span.error').text('Debe tener almenos 4 caracteres').fadeIn().parent('.form-group').addClass('hasError');
+            } else if ($(this).val().length > 0 && $(this).val().length < 2) {
+                $(this).siblings('span.error').text('Debe tener almenos 2 caracteres').fadeIn().parent('.form-group').addClass('hasError');
                 lastName1Error = true;
             } else {
                 $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
@@ -112,8 +113,8 @@ $(document).ready(function () {
             if ($(this).val().length === 0) {
                 $(this).siblings('span.error').text('Campo obligatorio (*)').fadeIn().parent('.form-group').addClass('hasError');
                 lastName2Error = true;
-            } else if ($(this).val().length > 1 && $(this).val().length <= 4) {
-                $(this).siblings('span.error').text('Debe tener almenos 4 caracteres').fadeIn().parent('.form-group').addClass('hasError');
+            } else if ($(this).val().length > 0 && $(this).val().length < 2) {
+                $(this).siblings('span.error').text('Debe tener almenos 2 caracteres').fadeIn().parent('.form-group').addClass('hasError');
                 lastName2Error = true;
             } else {
                 $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
@@ -173,23 +174,20 @@ $(document).ready(function () {
 
 }); 
 
-$("#btnRegister").click(function (e) {
+$("#btnLogin").click(function (e) {
     e.preventDefault();
     $.ajax({
         type: "GET",
-        url: "registroSP.php",
+        url: "pages/usuarioSP/login.php",
         data: {
-            nombre: inputName.value,
-            primerApellido: inputLastName1.value,
-            segundoApellido: inputLastName2.value,
-            email: inputEmail.value,
-            password: inputPassword.value,
+            emailLogin: inputEmailLogin.value,
+            passwordLogin: inputPasswordLogin.value,
         },
         success: function (data) {
             setTimeout(Swal.fire({
                 position: "top-end",
                 icon: 'success',
-                title: 'Registro exitoso, iniciando sesión',
+                title: 'Iniciando sesión',
                 heightAuto: false,
                 showCancelButton: false,
                 showConfirmButton: false,
@@ -219,21 +217,24 @@ $("#btnRegister").click(function (e) {
         },
     });
 });
- 
-$("#btnLogin").click(function (e) {
+
+$("#btnRegister").click(function (e) {
     e.preventDefault();
     $.ajax({
         type: "GET",
-        url: "loginSP.php",
+        url: "pages/usuarioSP/registro.php",
         data: {
-            emailLogin: inputEmailLogin.value,
-            passwordLogin: inputPasswordLogin.value,
+            nombre: inputName.value,
+            primerApellido: inputLastName1.value,
+            segundoApellido: inputLastName2.value,
+            email: inputEmail.value,
+            password: inputPassword.value,
         },
         success: function (data) {
             setTimeout(Swal.fire({
                 position: "top-end",
                 icon: 'success',
-                title: 'Iniciando sesión',
+                title: 'Registro exitoso, iniciando sesión',
                 heightAuto: false,
                 showCancelButton: false,
                 showConfirmButton: false,

@@ -1,7 +1,7 @@
 /* This .js file is used in checkout.php it's function is to prevent the user from inserting invalid information */
 
 // Bind the "Metodo Pago" into a variable
-let selectMetodo = document.getElementById('selectMet');
+let selectMetodo = document.getElementById('selectMet'); 
 
 // Bind the "Número Tarjeta" label and input into a variables
 const pTarjeta = document.getElementById('tarjetaVal');
@@ -255,7 +255,7 @@ $("#btnBuy").click(function () {
             // The AJAX is called
             $.ajax({
                 type: "GET",
-                url: "../pages/checkoutSP.php",
+                url: "../pages/infoPagoSP/checkoutSP.php",
                 data: {
                     metodoPago: selectMetodo.value,
                     numTarjeta: inputTarjeta.value,

@@ -87,10 +87,10 @@ $i = 0;
         include '../components/footer.php';
         ?> <!-- Add sweetalert2 -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="../scripts/sweetalert2.js"></script>
+        <script src="../scripts/carritoSA.js"></script>
 
-        <!-- This one call the ajax to add carrito -->
-        <script src="../scripts/proceduresCarrito.js"></script>
+        <!-- This one call the ajax to add carrito --> 
+        <script src="../scripts/carritoSP.js"></script>
 
         <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

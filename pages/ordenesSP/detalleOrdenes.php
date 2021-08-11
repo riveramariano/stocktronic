@@ -1,6 +1,6 @@
 <?php
 // Import the conexion.php
-include '../conexion.php';
+include '../../conexion.php';
 
 $pasar = $_GET['ajaxid'];
 

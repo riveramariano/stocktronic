@@ -31,7 +31,7 @@ oci_execute($curs);
 oci_execute($curs2);
 ?>
 
-<body class="bg-light">
+<body>
     <main class="page payment-page header-top">
         <section class="payment-form dark">
             <div class="container">
@@ -160,9 +160,9 @@ oci_execute($curs2);
 
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/sweetalert2.js"></script>
 
-    <script src="../scripts/validacionForm.js"></script>
+    <!-- Validation js -->
+    <script src="../scripts/checkout.js"></script>
 
 </body>
 

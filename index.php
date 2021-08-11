@@ -41,7 +41,7 @@
                 <!-- Form Box -->
                 <div class="col-sm-6 form">
 
-                    <!-- Signup Form -->
+                    <!-- Login Form -->
                     <div class="login form-peice">
                         <form class="login-form" action="#" method="post">
                             <div class="form-group">
@@ -62,7 +62,7 @@
                         </form>
                     </div><!-- End Signup Form -->
 
-                    <!-- Login Form -->
+                    <!-- Signup Form -->
                     <div class="signup form-peice switched">
                         <form class="signup-form" action="#" method="post">
                             <div class="form-group">
