@@ -7,8 +7,8 @@
 }
 
 .swal2-popup {
-  box-shadow: none !important;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
+	box-shadow: none !important;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
 }
 
 body {
@@ -140,5 +140,8 @@ a {
 }
 
 .header-top {
-    margin-top: 7.5rem;
+	margin-top: 7.5rem;
+}
+.product-section {
+	background-color: #fbfbfb;
 }

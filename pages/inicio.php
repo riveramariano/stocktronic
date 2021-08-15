@@ -12,7 +12,7 @@ $i = 0;
 ?>
 
 <body>
-    <div class=" container-fluid">
+    <div class="container-fluid header-top">
         <h1 class="text-center" style="margin-top: 8rem">
             Todo lo que ama de nuestra tienda <br /> a un clic de su alcance.
         </h1>
@@ -20,10 +20,26 @@ $i = 0;
             No dudes en consultarnos cualquier cosa
         </h4>
     </div>
-    <section class="py-5">
+
+    <!-- Carrusel -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide mt-5" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?cs=srgb&dl=pexels-jakub-novacek-924824.jpg&fm=jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?cs=srgb&dl=pexels-roberto-nickson-2559941.jpg&fm=jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/4245826/pexels-photo-4245826.jpeg?cs=srgb&dl=pexels-riccardo-bertolo-4245826.jpg&fm=jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+
+    <section class="py-5 product-section">
         <div class="container px-4 px-lg-5 mt-4">
             <h1 class="text-center mt-5">Explore nuestros Productos</h1>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
+            <div class="row gx-4 gx-lg-5 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                 <?php
                 $data = get_products_random($conn);
                 while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {

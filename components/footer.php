@@ -84,14 +84,13 @@
         </div>
 
         <!-- Última columna de copyright -->
-        <div class="footer-copyright py-3">
+        <div class="text-center footer-copyright py-3">
+            <a class="mr-1" style="margin-left: 3rem" href="#">Política de Privacidad</a> |
+            <a class="ml-1 mr-1" href="#">Términos de Uso</a> |
+            <a class="ml-1 mr-1" href="#">Reembolsos</a> |
+            <a class="ml-1" href="#">Localización</a>
             <p class="ml-5 text-muted" style="font-size: 14px">
-                Copyright &copy; 2021 Stocktronic Inc.
-                <a class="mr-1" style="margin-left: 3rem" href="#">Política de Privacidad</a>
-                | <a class="ml-1 mr-1" href="#">Términos de Uso</a> |
-                <a class="ml-1 mr-1" href="#">Reembolsos</a> |
-                <a class="ml-1" href="#">Localización</a>
-                <i class="float-right mr-5">Costa Rica</i>
+                Costa Rica | Copyright &copy; 2021 Stocktronic Inc.
             </p>
         </div>
     </footer>

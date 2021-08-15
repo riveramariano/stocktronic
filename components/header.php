@@ -73,7 +73,7 @@ $cantidadProductos = $count['COUNT(*)'];
                     <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=6">Wireless</a>
+                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=6">Redes</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
                     <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i>
