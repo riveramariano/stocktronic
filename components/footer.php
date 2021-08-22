@@ -19,64 +19,55 @@
             <div class="row">
                 <!-- Primera Columna -->
                 <div class="col-xs-3 mx-auto mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Compra y Aprende</h6>
+                    <h6 class="text-uppercase font-weight-bold">
+                        Categorías
+                    </h6>
                     <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
                     <ul class="list-unstyled">
-                        <li class="mb-1"><a>Impresoras 3D</a></li>
-                        <li class="mb-1"><a>Baterías</a></li>
-                        <li class="mb-1"><a>Pantallas</a></li>
-                        <li class="mb-1"><a>LEDs</a></li>
-                        <li class="mb-1"><a>Motores</a></li>
-                        <li class="mb-1"><a>Raspberry PI</a></li>
-                        <li class="mb-1"><a>Sensores</a></li>
-                        <li class="mb-1"><a>Herramientas</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=1">Componentes</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=6">Redes</a></li>
                     </ul>
                 </div>
 
                 <!-- Segunda Columna -->
                 <div class="col-xs-3 mx-auto mb-4">
                     <h6 class="text-uppercase font-weight-bold">
-                        Nuestros Servicios
+                        Servicios
                     </h6>
                     <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
                     <ul class="list-unstyled">
-                        <li class="mb-1"><a>Impresoras 3D</a></li>
-                        <li class="mb-1"><a>Baterías</a></li>
-                        <li class="mb-1"><a>Pantallas</a></li>
-                        <li class="mb-1"><a>LEDs</a></li>
-                        <li class="mb-1"><a>Motores</a></li>
-                        <li class="mb-1"><a>Raspberry PI</a></li>
-                        <li class="mb-1"><a>Sensores</a></li>
-                        <li class="mb-1"><a>Herramientas</a></li>
+                        <li class="mb-1"><a>Distribuidores</a></li>
+                        <li class="mb-1"><a>Tiendas</a></li>
+                        <li class="mb-1"><a>Entregas</a></li>
                     </ul>
                 </div>
 
                 <!-- Tercera Columna -->
                 <div class="col-xs-3 mx-auto mb-4">
                     <h6 class="text-uppercase font-weight-bold">
-                        Información de Contacto
+                        Contáctenos
                     </h6>
                     <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
                     <ul class="list-unstyled">
                         <li class="mb-1">
-                            <a class="text-reset" href="#">
-                                <i class="fab fa-facebook"> Facebook</i>
-                            </a>
+                            <i class="fab fa-facebook"></i>
+                            <a class="text-reset">Facebook</a>
                         </li>
                         <li class="mb-1">
-                            <a class="text-reset" href="#">
-                                <i class="fab fa-twitter"> Twitter</i>
-                            </a>
+                            <i class="fab fa-twitter"></i>
+                            <a class="text-reset">Twitter</a>
                         </li>
                         <li class="mb-1">
-                            <a class="text-reset" href="#">
-                                <i class="fab fa-linkedin-in"> LinkedIn</i>
-                            </a>
+                            <i class="fab fa-linkedin-in"></i>
+                            <a class="text-reset">LinkedIn</a>
                         </li>
                         <li class="mb-1">
-                            <a class="text-reset" href="#">
-                                <i class="fab fa-instagram"> Instagram</i>
-                            </a>
+                            <i class="fab fa-instagram"></i>
+                            <a class="text-reset">Instagram</a>
                         </li>
                     </ul>
                 </div>
@@ -85,10 +76,10 @@
 
         <!-- Última columna de copyright -->
         <div class="text-center footer-copyright py-3">
-            <a class="mr-1" style="margin-left: 3rem" href="#">Política de Privacidad</a> |
-            <a class="ml-1 mr-1" href="#">Términos de Uso</a> |
-            <a class="ml-1 mr-1" href="#">Reembolsos</a> |
-            <a class="ml-1" href="#">Localización</a>
+            <a class="mr-1" style="margin-left: 3rem">Política de Privacidad</a> |
+            <a class="ml-1 mr-1">Términos de Uso</a> |
+            <a class="ml-1 mr-1">Reembolsos</a> |
+            <a class="ml-1">Localización</a>
             <p class="ml-5 text-muted" style="font-size: 14px">
                 Costa Rica | Copyright &copy; 2021 Stocktronic Inc.
             </p>

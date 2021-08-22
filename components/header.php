@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (is_null($_SESSION['idUsuario'])) {
+    header('Location: ../index.php ');
+}
+
 // Get the user id from the session
 $idUsuario = $_SESSION['idUsuario'];
 $nombreUsuario = $_SESSION['nombreUsuario'];
@@ -32,6 +37,7 @@ $cantidadProductos = $count['COUNT(*)'];
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../styles/simple-sidebar.css" rel="stylesheet" />
     <link href="../styles/index.css" rel="stylesheet" />
+    <link href="../styles/newFonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
@@ -58,25 +64,25 @@ $cantidadProductos = $count['COUNT(*)'];
                     </a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=1">Componentes</a>
+                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=1">Componentes</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a>
+                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a>
+                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a>
+                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a>
+                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/catalogo.php?q=6">Redes</a>
+                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=6">Inalámbricos</a>
                 </li>
                 <li class="nav-item mt-1 mr-5">
-                    <a class="nav-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i>
+                    <a class="header-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i>
                         <?php if ($cantidadProductos > 0) {
                             echo ' (' . $cantidadProductos . ')';
                         }

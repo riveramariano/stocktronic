@@ -140,6 +140,10 @@ a {
 }
 
 .header-top {
+	margin-top: 10rem;
+}
+
+.section-top {
 	margin-top: 7.5rem;
 }
 .product-section {

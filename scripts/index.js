@@ -174,48 +174,115 @@ $(document).ready(function () {
 
 }); 
 
+// $("#btnLogin").click(function (e) {
+//     e.preventDefault();
+//     $.ajax({
+//         type: "GET",
+//         url: "pages/usuarioSP/login.php",
+//         data: {
+//             emailLogin: inputEmailLogin.value,
+//             passwordLogin: inputPasswordLogin.value,
+//         },
+//         success: function (data) {
+//             setTimeout(Swal.fire({
+//                 position: "top-end",
+//                 icon: 'success',
+//                 title: 'Iniciando sesión',
+//                 heightAuto: false,
+//                 showCancelButton: false,
+//                 showConfirmButton: false,
+//                 allowEscapeKey: false,
+//                 allowOutsideClick: false,
+//                 toast: true,
+//                 timer: 3000,
+//                 didOpen: () => {
+//                     Swal.showLoading()
+//                     timerInterval = setInterval(() => {
+//                         const content = Swal.getHtmlContainer()
+//                         if (content) {
+//                             const b = content.querySelector('b')
+//                             if (b) {
+//                                 b.textContent = Swal.getTimerLeft()
+//                             }
+//                         }
+//                     }, 100)
+//                 },
+//                 willClose: () => {
+//                     clearInterval(timerInterval)
+//                 }
+//             }), 2000);
+//             setTimeout(function () {
+//                 window.location = 'pages/inicio.php';
+//             }, 2000);
+//         },
+//     });
+// });
 $("#btnLogin").click(function (e) {
+
     e.preventDefault();
-    $.ajax({
-        type: "GET",
-        url: "pages/usuarioSP/login.php",
-        data: {
-            emailLogin: inputEmailLogin.value,
-            passwordLogin: inputPasswordLogin.value,
-        },
-        success: function (data) {
-            setTimeout(Swal.fire({
-                position: "top-end",
-                icon: 'success',
-                title: 'Iniciando sesión',
-                heightAuto: false,
-                showCancelButton: false,
-                showConfirmButton: false,
-                allowEscapeKey: false,
-                allowOutsideClick: false,
-                toast: true,
-                timer: 3000,
-                didOpen: () => {
-                    Swal.showLoading()
-                    timerInterval = setInterval(() => {
-                        const content = Swal.getHtmlContainer()
-                        if (content) {
-                            const b = content.querySelector('b')
-                            if (b) {
-                                b.textContent = Swal.getTimerLeft()
+    let email = document.getElementById('emailLogin').value;
+	let passwrd = document.getElementById('passwordLogin').value;
+	// console.log(email, passwrd);
+	$.ajax({
+		type: 'GET',
+		url: './pages/loginSP/countRowsLogin.php',
+		data: {
+			p_email: email,
+			p_passwrd: passwrd,
+		},
+		success: function (data) {
+            if (data=='Email o contraseña no validos'){
+                console.log(data);
+                console.log('Test');
+                $('#loginHint')
+                    .text(data)
+                    .fadeIn()
+                    .parent('.form-group')
+                    .addClass('hasError');
+            } else {
+                $.ajax({
+                    type: "GET",
+                    url: "pages/usuarioSP/login.php",
+                    data: {
+                        emailLogin: inputEmailLogin.value,
+                        passwordLogin: inputPasswordLogin.value,
+                    },
+                    success: function (data) {
+                        setTimeout(Swal.fire({
+                            position: "top-end",
+                            icon: 'success',
+                            title: 'Iniciando sesión',
+                            heightAuto: false,
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            allowEscapeKey: false,
+                            allowOutsideClick: false,
+                            toast: true,
+                            timer: 3000,
+                            didOpen: () => {
+                                Swal.showLoading()
+                                timerInterval = setInterval(() => {
+                                    const content = Swal.getHtmlContainer()
+                                    if (content) {
+                                        const b = content.querySelector('b')
+                                        if (b) {
+                                            b.textContent = Swal.getTimerLeft()
+                                        }
+                                    }
+                                }, 100)
+                            },
+                            willClose: () => {
+                                clearInterval(timerInterval)
                             }
-                        }
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }), 2000);
-            setTimeout(function () {
-                window.location = 'pages/inicio.php';
-            }, 2000);
-        },
-    });
+                        }), 2000);
+                        setTimeout(function () {
+                            window.location = 'pages/inicio.php';
+                        }, 2000);
+                    },
+                });
+            }
+		},
+	});
 });
 
 $("#btnRegister").click(function (e) {

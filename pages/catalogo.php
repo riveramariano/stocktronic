@@ -1,43 +1,36 @@
-<?php
-include '../scripts/procedures.php';
-include '../components/validator.php';
-include '../components/header.php';
-
-
-$categoria = $_GET['q'];
-$dataCategoria = get_categoria($conn, $categoria);
-$infoCategoria = oci_fetch_array($dataCategoria, OCI_ASSOC + OCI_RETURN_NULLS);
-$tipo = $infoCategoria['TIPO'];
-
-$i = 0;
-?>
-
 <head>
-    <title><?php echo "$tipo - Stocktronic" ?></title>
     <link href="../styles/catalogo.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
 </head>
 
 <?php
+// include '../scripts/procedures.php';
+// include '../components/validator.php';
+include '../pages/catalogoSP/getProductos.php';
+include '../pages/catalogoSP/getLowestPrice.php';
+include '../components/header.php';
 
+$categoria = $_GET['q'];
+
+// $i = 0;
 ?>
 
 <body>
     <?php
+    $dataCategoria = get_lowest_price($conn, $categoria);
+    $infoCategoria = oci_fetch_array($dataCategoria, OCI_ASSOC + OCI_RETURN_NULLS);
+    $lowestPrice = $infoCategoria['PRECIO'];
+    $tipo = $infoCategoria['TIPO'];
 
-    $datas = get_lowest_price($conn, $categoria);
-    $linea = oci_fetch_array($datas, OCI_ASSOC + OCI_RETURN_NULLS);
-    $lowestPrice = $linea['PRECIO'];
-
-    echo "<h3 class='text-center header-top' style='color:orange'>Novedades en:</h3>
-            <h1 class='text-center mt-2'>$tipo</h1>
-            <h6 class='text-center mt-3'>Desde ₡$lowestPrice</h6>
+    echo "<h3 class='text-center header-top subtitle' style='color:orange'>Novedades en:</h3>
+            <h1 class='text-center mt-2 main-title'>$tipo</h1>
+            <h6 class='text-center mt-3 main-subtitle'>Desde ₡$lowestPrice</h6>
             <div class='col text-center'>
                 <a href='#productos'><button type='button' class='mt-3 btn btn-primary rounded-lg'>Conocer Productos</button></a>
             </div>
             <div class='row justify-content-center'>
                 <div class='text-center'>
-                    <img class='img-fluid' src='../images/imagen-$categoria.png' width='605' height='auto' />
+                    <img class='img-fluid' src='../images/imagen-$categoria.png' width='550' height='auto' />
                 </div>
             </div>";
     ?>
@@ -55,15 +48,15 @@ $i = 0;
                     $descripcion = $row['DESCRIPCION'];
                     $url = $row['URL_IMAGEN'];
                     $precio = $row['PRECIO'];
-                    $i = $i + 1;
+                    // $i = $i + 1;
                     // I divided the card into two echo's only to create dinamic id's, if you find an easier way to do it, go ahead and change it.
                     echo "<div class='product-card mb-5'>
                             <div class='badge'>Nuevo</div>
                             <div class='product-tumb'>
-                                <img src='$url' alt=''>
+                                <img src='$url' alt='$nombre'>
                             </div>
                             <div class='product-details'>
-                                <h4><a id='productName$i' href='#'>$nombre</a></h4>
+                                <h4><a id='productName$id' href='#'>$nombre</a></h4>
                                 <p>$descripcion</p>
                                 <div class='product-bottom-details'>
                                 <div class='product-price'>₡$precio</div>";
@@ -89,7 +82,7 @@ $i = 0;
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="../scripts/carritoSA.js"></script>
 
-        <!-- This one call the ajax to add carrito --> 
+        <!-- This one call the ajax to add carrito -->
         <script src="../scripts/carritoSP.js"></script>
 
         <!-- Usuful scripts? I think we could delete some, try deleting them one by one hehe -->
@@ -99,7 +92,6 @@ $i = 0;
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
         <script src="../vendor/jquery/jquery.min.js"></script>
         <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 <!-- We'll need to free the statments and close the conn here -->

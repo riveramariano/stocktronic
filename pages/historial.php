@@ -1,6 +1,6 @@
 <head>
     <title>Historial - Stocktronic</title>
-    <link href="../styles/historial.css" rel="stylesheet" /> 
+    <link href="../styles/historial.css" rel="stylesheet" />
     <link href="../styles/modal.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
     <!-- This link reference here is for the table pagination -->
@@ -36,8 +36,71 @@ oci_execute($getOrdenes);
 oci_execute($curs);
 ?>
 
-<body> 
-    <div class="container header-top">
+<body>
+    <?php
+    if ($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) {
+        echo "<div class='container header-top'>
+            <div class='row justify-content-center'>
+                <div class='col-md-6 text-center mt-5'>
+                    <h2 class='heading-section'>Historial de Compras</h2>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-12'>
+                    <div class='table-wrap'>
+                        <table class='table' id='tblHistorial'>
+                            <thead class='thead-dark'>
+                                <tr class='text-center'>
+                                    <th>#</th>
+                                    <th>Método Pago</th>
+                                    <th>Número Tarjeta</th>
+                                    <th>Fec. Orden</th>
+                                    <th>Monto Total</th>
+                                    <th>Detalles Orden</th>
+                                </tr>
+                            </thead>
+                            <tbody>";
+
+        while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+            // Fetch the table values into variables
+            $idOrden = $row['ID_ORDEN'];
+            $fecOrden = $row['FEC_ORDEN'];
+            $montoTotal = $row['MONTO_TOTAL'];
+            $numTarjeta = $row['NUM_TARJETA'];
+            $metodoPago = $row['NOMBRE'];
+            // Print the table rows
+            echo "<tr class='alert text-center' role='alert'>
+                    <td scope='row' name='identificador'>$idOrden</td>
+                    <td>$metodoPago</td>
+                    <td>$numTarjeta</td>
+                    <td>$fecOrden</td>
+                    <td>₡$montoTotal</td>
+                    <td>
+                        <button data-id='$idOrden' type='button' class='btn btn-sm btnDetalles' data-toggle='modal' data-target='#modalDetalles'>
+                            Detalles
+                        </button>
+                    </td>
+                </tr>";
+        }
+
+        echo "</tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+        include '../components/footer.php';
+    } else {
+        echo '<div id="outer" class="container">
+                <div id="inner">
+                    <h1 class="text-center mt-3">Historial de Compras</h1>
+                    <p class="text-center">Aun no has realizado compras</p>
+                    <a class="d-flex justify-content-center fs" href="inicio.php">Empecemos!</a>
+                </div>
+            </div>';
+    }
+    ?>
+    <!-- <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Historial de Compras</h2>
@@ -59,34 +122,34 @@ oci_execute($curs);
                         </thead>
                         <tbody>
                             <?php
-                            while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                // Fetch the table values into variables
-                                $idOrden = $row['ID_ORDEN'];
-                                $fecOrden = $row['FEC_ORDEN'];
-                                $montoTotal = $row['MONTO_TOTAL'];
-                                $numTarjeta = $row['NUM_TARJETA'];
-                                $metodoPago = $row['NOMBRE'];
-                                // Print the table rows
-                                echo "<tr class='alert text-center' role='alert'>
-                                            <td scope='row' name='identificador'>$idOrden</td>
-                                            <td>$metodoPago</td>
-                                            <td>$numTarjeta</td>
-                                            <td>$fecOrden</td>
-                                            <td>₡$montoTotal</td>
-                                            <td>
-                                                <button data-id='$idOrden' type='button' class='btn btn-sm btnDetalles' data-toggle='modal' data-target='#modalDetalles'>
-                                                    Detalles
-                                                </button>
-                                            </td>
-                                        </tr>";
-                            }
+                            // while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                            //     // Fetch the table values into variables
+                            //     $idOrden = $row['ID_ORDEN'];
+                            //     $fecOrden = $row['FEC_ORDEN'];
+                            //     $montoTotal = $row['MONTO_TOTAL'];
+                            //     $numTarjeta = $row['NUM_TARJETA'];
+                            //     $metodoPago = $row['NOMBRE'];
+                            //     // Print the table rows
+                            //     echo "<tr class='alert text-center' role='alert'>
+                            //                 <td scope='row' name='identificador'>$idOrden</td>
+                            //                 <td>$metodoPago</td>
+                            //                 <td>$numTarjeta</td>
+                            //                 <td>$fecOrden</td>
+                            //                 <td>₡$montoTotal</td>
+                            //                 <td>
+                            //                     <button data-id='$idOrden' type='button' class='btn btn-sm btnDetalles' data-toggle='modal' data-target='#modalDetalles'>
+                            //                         Detalles
+                            //                     </button>
+                            //                 </td>
+                            //             </tr>";
+                            // }
                             ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Modal -->
     <div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -122,7 +185,7 @@ oci_execute($curs);
     </div>
 
     <?php
-    include '../components/footer.php';
+    // include '../components/footer.php';
     ?>
 
     <script src="../scripts/historial.js"></script>

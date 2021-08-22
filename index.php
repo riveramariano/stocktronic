@@ -54,6 +54,7 @@
                                 <label for="">Contraseña</label>
                                 <input type="password" name="" id="passwordLogin" class="passwordLogin">
                                 <span class="error"></span>
+                                <span class="error" id="loginHint"></span>
                             </div>
                             <div class="CTA">
                                 <input type="submit" value="Iniciar Sesión" id="btnLogin" class="btn" />
@@ -91,7 +92,7 @@
                                 <span class="error"></span>
                             </div>
                             <div class="CTA">
-                                <input type="submit" id="btnRegister" value="Crear Cuenta" class="btn"  />
+                                <input type="submit" id="btnRegister" value="Crear Cuenta" class="btn" />
                                 <a href="#" class="switch">Iniciar sesión</a>
                             </div>
                         </form>
@@ -105,6 +106,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="./scripts/loginSP.js"></script>
     <script src="scripts/index.js"></script>
 
 </body>
