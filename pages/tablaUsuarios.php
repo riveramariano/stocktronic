@@ -29,6 +29,7 @@ oci_execute($curs);
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Lista de usuarios</h2>
+                <a href="formUserInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Usuario</button></a>
             </div>
         </div>
         <div class="row">
@@ -41,6 +42,7 @@ oci_execute($curs);
                                 <th>Nombre Completo</th>
                                 <th>Correo electrónico</th>
                                 <th>Tipo de Usuario</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,7 +53,7 @@ oci_execute($curs);
                                 $nombreUsuario = $row['NOMBRE'];
                                 $primerApellido = $row['APELLIDO1'];
                                 $segundoApellido = $row['APELLIDO2'];
-                                $emailUsuario = $row['PW'];
+                                $emailUsuario = $row['EMAIL'];
                                 $tipoUsuario = $row['TIPO'];
                                 // Printing the values into the table
                                 echo "<tr class='text-center'>
@@ -59,6 +61,10 @@ oci_execute($curs);
                                         <td scope=row>$nombreUsuario $primerApellido $segundoApellido</td>
                                         <td>$emailUsuario</td>
                                         <td>$tipoUsuario</td>
+                                        <td class='text-center'>
+                                            <a href='formUserUpdate.php?q=$idUsuario'><button class='btn btn-success btn-md'>Actualizar</button></a>
+                                            <button data-id=$idUsuario type='button' class='btn btn-danger btn-md btnDelete'>Eliminar</button>
+                                        </td>
                                     </tr>";
                             }
                             ?>
@@ -77,7 +83,7 @@ oci_execute($curs);
     <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="../scripts/deleteProducto.js"></script>
+    <script src="../scripts/tablaUsuarios.js"></script>
     <script src="../scripts/historial.js"></script>
 
     <!-- Scripts for the table pagination -->

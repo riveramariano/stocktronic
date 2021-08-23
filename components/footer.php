@@ -29,7 +29,7 @@
                         <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a></li>
                         <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a></li>
                         <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a></li>
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=6">Redes</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=6">Inalámbricos</a></li>
                     </ul>
                 </div>
 

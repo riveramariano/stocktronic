@@ -13,7 +13,7 @@ $(document).ready(function () {
     $('#btnLogin').attr('disabled', true);
     $('input').keyup(function () {
         let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (regexEmail.test(inputEmailLogin.value) && inputPasswordLogin.value.trim().length >= 3) {
+        if (regexEmail.test(inputEmailLogin.value) && inputPasswordLogin.value.trim().length > 0) {
             $('#btnLogin').attr('disabled', false);
         } else {
             $('#btnLogin').attr('disabled', true);
@@ -71,8 +71,8 @@ $(document).ready(function () {
 
         // Password Login
         if ($(this).hasClass('passwordLogin')) {
-            if ($(this).val().length < 3) {
-                $(this).siblings('span.error').text('Debe tener almenos 3 caracteres').fadeIn().parent('.form-group').addClass('hasError');
+            if ($(this).val().length === 0) {
+                $(this).siblings('span.error').text('Campo obligatorio (*)').fadeIn().parent('.form-group').addClass('hasError');
                 passwordLogin = true;
             } else {
                 $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
@@ -217,6 +217,7 @@ $(document).ready(function () {
 //         },
 //     });
 // });
+
 $("#btnLogin").click(function (e) {
 
     e.preventDefault();
@@ -274,10 +275,10 @@ $("#btnLogin").click(function (e) {
                             willClose: () => {
                                 clearInterval(timerInterval)
                             }
-                        }), 2000);
+                        }), 1000);
                         setTimeout(function () {
                             window.location = 'pages/inicio.php';
-                        }, 2000);
+                        }, 1000);
                     },
                 });
             }

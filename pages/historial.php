@@ -1,5 +1,6 @@
 <head>
     <title>Historial - Stocktronic</title>
+    <link href="../styles/newFonts.css" rel="stylesheet" />
     <link href="../styles/historial.css" rel="stylesheet" />
     <link href="../styles/modal.css" rel="stylesheet" />
     <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
@@ -11,15 +12,15 @@
 
 <?php
 // The first thing is always start the session
-session_start();
-
-// Get the user id and the user name from the session
-$idUsuario = $_SESSION['idUsuario'];
-$nombreUsuario = $_SESSION['nombreUsuario'];
+// session_start();
 
 // Import header.php and conexion.php
 include "../components/header.php";
 include '../conexion.php';
+
+// Get the user id and the user name from the session
+$idUsuario = $_SESSION['idUsuario'];
+$nombreUsuario = $_SESSION['nombreUsuario'];
 
 // Call the stored procedure to bring the bougth historial of the user
 $getOrdenes = oci_parse($conn, "begin GET_ORDENES(:CM, :ID_USUARIO); end;");
@@ -39,7 +40,7 @@ oci_execute($curs);
 <body>
     <?php
     if ($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) {
-        echo "<div class='container header-top'>
+        echo "<div class='container'>
             <div class='row justify-content-center'>
                 <div class='col-md-6 text-center mt-5'>
                     <h2 class='heading-section'>Historial de Compras</h2>
@@ -91,7 +92,7 @@ oci_execute($curs);
             </div>";
         include '../components/footer.php';
     } else {
-        echo '<div id="outer" class="container">
+        echo '<div id="outer" class="container mt-5 header-top">
                 <div id="inner">
                     <h1 class="text-center mt-3">Historial de Compras</h1>
                     <p class="text-center">Aun no has realizado compras</p>
@@ -150,7 +151,6 @@ oci_execute($curs);
             </div>
         </div>
     </div> -->
-
     <!-- Modal -->
     <div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -183,10 +183,6 @@ oci_execute($curs);
             </div>
         </div>
     </div>
-
-    <?php
-    // include '../components/footer.php';
-    ?>
 
     <script src="../scripts/historial.js"></script>
 
