@@ -11,8 +11,6 @@
 </head>
 
 <?php
-// The first thing is always start the session
-// session_start();
 
 // Import header.php and conexion.php
 include "../components/header.php";
@@ -24,22 +22,30 @@ $nombreUsuario = $_SESSION['nombreUsuario'];
 
 // Call the stored procedure to bring the bougth historial of the user
 $getOrdenes = oci_parse($conn, "begin GET_ORDENES(:CM, :ID_USUARIO); end;");
+$getOrdenes2 = oci_parse($conn, "begin GET_ORDENES(:CM, :ID_USUARIO); end;");
 
 // Create a memory cursor to iterate through the stored procedure
 $curs = oci_new_cursor($conn);
+$curs2 = oci_new_cursor($conn);
 
 // Bind the memory cursor and the user id into the stored procedure
 oci_bind_by_name($getOrdenes, ":CM", $curs, -1, OCI_B_CURSOR);
 oci_bind_by_name($getOrdenes, ":ID_USUARIO", $idUsuario, 32);
 
+oci_bind_by_name($getOrdenes2, ":CM", $curs2, -1, OCI_B_CURSOR);
+oci_bind_by_name($getOrdenes2, ":ID_USUARIO", $idUsuario, 32);
+
 // Execute the stored procedured and the memory cursor
 oci_execute($getOrdenes);
 oci_execute($curs);
+
+oci_execute($getOrdenes2);
+oci_execute($curs2);
 ?>
 
 <body>
     <?php
-    if ($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) {
+    if ($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) {
         echo "<div class='container header-top'>
             <div class='row justify-content-center'>
                 <div class='col-md-6 text-center mt-5'>
