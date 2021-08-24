@@ -29,11 +29,11 @@ $(document).ready(function () {
 	let regexURL = /^(https?|http):\/\/[^\s$.?#].[^\s]*$/;
 	$('input').keyup(function () {
 		if (
-			inputNombre.value.trim().length >= 3 &&
-			inputApellido1.value.trim().length >= 3 &&
-			inputApellido2.value.trim().length >= 3 &&
+			inputNombre.value.trim().length >= 2 &&
+			inputApellido1.value.trim().length >= 2 &&
+			inputApellido2.value.trim().length >= 2 &&
 			inputEmail.value.trim().length >= 5 &&
-			inputPassword.value.trim().length >= 3
+			inputPassword.value.trim().length >= 8
 		) {
 			$('#btnInsert').attr('disabled', false);
 		} else {
@@ -58,7 +58,7 @@ function getValueNombre(e) {
 		// If there isn't 16 caracteres print a message into the label
 		if (inputNombre.value.length < 2) {
 			nomVal.innerText = reparacionNom;
-			let validacion = ' Mínimo 5 Caracteres (*)';
+			let validacion = ' Mínimo 2 Caracteres (*)';
 			nomVal.innerText += validacion;
 			nomVal.style.color = 'RED';
 		} else {
@@ -85,7 +85,7 @@ function getValueApellido1(e) {
 		// If there isn't 16 caracteres print a message into the label
 		if (inputApellido1.value.length < 2) {
 			appVal.innerText = reparacionApp;
-			let validacion = ' Mínimo 5 Caracteres (*)';
+			let validacion = ' Mínimo 2 Caracteres (*)';
 			appVal.innerText += validacion;
 			appVal.style.color = 'RED';
 		} else {
@@ -112,7 +112,7 @@ function getValueApellido2(e) {
 		// If there isn't 16 caracteres print a message into the label
 		if (inputApellido2.value.length < 2) {
 			app2Val.innerText = reparacionApp2;
-			let validacion = ' Mínimo 5 Caracteres (*)';
+			let validacion = ' Mínimo 2 Caracteres (*)';
 			app2Val.innerText += validacion;
 			app2Val.style.color = 'RED';
 		} else {
@@ -172,9 +172,9 @@ function getValuePassword(e) {
 		inputPassword.value = withoutWS;
 
 		// If there isn't 16 caracteres print a message into the label
-		if (inputPassword.value.length < 5) {
+		if (inputPassword.value.length < 8) {
 			passVal.innerText = reparacionPassword;
-			let validacion = ' Mínimo 5 Caracteres (*)';
+			let validacion = ' Mínimo 8 Caracteres (*)';
 			passVal.innerText += validacion;
 			passVal.style.color = 'RED';
 		} else {
@@ -257,9 +257,6 @@ $('#btnUpdate').click(function (e) {
 				text: 'Usuario actualizado correctamente.',
 				confirmButtonText: 'Aceptar',
 			});
-			setTimeout(function () {
-				window.location = 'tablaUsuarios.php';
-			}, 3000);
 		},
 	});
 });

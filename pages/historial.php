@@ -40,7 +40,7 @@ oci_execute($curs);
 <body>
     <?php
     if ($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) {
-        echo "<div class='container'>
+        echo "<div class='container header-top'>
             <div class='row justify-content-center'>
                 <div class='col-md-6 text-center mt-5'>
                     <h2 class='heading-section'>Historial de Compras</h2>
@@ -92,65 +92,16 @@ oci_execute($curs);
             </div>";
         include '../components/footer.php';
     } else {
-        echo '<div id="outer" class="container mt-5 header-top">
+        echo '<div id="outer" class="container mt-5">
                 <div id="inner">
+                    <img class="img-responsive" src="../images/isotipoDark.svg" alt="logo" />
                     <h1 class="text-center mt-3">Historial de Compras</h1>
-                    <p class="text-center">Aun no has realizado compras</p>
-                    <a class="d-flex justify-content-center fs" href="inicio.php">Empecemos!</a>
+                    <p class="text-center">Aún no has realizado compras</p>
                 </div>
             </div>';
     }
     ?>
-    <!-- <div class="container header-top">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center mt-5">
-                <h2 class="heading-section">Historial de Compras</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-wrap">
-                    <table class="table" id="tblHistorial">
-                        <thead class="thead-dark">
-                            <tr class="text-center">
-                                <th>#</th>
-                                <th>Método Pago</th>
-                                <th>Número Tarjeta</th>
-                                <th>Fec. Orden</th>
-                                <th>Monto Total</th>
-                                <th>Detalles Orden</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            // while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                            //     // Fetch the table values into variables
-                            //     $idOrden = $row['ID_ORDEN'];
-                            //     $fecOrden = $row['FEC_ORDEN'];
-                            //     $montoTotal = $row['MONTO_TOTAL'];
-                            //     $numTarjeta = $row['NUM_TARJETA'];
-                            //     $metodoPago = $row['NOMBRE'];
-                            //     // Print the table rows
-                            //     echo "<tr class='alert text-center' role='alert'>
-                            //                 <td scope='row' name='identificador'>$idOrden</td>
-                            //                 <td>$metodoPago</td>
-                            //                 <td>$numTarjeta</td>
-                            //                 <td>$fecOrden</td>
-                            //                 <td>₡$montoTotal</td>
-                            //                 <td>
-                            //                     <button data-id='$idOrden' type='button' class='btn btn-sm btnDetalles' data-toggle='modal' data-target='#modalDetalles'>
-                            //                         Detalles
-                            //                     </button>
-                            //                 </td>
-                            //             </tr>";
-                            // }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    
     <!-- Modal -->
     <div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

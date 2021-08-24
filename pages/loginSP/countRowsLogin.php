@@ -21,18 +21,7 @@ oci_execute($login);
 oci_execute($curs);
 
 $row = oci_fetch_row($curs); // Returns array if user exists 
-
+ 
 if ($row  == false) {
-    echo 'Email o contraseña no validos';
+    echo 'Correo electrónico o contraseña no validos';
 }
-
-// $rownum = oci_num_rows($login); // Returns 1 if user exists
-
-// var_dump($row);
-// $_SESSION['loggedUser'] = 1;
-// $_SESSION['idUsuario'] = $row['ID_USUARIO'];
-// $_SESSION['nombreUsuario'] = $row['NOMBRE'];
-// $_SESSION['apellidoUsuario'] = $row['APELLIDO1'];
-// $_SESSION['idRol'] = $row['ID_ROL'];
-
-// header('Location: pages/inicio.php ');

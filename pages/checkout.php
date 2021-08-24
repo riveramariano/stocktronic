@@ -146,7 +146,7 @@ oci_execute($curs2);
                                 <input id="cod" type="number" class="form-control" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             </div>
                             <div class="form-group col-sm-6">
-                                <a href="tablaProductos.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
+                                <a href="carrito.php"><button id="cancelar" type="button" class="btn btn-block ">Cancelar</button></a>
                             </div>
                             <div class="form-group col-sm-6">
                                 <button id="btnBuy" name="submitBtn" type="button" class="btn btn-block">Confirmar Compra</button>

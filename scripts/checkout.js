@@ -18,7 +18,7 @@ let inputDir1 = document.getElementById('dir1');
 // Bind the "Dirección Línea 2" label and input into a variables
 const pDir2 = document.getElementById('dir2Val');
 let inputDir2 = document.getElementById('dir2');
-
+ 
 // Bind the "Telefono" label and input into a variables
 const pTel = document.getElementById('telVal');
 let inputTel = document.getElementById('tel');
