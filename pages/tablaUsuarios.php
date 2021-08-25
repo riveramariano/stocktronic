@@ -63,7 +63,7 @@ oci_execute($curs);
                                         <td>$tipoUsuario</td>
                                         <td class='text-center'>
                                             <a href='formUserUpdate.php?q=$idUsuario'><button class='btn btn-success btn-md'>Actualizar</button></a>
-                                            <button data-id=$idUsuario type='button' class='btn btn-danger btn-md btnDelete'>Eliminar</button>
+                                            <button data-id='$idUsuario' type='button' class='btn btn-danger btn-md btnDelete'>Eliminar</button>
                                         </td>
                                     </tr>";
                             }
